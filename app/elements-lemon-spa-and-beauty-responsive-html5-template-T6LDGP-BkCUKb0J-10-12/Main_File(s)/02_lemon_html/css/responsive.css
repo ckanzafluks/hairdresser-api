@@ -1,0 +1,393 @@
+@media (max-width:1200px){	
+.block .container,.container{padding:0 15px}
+.menu{padding-left:70px}
+.menu ul li a{padding:25px 13px}
+.about-img img{width:450px}
+.variety-img > img{width:400px;max-width:100%}
+.view-all{margin-top:10px}
+.variety-text{padding:0 20px}
+.package-detail{padding:50px 40px;width:300px}
+.package-detail li{padding-left:10px}
+.package-detail > h4{margin-bottom:20px}
+.package-detail > i{margin-bottom:5px}
+.lemon-package.style2 .package-detail{padding:35px 30px;width:100%}
+.therapist > img{width:170px}
+.therapist{padding:50px 30px 0}
+.therapist-detail{padding-top:0}
+.therapist-detail > h4{font-size:22px}
+.therapist-detail > span{font-size: 12px;margin-bottom:10px}
+.therapist-detail > p{font-size: 13px;line-height: 25px;margin-bottom:20px}
+.social-links{margin-top:15px}
+.social-links > a{font-size:13px}
+form.newsletter{margin:0 20%;width:60%}
+.blog-details{padding:45px 50px}
+.blog-details > p{font-size: 13px;letter-spacing: 0;margin-bottom:0}
+.appointment-bottom{padding:30px 80px 30px 40px}
+.verify{width:auto}
+.price-tabs{padding:100px 50px}
+.price-slide{padding-left:110px}
+.lemon-product-detail{padding: 80px 40px 130px 130px}
+.lemon-product-img > img{width:470px}
+.lemon-product-selectors{right:40px}
+.lemon-post-detail{padding: 60px 30px 50px}
+.about-section.style2 .about-detail{padding-left:0;padding-right:30px}
+.about-section.style2 .about-title{bottom: auto;float: left;left: 0;margin: 0 0 10px;position: relative;width: 100%;
+    -webkit-transform: rotate(0deg) translate(0px);
+    -moz-transform: rotate(0deg) translate(0px);
+    -ms-transform: rotate(0deg) translate(0px);
+    -o-transform: rotate(0deg) translate(0px);
+    transform: rotate(0deg) translate(0px);
+}
+.about-detail > p{float: left;width:100%}
+.about-counter > span i{font-size: 21px;height: 50px;line-height: 50px;width:50px}
+.abt-ctr-text strong{font-size:20px}
+.abt-ctr-text > i{font-size:14px;margin-top:3px}
+.about-counters{margin:10px 0 -30px}
+.about-detail .lemon-btn{margin-top:20px}
+.about-section.style2 .about-title span {font-size:16px}
+.about-section.style2 .about-title h3{font-size:30px}
+.review-text{padding:0 10px}
+.review-text blockquote{font-size:13px;line-height:24px}
+.review-text > strong{font-size:14px}
+.review-text:before{display:none}
+.fancy-reviews-carousel{padding:0}
+.fancy-review.active{width:61%}
+.post-intro .container{padding:40px}
+.lemon-cart table{width:1100px}
+.lemon-cart{overflow:auto}
+.contact-img > img{width:400px}
+.package-intro .container{padding:40px 20px}
+.service-intro .container{padding:40px 20px}
+.service-detail-page img{max-width:100%}
+.soon-title h1{font-size:50px}
+.countdown li{width:82px}
+.time-box span{font-size: 25px;margin-bottom: 10px;padding-bottom: 10px}
+.countdown li:last-child{margin: 0}
+.owl-nav > div{margin-left:0}
+.owl-nav > div.owl-next {margin-right:0}
+}
+
+
+@media (max-width:980px){
+.block .container,.container{padding:0 15px}
+.responsive-header{display:block}
+.sideheader-wrapper,
+.menu-bar{display:none}
+
+.about-img{display:unset;float:left;margin-bottom:30px;text-align:center;width:100%}
+.about-detail{display: unset;float: left;width:100%}
+.lemon-counters{text-align:center}
+.lemon-counters li{display:inline-block;float:none;margin:0 -2px 30px;width:33.334%!important}
+.variety-selector{left:50%;top:0;width: auto;
+    -webkit-transform:translateX(-50%);
+    -moz-transform:translateX(-50%);
+    -ms-transform:translateX(-50%);
+    -o-transform:translateX(-50%);
+    transform:translateX(-50%);
+}
+.variety-carousel-wrap{padding:50px 0 0}
+.vareity-carousel{padding:90px 20px 0}
+.vareity-carousel:before{width:100%}
+.variety-text{display:unset;float:left;width:100%}
+.variety-img{display: unset;float: left;margin-top: 30px;text-align: center;width:100%}
+.all-packages > div{float:left;width:100%}
+.lemon-package > img{width:100%}
+.package-detail{float:left;position:relative;width:100%}
+.lemon-package.style2 > img{margin:0}
+.package-price{bottom:100%;left:auto;right:0;top:auto}
+.all-button{border-radius: 0;bottom: 0;float: left;left: auto;position: relative;right: auto;text-align: center;top: auto;width: 100%;
+    -webkit-transform: translate(0) rotate(0deg);
+    -moz-transform: translate(0) rotate(0deg);
+    -ms-transform: translate(0) rotate(0deg);
+    -o-transform: translate(0) rotate(0deg);
+    transform: translate(0) rotate(0deg);
+}
+form.newsletter{margin:0;width:100%}
+form.newsletter{margin:0;width:100%}
+.blog-details{bottom: 0;float:left;position:relative;right:0;width:100%}
+.lemon-blog-slide > img{margin:0}
+.lemon-blog-carousel .owl-nav{left:-25px;right:auto}
+.col-md-12.column{float:left;width:100%}
+.footer-widgets .row > div{float:left;width:50%}
+.appointment-bottom .lemon-btn{width: auto;padding: 10px 30px}
+.price-tabs{width:70%}
+.lemon-team{text-align:center}
+.lemon-team .row > div{display:inline-block;margin:0 -1px;width:50%}
+.lemon-gallery.merged-grids .gallery-slide li{width:33.334%!important}
+.lemon-spa-services .mockup{margin: 40px 0 20px}
+.lemon-product-img{float: left;margin: 0;text-align: center;width:100%}
+.lemon-product-detail{float: left;margin: 0;padding: 30px 30px 100px;width:100%}
+.lemon-product-selectors{right: 50%;
+    white-space: nowrap;
+    -webkit-transform: translateX(50%);
+    -moz-transform: translateX(50%);
+    -ms-transform: translateX(50%);
+    -o-transform: translateX(50%);
+    transform: translateX(50%);
+}
+.blog-posts{margin: 0;padding: 30px;text-align: center;
+    -webkit-box-sizing:border-box;
+    -moz-box-sizing:border-box;
+    -ms-box-sizing:border-box;
+    -o-box-sizing:border-box;
+    box-sizing:border-box;
+}
+.blog-posts .row > div{display: inline-block;margin: 0 -1px;width: 50%}
+.newsletter-title{display:unset;float:left;padding:40px 30px;text-align:center;width:100%}
+.newsletter-form{display: unset;float: left;width:100%}
+.newsletter-title > h4{display: table;margin:10px auto 0}
+.about-section.style2 .about-detail{padding:40px 0}
+.about-section.style2{padding:0 15px}
+.about-section.style2 .about-img{width:100%}
+.price-tabs.style2{margin: 0 0 0 10%;padding: 100px 30px;width:90%}
+.price-tabs.style2:before{padding:0}
+.lemon-shop{text-align:center}
+.lemon-shop .row > div{display: inline-block;margin: 0 -1px;width:50%}
+.about-img img{max-width:100%}
+.welcome-video{padding:0}
+.blog-listview .lemon-blog-slide .blog-details{opacity:1;padding:30px}
+.post-intro .container:before{display:none}
+.post-intro .container{padding:40px 0px}
+.author-detail{display: unset;float: left;margin-top: 30px;padding: 0;width: 100%}
+.about-author{padding:30px}
+.post-intro{padding:0}
+.post-intro .blog-date{left:0}
+.post-intro .blog-date{left:0}
+.comment-detail{display:unset; float:left;padding:30px 0 0;width:100%}
+.comment-img{display:unset;float:left}
+.comment{padding:20px}
+.comment-detail h5 span {float:left;margin:10px 0 0;width:100%}
+.comments-section > ul ul{padding:0}
+.sidebar{float:left;margin-top:60px;width:100%}
+.checkout-form{padding:0}
+.checkout-form{margin-bottom:50px}
+.order-bottom{padding:20px}
+.contact-img > img{max-width:100%}
+.contact-img{display: unset;float: left;width: 100%}
+.contact-form{display: unset;float: left; margin-top: 40px;padding: 0;width: 100%}
+.contact-form-title{bottom: 0;float: left;left: 0;margin-bottom: 20px;min-width: 0;position: relative;text-align: left;top: 0;width: 100%;
+    -webkit-transform: rotate(0deg) translate(0px);
+    -moz-transform: rotate(0deg) translate(0px);
+    -ms-transform: rotate(0deg) translate(0px);
+    -o-transform: rotate(0deg) translate(0px);
+    transform: rotate(0deg) translate(0px);
+}
+.contact-img > img{width:100%}
+.gallery-slide li{width:50%;vertical-align:top}
+.spa-gallery-selectors a{margin:0 2px}
+.spa-gallery-selectors a img{width: 90px;}
+.spa-gallery-selectors{float: left;left: 0;position: relative;width: 100%;
+    -webkit-transform: translate(0);
+    -moz-transform: translate(0);
+    -ms-transform: translate(0);
+    -o-transform: translate(0);
+    transform: translate(0);
+}
+.spa-gallery-selectors a {border-radius:0;float:left;margin:0;width:25%}
+.spa-gallery-selectors a:before{border-radius:0;padding:0}
+.spa-gallery-selectors a img{width:100%}
+.spa-slide-text{background: #333;float: left;padding: 40px;position: relative;width: 100%}
+.price-wrapper{margin-left: -375px;width: 750px}
+.package-intro .container{padding: 40px 20px;}
+.price-wrapper {margin-left: -375px;width: 750px}
+.package-info {display: unset;float: left;width: 100%}
+.package-book {display: unset;float: left;margin-top: 30px;width: 100%}
+.package-info > h1 span {float: left;margin: 10px 0 0;width: 100%}
+.product-gallery{width:100%}
+.product-details{margin-top: 30px;padding: 0;width:100%}
+.product-images img{width:100%}
+.cart-btn{margin-top:30px;text-align:left;width:100%}
+.service-intro .container{padding:40px 20px}
+.service-detail-img > span{bottom: 30px;font-size: 40px;height: 80px;line-height: 80px;width:80px}
+.member-detail{padding:40px}
+.member-big-image{display: unset;float: left;width:100%}
+.member-detail{display: unset;float: left;width:100%}
+.topbar ul{padding: 10px 0;text-align: center}
+.topbar ul li{display: inline-block;float: none;margin: 0;padding:0 20px}
+.topbar ul li:last-child{margin-right: 0;padding-right: 0}
+.header-book{padding: 11px 30px 10px;text-align: center}
+.header-book:hover{color:#fff}
+.lemon-pagetop{padding:80px 0}
+.lemon-pagetop h1{font-size:28px;}
+.lemon-pagetop p{font-size:14px}
+.newsletter{margin: 20px 0 60px}
+.countdown li, .countdown li:last-child{float:left;margin:0 1%;width:23%}
+
+}
+
+
+
+
+@media (max-width:767px){
+.about-detail{padding:0}
+.about-title{float: left;left: 0;margin-bottom: 20px;padding: 0;position: relative;top: 0;width: 100%;
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+}
+.about-title h3{font-size:30px}
+.about-title span{font-size:16px}
+.lemon-counters li{margin-top:20px;width:100%!important}
+.lemon-counters li:before, 
+.lemon-counters li:after{display:none}
+.lemon-counters{margin-bottom:-30px}
+.title h2{font-size:30px}
+.title br{float:left;}
+.variety-selector{width:100%;position:relative;float:left;width:100%}
+.variety-selector a{border: 2px solid #fff !important;border-radius: 0;float: left;height: auto !important;margin: 0;width: 33.334% !important}
+.variety-selector a:before{border-radius:0}
+.variety-selector a img{float: left;width:100%}
+.variety-selector a.active i{font-size:30px}
+.variety-text{padding:0}
+.therapist{padding:30px 0;text-align:center}
+.therapist > img{display:inline-block;margin-bottom:30px}
+.therapist-detail{display:unset;float:left;padding:0 15px;width:100%}
+.therapist-detail > a{display:inline-block;float:none}
+.social-links a{display:inline-block;float:none}
+form.newsletter button{border-radius: 0;float: left;height: 60px;position: relative;right: 0;width:100%}
+form.newsletter{border-radius:0;height:auto}
+form.newsletter input{height:70px}
+.review-slide > img{display:unset;float:left;max-width:100%}
+.review{display:unset;float:left;width:100%}
+.lemon-blog-carousel .owl-nav{position: relative;float: left;width: 100%;left: auto;bottom: 0; background: #F3F3F3;}
+.lemon-reviews-carousel .owl-nav {bottom:auto;left:auto;right:0;top:0}
+.flickr a{width:33.334%}
+.appointment-title{display:unset;float:left;width:100%}
+.title-inner{float: left;position: relative;left: 0;top: 0;width: 100%;padding:40px 30px;
+    -webkit-transform: rotate(0deg) translate(0);
+    -moz-transform: rotate(0deg) translate(0);
+    -ms-transform: rotate(0deg) translate(0);
+    -o-transform: rotate(0deg) translate(0);
+    transform: rotate(0deg) translate(0);
+}
+.appointment-form{display: unset;float: left;width:100%}
+.appointment-box.overlap{margin-top:-170px}
+.appointment-fields{padding:70px 30px}
+.appointment-bottom .social-links{display: unset;float: left;margin: 0;text-align: center;width:100%}
+.verify{display: unset;float:left;margin-top:10px;text-align:center;width:100%}
+.appointment-bottom .lemon-btn{display: unset;float: left;margin-top: 10px;padding: 18px 20px;width: 100%}
+.appointment-bottom .social-links a{display:inline-block;float:none}
+.tabs-selectors{bottom: 0;float: left;left: 0;margin-bottom: 40px;padding: 30px;position: relative;width: 100% !important;text-align:center;
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+}
+.tabs-selectors a{float:none;width:auto}
+.price-tabs{padding:0;width:100%}
+.price-slide{padding:0 15px}
+.price-slide-title,.owl-item.active .price-slide-title {
+    float: left;
+    left: auto;
+    position: relative;
+    top: 0;
+    width: 100%;
+    margin-bottom: 50px;
+    -webkit-transform: translate(0px) rotate(0deg);
+    -moz-transform: translate(0px) rotate(0deg);
+    -ms-transform: translate(0px) rotate(0deg);
+    -o-transform: translate(0px) rotate(0deg);
+    transform: translate(0px) rotate(0deg);
+}
+.price-slide-title h4{font-size:35px}
+.lemon-gallery.merged-grids .gallery-slide li{width:50%!important}
+.welcome-strip > h3{margin:0 0 30px;text-align:center}
+.welcome-strip > h3 i{display: table;margin:0 auto 10px}
+.title-inner > h3{font-size:25px;}
+.gallery-selectors a{float: none;display:inline-block}
+.gallery-selectors{padding: 20px;text-align:center}
+.lemon-product-img .lemon-btn{white-space:nowrap;}
+.lemon-product-img > img{max-width:100%}
+.lemon-product-selectors{position: relative;right: 0;top: 0;white-space: normal;width: 100%;
+    -webkit-transform: translateX(0);
+    -moz-transform: translateX(0);
+    -ms-transform: translateX(0);
+    -o-transform: translateX(0);
+    transform: translateX(0);
+}
+.lemon-product-selectors a{float:left;margin:0;width:50%}
+.lemon-product-selectors a img{width:100%}
+.logos-carousel .owl-nav{left: 50%;top: -30px;width:0}
+.newsletter-title{display: unset;float: left;padding: 40px 30px;text-align: center;width:100%}
+.newsletter-form{display: unset;float: left;padding: 30px;width:100%}
+.newsletter-title > h4{display: table;margin: 10px auto 0}
+.logos-carousel .owl-nav{left: 50%;top: -30px;width:0}
+.newsletter-form > form{border-radius: 0;height:auto}
+.newsletter-form input{float: left;height:50px}
+.newsletter-form > form button{border-radius: 0;float: left;height: 50px;position: relative;right: 0;width:100%}
+.newsletter-form > form input{ height:60px}
+.price-tabs.style2{margin:0;width:100%}
+.lemon-fancy-post{padding:30px}
+.lemon-fancy-post > .fancy-date {display:unset;float:left}
+.lemon-post-name{display: unset;float: left;margin-bottom: 30px;margin-top: 30px;padding: 0;width: 100%}
+.fancy-btn{display: unset;float:left;width:100%}
+.contact-button{bottom: 0;float: left;left: 0;padding: 30px;position: relative;text-align: center;width: 100%;
+    -webkit-transform: translate(0);
+    -moz-transform: translate(0);
+    -ms-transform: translate(0);
+    -o-transform: translate(0);
+    transform: translate(0);
+}
+.fancy-review, .fancy-review.active{width:100%}
+.fancy-review-slide{padding: 0}
+.about-section.style2 .about-title h3:before{display:none}
+.fancy-btn .lemon-btn i{line-height:47px}
+.fancy-btn .lemon-btn{padding: 15px 30px}
+.appointment-banner{padding:60px 30px}
+.appointment-banner .lemon-btn{padding:15px 30px }
+.fancy-review:before, 
+.fancy-review.active:before{opacity: 1;padding: 0;width:100%}
+.fancy-review img{display: unset;float:left}
+.review-text{ display: unset;float: left;padding-top: 10px;width: 100%}
+.fancy-review.active .review-text, .review-text{opacity: 1;position: relative;padding:30px 0 0}
+.review-text > strong i{margin: 10px 0;float: left;width:100%}
+.logos-carousel a{padding:0}
+.error-page:before{padding: 30px}
+.error-page{padding:60px}
+.error-page h2{font-size:80px;line-height:50px}
+.error-page h2 span{font-size:50px}
+.error-page > i{font-size:30px;margin-bottom:10px}
+.error-page strong{font-size:15px;margin:10px 0}
+.gallery-slide li{width:100%}
+.price-wrapper {margin-left: 0;width: 100%}
+.price-wrapper{float: left;left: 0;margin: 0;position: relative;width:100%}
+.price-wrapper .package-price{bottom:auto;float:left; left:0;position:relative;right:auto;width:100%;z-index:10}
+.product-thumbs{padding:10px}
+.product-thumbs button{display:none!important}
+.topbar ul{width:100%}
+.header-book{width:100%}
+.topbar .container{padding:0}
+.topbar ul li{padding:0 5px}
+.responsive-header > ul{width:85%;left:-85%}
+.soon-title span{font-size:20px;line-height:20px}
+.soon-title h1{font-size:40px;line-height:30px;margin:10px 0}
+.soon-title strong{font-size:15px;line-height:20px;margin-bottom:10px}
+.soon-title p{font-size:14px;line-height:20px}
+.soon-title{margin-bottom:20px}
+.newsletter h4{font-size:18px}
+.newsletter form{height:50px;margin-top:10px}
+.newsletter{margin:10px 0 40px}
+.layer5 i{display:none!important}
+.block{padding:80px 0}
+.owl-nav > div{margin-left:-50px}
+.owl-nav > div.owl-next {margin-right:-50px}
+}
+
+
+
+@media (max-width:480px){
+.blog-date{float:left;left:0;position:relative;width:100%}
+.blog-date:before{border-radius:0;opacity:1}
+.lemon-blog-carousel .owl-nav > div{margin:0}
+.lemon-blog-carousel .owl-nav > div{margin:0!important}
+.footer-widgets .row > div{width:100%}
+.blog-posts .row > div{width:100%}
+.price-slide-title i{font-size:16px}
+.price-slide-title h4{font-size:25px}
+.lemon-team .row > div{width:100%}
+.lemon-gallery.merged-grids .gallery-slide li{width:100%!important}
+.lemon-shop .row > div{width:100%}
+}
