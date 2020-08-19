@@ -10,8 +10,9 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Response;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 
-class UsersController extends AbstractController
+class UsersController extends AbstractController implements RequiredMethods
 {
+
     /**
      * @var UserRepository
      */
@@ -47,7 +48,7 @@ class UsersController extends AbstractController
      * @Route("/api/users/{id}", name="api_users_id")
      * @Method({"GET"})
      */
-    public function getById(Request $request)
+    public function get(Request $request)
     {
         $id = $request->get('id');
         $data = $this->_userRepository->find($id);
@@ -70,6 +71,15 @@ class UsersController extends AbstractController
         $em->flush();
 
         return new Response('', Response::HTTP_CREATED);
+    }
+
+    /**
+     * @param Request $request
+     * @todo: a faire
+     */
+    public function update(Request $request)
+    {
+
     }
 
 
