@@ -1,17 +1,17 @@
-# Requis pour le fonctionnnement du projet 
-Symfony V.4.4
-PHP 7.3.21 contraint par OVH
-MySQL 5.7
+# Requis pour le fonctionnement du projet 
+- Symfony V.4.4
+- PHP 7.3.21 (contraint par OVH)
+- MySQL 5.7
 
 
 
 # Installation du projet
-php bin/console doctrine:database:create
-php bin/console doctrine:schema:create
-php bin/console doctrine:fixtures:load
+- php bin/console doctrine:database:create
+- php bin/console doctrine:schema:create
+- php bin/console doctrine:fixtures:load
 
 
-# Répertoire des controlleur des api
+# Répertoire des controlleurs des api
 src/Controller/Api/UsersController.php pour les api de l'entité User
 
 - Listing : /api/users/ (GET)
