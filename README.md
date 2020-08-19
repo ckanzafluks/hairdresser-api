@@ -6,16 +6,10 @@
 
 
 # Installation du projet
-<<<<<<< HEAD
 composer update (Installer les sources)
 php bin/console doctrine:database:create
 php bin/console doctrine:schema:create
 php bin/console doctrine:fixtures:load
-=======
-- php bin/console doctrine:database:create
-- php bin/console doctrine:schema:create
-- php bin/console doctrine:fixtures:load
->>>>>>> a5a4daeb448e2069fe7609cb0b688a112f5f1f18
 
 
 # Répertoire des controlleurs des api
