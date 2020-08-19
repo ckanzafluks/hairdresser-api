@@ -1,0 +1,99 @@
+
+<div class="col-md-12">
+    {{ pagination.getTotalItemCount }} résultat(s) trouvé(s)
+</div>
+
+{% for ads in pagination %}
+
+    {% set url = path('profil.detail',{'id' : ads.user.id , 'name' : ads.user.name } )  %}
+
+
+    <div class="col-md-4 blog_item1 pb-4 ">
+        <!--begin popup image -->
+        <div class="popup-wrapper d-flex justify-content-center b-radius-top">
+            <div class="popup-galleryx" style="height:200px;">
+                <div class="align-self-center p-5 bd-highlight">
+                    <a class="popup2" href="{{ url }}">
+                        <img class="rounded-circle img-responsive" alt="300x200" src="{{ displayImage(ads.user) }}">
+                    </a>
+                </div>
+            </div>
+        </div>
+        <!--begin popup image -->
+
+        <!--begin blog_item_inner -->
+        <div class="blog_item_inner justify-content-center b-radius-bottom" style="background-color: {% if ads.profile.type =='offre' %}#2b669a{% else %}#FA8B78{% endif %}">
+            <div style="background-color: whitesmoke; padding: 30px; border-radius: 2%; margin: 10px">
+            <div class="row" >
+                <h3 class="blog_title"><a href="{{ url }}" class="editContent">{{ ads.profile.type|capitalize  }}:{{ ads.name }}</a></h3><br>
+            </div>
+            <div class="row">
+                {% if ads.profile.type != "demande" %}
+                <h3 class="blog_title"><a href="{{ url }}" class="editContent">Tarif: {{ ads.price }}€/h</a></h3><br>
+                {% endif %}
+            </div>
+            <div class="row">
+                <h4 class="blog_title"><a href="{{ url }}" class="editContent">{{ ads.user.username }}</a></h4><br>
+            </div>
+
+            <div class="row m-1">
+                <a href="{{ url }}" class="">
+                    <span class="fa fa-user"></span> {{ displayStars(ads.user)}}
+                </a>
+            </div>
+            <div class="row m-1">
+                <a href="{{ url }}" class="blog_icons editContent" data-toggle="tooltip" data-placement="top" title="0 articles publiés"><span class="fa fa-newspaper"></span></a>
+                <a href="{{ url }}" class="blog_icons editContent" data-toggle="tooltip" data-placement="top" title="0 commentaires"><span class="fa fa-comments"></span></a>
+                <a href="{{ url }}" class="blog_icons editContent" data-toggle="tooltip" data-placement="top" title="0 vues"><span class="fa fa-eye"></span></a>
+            </div>
+            <div class="row editContent m-1 mb-3">
+                {{ displayDescriptionPageListing(ads.user.getDescriptionProfil(), 220) }}
+            </div>
+            <div class="row">
+                <h5 class="blog_title"><a href="{{ url }}" class="editContent">Categorie: {{ ads.category.name }}</a></h5><br>
+            </div>
+                <h7 class="blog_title"><a href="#" class="editContent">date:{{ ads.created|date("m/d/Y") }}</a></h7><br>
+            <a href="{{ url }}" class="btn button_blog"><i class="fa fa-eye"></i> VOIR LE PROFIL</a>
+
+        </div>
+        </div>
+        <!--end blog_item_inner -->
+    </div>
+
+    {# total items count #}
+
+
+
+
+    {#
+    <div class="row  mb-1 p-1 user-row">
+
+        {# {% set url='/profil-user/' ~ user.id ~ '-'~ user.username %} #}
+        {#
+        <div class="col-sm text-center">
+            <a href="{{ url }}">
+                <img class="rounded img-responsive" height="100px" data-src="{{ displayImage(user) }}" alt="300x200" src="{{ displayImage(user) }}">
+            </a>
+        </div>
+        <div class="col-sm-8">
+            <h5 class="text-uppercase"><a href="{{ url }}">{{ user.name }}</a></h5>
+            <h6 class="small text-wide">
+                <i class="fa fa-map-marker-alt fa-1x"></i> Développeur Web, Amiens</h6>
+            <p class="mb-0 text-truncate">
+                {{ user.getDescriptionProfil()|displayDescription }}
+            </p>
+        </div>
+        <div class="col-sm text-right pl-0">
+            <h6 class="small text-wide ">AVIS</h6>
+            <div class="float-right text-nowrap">
+                <span class="text-primary">
+                    {{ displayStars(5)}}
+                </span>
+            </div>
+            <p>
+                <a href="{{ url }}" class="btn btn-outline-secondary mt-2 btn-submit">Voir le profil</a>
+            </p>
+        </div>
+    </div>
+    #}
+{% endfor %}

@@ -1,0 +1,31 @@
+<!--
+<div class="row">
+    <div class="col-sm-12">
+        <h1 class="">Informations du profil</h1>
+    </div>
+</div>
+-->
+<div class="tab-content" id="nav-tabContent">
+    <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+        <!--left col-->
+        <ul class="list-group">
+            <li class="list-group-item text-left bg-primary text-white"><span class="pull-left"><strong>INFORMATION DU PROFIL</strong></span></li>
+            <li class="list-group-item text-left"><span class="pull-left"><strong>Nom :</strong></span> {{ user.name|display }}</li>
+            <li class="list-group-item text-left"><span class="pull-left"><strong>Prénom :</strong></span> {{ user.getFirstname()|display }} &nbsp;</li>
+            <li class="list-group-item text-left"><span class="pull-left"><strong>Date Naissance :</strong></span> {{ user.birthday|localizeddate('none', 'none', null, null, 'd MMMM Y') }}</li>
+            <li class="list-group-item text-left"><span class="pull-left"><strong>Description du profil :</strong></span> {{ user.descriptionProfil|display }} &nbsp;</li>
+        </ul>
+    </div>
+
+    <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+        <!--left col-->
+        <ul class="list-group pt-5">
+            <li class="list-group-item text-left bg-primary text-white"><span class="pull-left"><strong>INFORMATION DE CONTACT</strong></span></li>
+            <li class="list-group-item text-left"><span class="pull-left"><strong>Email :</strong></span> {{ user.email|display }}</li>
+            <li class="list-group-item text-left"><span class="pull-left"><strong>Téléphone :</strong></span> {{ user.phone1|display }} &nbsp;</li>
+            <li class="list-group-item text-left"><span class="pull-left"><strong>Code Postal :</strong></span> {{ user.postalcode|display }} &nbsp;</li>
+            <li class="list-group-item text-left"><span class="pull-left"><strong>Ville :</strong></span> {{ user.city|display }} &nbsp;</li>
+            <li class="list-group-item text-left"><span class="pull-left"><strong>Pays :</strong></span> {{ user.country|display }}
+        </ul>
+    </div>
+</div>

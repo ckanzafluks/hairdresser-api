@@ -1,0 +1,43 @@
+<div id="profile-container">
+    <div class="jumbotron jumbotron-fluid  bgcolor-container">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-3 text-capitalize position-relative">
+                    <img height="150px" class="placeholder img-responsive rounded-circle" src="{{ asset(displayImage(app.user)) }}" style="">
+
+                    <div class="position-absolute" style="bottom: 0;left:70px;">
+                        {% include 'account/sections/modal-upload.html.twig' with {
+                            'user': app.user,
+                            'formPhoto':formPhoto,
+                        } %}
+                    </div>
+                </div>
+                <div class="col-sm-9 text-capitalize ">
+                    <h3>{{ app.user.name }}</h3>
+                    <p>{{ displayStars(app.user) }}</p>
+                    <p>{{ displayLocalisation(app.user) }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="col-xs-12 col-sm-12">
+    {% for message in app.flashes('success') %}
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            {{ message }}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    {% endfor %}
+    {% for message in app.flashes('error') %}
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            {{ message }}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    {% endfor %}
+</div>

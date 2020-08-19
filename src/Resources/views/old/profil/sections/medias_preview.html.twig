@@ -1,0 +1,31 @@
+<div class="row">
+    {% if app.request.get('media-id')  %}
+        <div class="align-content-center ml-auto mr-auto">
+            {% if app.request.get('type') == 'article' %}
+                {% set article = mediaPreview %}
+                <div class="m-1 p-1 mb-4">
+                    <div class="">
+                        <div class="text-center"><strong>{{ article.getName() }}</strong></div>
+                        <p>{{ article.getDescription() }}</p>
+                    </div>
+                </div>
+            {% elseif app.request.get('type') == 'video' %}
+                {% set video = mediaPreview %}
+                <div class="m-2">
+                    <iframe width="{{ medias.videos.width }}" height="{{ medias.videos.height }}" src="{{ video.getUri() }}" frameborder="0"></iframe>
+                </div>
+            {% elseif app.request.get('type') == 'audio' %}
+                {% set music = mediaPreview %}
+                <audio controls class="p-1">
+                    <source src="{{ asset( music.getPathFile() ) }}" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            {% elseif app.request.get('type') == 'photo' %}
+                {% set photo = mediaPreview %}
+                <a href="{{ asset( photo.getPathfile() ) }}" data-toggle="lightbox" data-title="{{ asset( photo.getName() ) }}" data-type="image">
+                    <img class="d-flex" height="500px" src="{{ asset( photo.getPathfile() ) }}" title="Cliquez pour agrandir" >
+                </a>
+            {% endif %}
+        </div>
+    {% endif %}
+</div>

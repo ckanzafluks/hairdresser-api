@@ -1,0 +1,78 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Profil Detail{% endblock %}
+
+
+{% block body %}
+
+
+
+
+<div id="profile-container">
+    <div class="jumbotron jumbotron-fluid bgcolor-container">
+        <div class="container">
+            <div class="row">
+                
+                <div class="col-sm-3 text-capitalize">
+                     <img class="rounded-circle img-responsive" width="150px" alt="300x200" src="" style="border: 7px solid white;"> 
+                </div>
+                <div class="col-sm-9 text-capitalize ">
+                    <h3>{{ profilUser.name }}</h3>
+                    <p>{{ displayStars(profilUser) }}</p>
+                    <p>{{ displayLocalisation(profilUser) }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal -->
+    
+      <div class="modal fade" id="modalefoem" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Nouvelle compétence</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              {{ form_start(form) }}
+                  <div class="my-custom-class-for-errors">
+                      {{ form_errors(form) }}
+                  </div>
+
+                  <div class="row">
+                      <div class="col-sm-12">
+                          {{ form_row(form.name) }}
+                      </div>
+                      <div class="col-sm-12">
+                          {{ form_row(form.description) }}
+                      </div>
+           
+                  </div>
+              {{ form_end(form) }}
+              </div>
+            </div>
+            <div class="modal-footer">
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    
+    <!-- finmodale -->
+    <div class="container">
+        {% include 'common/flash-messages.html.twig' %}
+        <!--/col-9-->
+    </div>
+</div>
+        
+{% endblock %}
+
+{% block stylesheets %}
+        {{ parent() }}
+        <link href="{{ absolute_url('/homepage-child/css/profile.css') }}" rel="stylesheet">
+{% endblock %}
+{% block customJavascripts %}
+    <script src="{{ asset('js/formModale.js') }}"></script>
+{% endblock %}

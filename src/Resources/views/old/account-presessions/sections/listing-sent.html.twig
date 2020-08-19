@@ -1,0 +1,30 @@
+<table class="table table-hover mt-4">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Intitulé</th>
+            <th scope="col"></th>
+        </tr>
+    </thead>
+    <tbody>
+        {% if preSessionsList|length <= 0 %}
+            <tr>
+               <td colspan="100" class="text-center">Aucune donnée trouvée</td>
+            </tr>
+        {% else %}
+        {% for preSession in preSessionsList %}
+            <tr style="word-break: break-all;">
+                <th scope="row">{{ preSession.getCreated().format("d-m-Y H:i") }}</th>
+                <td>
+                    <i class="fal fa-arrow-circle-right fa-2x"></i>
+                    {{ displayPressionType(preSession) }} à <strong>{{ preSession.getReceiver().getName() }}</strong> pour réaliser l'objectif <strong>{{ preSession.getCompetence().getName() }}</strong></td>
+                <td>
+                    <a title="Voir le détail" style="word-break: keep-all;" href="{{ path('pre-sessions.listing.detail', { 'id': preSession.getId(), 'type': app.request.get("type") }) }}">
+                        <button class="btn bg-blue" type="button">Voir</button>
+                    </a>
+                </td>
+            </tr>
+        {% endfor %}
+    {% endif %}
+    </tbody>
+</table>

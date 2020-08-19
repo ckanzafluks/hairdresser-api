@@ -1,0 +1,12 @@
+<p>
+    <img style="max-height: 70px;" src="{{ absolute_url('/logo.png') }}" alt="Logo Paque">
+</p>
+{# templates/emails/registration.html.twig #}
+<h3>Bonjour</h3>
+
+Vous avez recu une demande de <strong>session</strong> de la part de <strong>{{ sender.getName() }}</strong> sur : <strong>{{ ads.getName() }}</strong><br/>
+<p>
+    Merci de bien vouloir en prendre connaissance de cette demande dans votre espace de gestion <a href="{{ host }}{{ path('pre-sessions')}}">ici</a>.
+
+<p>
+L'équipe Pâque!

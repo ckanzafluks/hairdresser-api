@@ -1,0 +1,53 @@
+<table class="table table-hover mt-4">
+    <thead>
+    <tr>
+        <th scope="col">#</th>
+        <th scope="col">Date d'envoi</th>
+        <th scope="col">Votre compétence</th>
+        <th scope="col"></th>
+        <th scope="col">Service ciblé</th>
+        <th scope="col">Utilisateur</th>
+        <th scope="col">Statut</th>
+        <th scope="col">Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% if preSessionsList|length <= 0 %}
+        <tr>
+            <td colspan="100" class="text-center">Aucune donnée trouvée</td>
+        </tr>
+    {% else %}
+        {% for preSession in preSessionsList %}
+            <tr style="word-break: break-all;">
+                <th scope="row">{{ loop.index }}</th>
+                <td>{{ preSession.getCreated().format("d-m-Y H:i") }}</td>
+                <td>{{ preSession.getCompetence().getName() }}</td>
+                <td><i class="fas fa-handshake fa-2x"></i></td>
+                <td>{{ preSession.getObjectif().getName() }}</td>
+                <td>{{ preSession.getAuthor().getName() }}</td>
+                <td>{{ preSession.getStatus().getName() }}</td>
+                <td>
+                    <div class="dropdown">
+                        <button class="btn bg-blue dropdown-toggle" type="button" id="dropdownMenuButton"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Actions possibles
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item"
+                               href="{{ path('pre-sessions.listing.detail', { 'id': preSession.getId(), 'type': app.request.get("type") }) }}">
+                                <i class="fas fa-eye"></i> Voir le détail
+                            </a>
+                            <a class="dropdown-item" href="#">
+                                <i class="fas fa-file-archive"></i>  Créer une session
+                            </a>
+                            <a class="dropdown-item" href="#">
+                                <i class="fas fa-file-archive"></i>  Archiver la proposition
+                            </a>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        {% endfor %}
+    {% endif %}
+    </tbody>
+</table>

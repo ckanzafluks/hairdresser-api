@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Profil Detail{% endblock %}
+
+
+{% block body %}
+    {% include 'account/sections/top-header.html.twig' %}
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 ">
+                <div class="list-group">
+                    {% include 'account/sections/left-menu.html.twig' with {'currentMenu': currentMenu, 'formPhoto': formPhoto, 'section':'toto' } %}
+                </div>
+            </div>
+
+            <div class="col-md-9 bg-white">
+                {% include 'account/sections/bloc-competences.html.twig' %}
+            </div>
+        </div>
+    </div>
+{% endblock %}
+

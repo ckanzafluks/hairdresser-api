@@ -1,0 +1,26 @@
+<div class="container">
+    <div class="pt-3">
+        <h2>Mes paiements reçus</h2>
+    </div>
+    {% if listSessionsReceived is empty %}
+        Aucune donnée pour le moment
+    {% endif %}
+
+    {% for session in listSessionsReceived %}
+        {% include 'account/sections/bloc-transactions-row.html.twig' with { 'session' : session } %}
+    {% endfor %}
+
+
+    <div class="pt-3">
+        <h2>Mes paiements effectués</h2>
+    </div>
+    {% if listSessionsDone is empty %}
+    Aucune donnée pour le moment
+    {% endif %}
+
+    {% for session in listSessionsDone %}
+        {% include 'account/sections/bloc-transactions-row.html.twig' with { 'session' : session } %}
+    {% endfor %}
+
+
+</div>

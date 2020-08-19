@@ -1,0 +1,30 @@
+{% extends 'dashbord_admin/index.html.twig' %}
+
+{% block body %}
+<div class="content-wrap">
+
+    <div class="wdgt-box tabl-wrp">
+        <h4>Gestions utilisateurs</h4>
+        {% for message in app.flashes('alerte') %}
+            <div class="alert alert-success">
+                {{ message }}
+            </div>
+        {% endfor %}
+        <table class="table">
+            <thead class="thead-dark">
+            <tr><th scope="col">#id</th><th scope="col">Nom</th><th scope="col">Last</th><th scope="col">Email</th><th scope="col">Date Inscription</th><th scope="col">Activé</th></tr>
+            </thead>
+            <tbody>
+
+            {% for users in users %}
+            <tr><th scope="row">{{users.id}}</th><td><a href="{{ path('editUsers',{'id': users.id}) }}">{{users.lastname}}</a></td><td><a href="{{ path('editUsers',{'id': users.id}) }}">{{users.firstname}}</a></td><td><a href="{{ path('editUsers',{'id': users.id}) }}">{{users.email}}</a></td><td><a href="{{ path('editUsers',{'id': users.id}) }}">{{users.created}}</a></td><td><a href="{{ path('editUsers',{'id': users.id}) }}">{{users.enabled}}</a></td></tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+</div>
+{% endblock %}
+
+
+

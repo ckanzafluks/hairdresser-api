@@ -1,0 +1,50 @@
+<div class="modal fade" id="cancelTooLateModal" tabindex="-1" role="dialog" aria-labelledby="acceptModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title text-center">Annulation de la session du {{ session.getProposedDate()|localizeddate('none', 'none', null, null, 'dd MMMM Y à HH:mm') }}</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="alert alert-warning" role="alert">
+                    Toute annulation tardive doit être soumise pour validation à la partie adverse!
+                </div>
+
+                <form action="{{ path('submit.session') }}" name="formAccept" method="post">
+                    <div class="form-group">
+                        <label for="comments" class="mb-0">Motif de l'annulation :</label>
+                        <textarea class="form-control" name="comments" rows="3" required="required"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-info pt-4">Valider l'annulation de la session</button>
+                    <ul>
+                        <li>
+                            <div class="alert alert-warning" role="alert">
+                                Les pénalités, comment çà marche?
+                            </div>
+                        </li>
+                        <li class="bold">Que se passe-t-il si j'annule la session?</li>
+                        <ul class="pb-4">
+                            <li>
+                                <span class="bold">- Si les 2 parties sont d'accord sur l'annulation tardive :</span> Le Mentoré est remboursé de la totalité de la
+                                somme précédement prélevée, déduis des frais de la Plateforme, soit environ 2%. Le Mentor n'encaissera rien et aucune pénalité ne lui sera appliquée.
+                            </li>
+                            <li>
+                                <span class="bold">- Si les 2 parties ne sont pas d'accord sur l'annulation tardive :</span> Le Mentoré est remboursé de la totalité de la
+                                somme précédement prélevée, déduis des frais de la Plateforme, soit environ 2%. Le Mentor n'encaissera rien et une pénalité de {{ penalite_mentor }} lui sera appliquée.
+                            </li>
+                        </ul>
+                    </ul>
+                    <input name="idSession" type="hidden" value="{{ session.getId() }}">
+                    <input name="idPreSession" type="hidden" value="{{ preSession.getId() }}">
+                    <input name="action" type="hidden" type="hidden" value="cancelTooLate">
+                </form>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+            </div>
+        </div>
+    </div>
+</div>

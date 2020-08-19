@@ -1,0 +1,46 @@
+{% for videoArrays in mediasList %}
+    {% for video in videoArrays %}
+        {%  if loop.index == 1 or prevAds != video.getMedias().getAds().getName() %}
+            <div class="pt-5 m-4 font-weight-bold">{{ video.getMedias().getAds().getName() }}</div>
+        {% endif %}
+
+        <div class="d-inline-flex m-2">
+            <div class="justify-content-center">
+                <span><a href="{{ video.getUri() }}" data-toggle="lightbox" data-title="{{ video.getName() }}">{{ video.getName() }}</a></span>
+                <div class="">
+                    <div class="">
+                        {{ displayBtnEdit({
+                            'idModal':'modal-btn-add-video',
+                            'titleModal': 'Ajout d\'une vidéo',
+                            'titleLink':'Ajouter une vidéo',
+                            'icon': 'fa-plus-square',
+                            'onclick': 'loadMediaVideo(\''~path('ajax.form.video')~'\',\'#content-ajax-modal-btn-add-video\','~profilUser.getId()~');' }
+                        )}}
+
+                        {{ displayBtnEdit({
+                            'idModal':'modal-btn-edit-videos-'~video.getId(),
+                            'titleModal': 'Modification de votre vidéo',
+                            'titleLink':'Editer la vidéo?',
+                            'onclick': 'loadMediaVideo(\''~path('ajax.form.video')~'\',\'#content-ajax-modal-btn-edit-videos-'~video.getId()~'\', \''~profilUser.getId()~'\', \''~video.getId()~'\');' }
+                        )}}
+
+                        {{ displayBtnDelete(
+                            {
+                                'idModal'      : 'modal-btn-delete-videos-'~video.getId(),
+                                'linkDelete'   :  path('profil.media.delete',{ 'idMedia':video.getId(), 'typeMedia':'video', 'token' : csrf_token('delete-item') }),
+                                'titleModal'   : 'Attention, suppression imminente',
+                                'contentModal' : 'Confirmer la suppression de la vidéo?'
+                            }
+                        )}}
+                    </div>
+                    <iframe width="{{ medias_video_width }}" height="{{ medias_video_height }}" src="{{ video.getUri() }}" frameborder="0"></iframe>
+                    <p>
+                        {{ displayAdsName(video) }}
+                    <p>
+                </div>
+            </div>
+
+        </div>
+        {% set prevAds = video.getMedias().getAds().getName()  %}
+    {% endfor %}
+{% endfor %}

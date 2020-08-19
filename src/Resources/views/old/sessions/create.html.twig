@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nouvelle session{% endblock %}
+
+{% block body %}
+
+    {% set url = path('myaccount') %}
+
+    <div class="col-xs-12 col-sm-12">
+        {% include 'common/flash-messages.html.twig' %}
+    </div>
+
+    <div class="container-fluid bg-white">
+        <div class="col-xs-12 col-sm-12 pt-5">
+            <div>
+                {{ wo_render_breadcrumbs() }}
+            </div>
+        </div>
+        <h1>Nouvelle session</h1>
+        {{ form_start(form) }}
+            {{ form_widget(form) }}
+            <button type="submit" class="btn btn-primary bg-blue">{{ button_label|default('SAUVEGARDER') }}</button>
+        {{ form_end(form) }}
+    </div>
+{% endblock %}

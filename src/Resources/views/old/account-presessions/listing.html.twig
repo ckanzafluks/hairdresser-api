@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Gestion des sessions{% endblock %}
+
+{% block body %}
+    {% include '/common/flash-messages.html.twig' %}
+
+    <div class="container-fluid bg-white">
+        <div class="container pb-4">
+            <div class="col-xs-12 col-sm-12 pt-5">
+
+                <div class="mb-4">{{ wo_render_breadcrumbs() }}</div>
+
+                <ul class="nav nav-tabs">
+                    <li class="nav-item">
+                        <a class="nav-link {% if filtre =='all' %}active{% endif %}" href="{{ path('pre-sessions.listing', {'category': type,'filtre':'all'}) }}">Tous</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {% if filtre =='validated' %}active{% endif %}" href="{{ path('pre-sessions.listing', {'category':type,'filtre':'validated'}) }}">Validée</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {% if filtre =='waiting' %}active{% endif %}" href="{{ path('pre-sessions.listing', {'category':type,'filtre':'waiting'}) }}">En attente de validations</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {% if filtre =='cancel' %}active{% endif %}" href="{{ path('pre-sessions.listing', {'category': type,'filtre':'cancel'}) }}">Annulées</a>
+                    </li>
+                </ul>
+                <div class="row">
+                    {% include '/account-presessions/sections/listing-'~type~'.html.twig' with {'preSessionsList': preSessionsList} %}
+                </div>
+            </div>
+        </div>
+{% endblock %}
+

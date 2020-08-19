@@ -1,0 +1,54 @@
+<div class="tab-content" id="notifications">
+    <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+        <!--left col-->
+        {{ form_start(formNotifs) }}
+            <ul class="list-group pt-5">
+                <li class="list-group-item text-left text-white police-oldenburg bg-primary">
+                    <span class=""><strong>GESTION DES NOTIFICATIONS</strong></span>
+                </li>
+                <li class="list-group-item text-left">
+                    {{ form_row(formNotifs.new_contract, { 'attr': {'class': 'form-control-custom m-0'}, 'label' : 'Si nouvelle proposition de contrat'  }) }}
+                </li>
+                <li class="list-group-item text-left">
+                    {{ form_row(formNotifs.new_session, { 'attr': {'class': 'form-control-custom m-0'}, 'label' : 'Lorsqu\'une session est créée'  }) }}
+                </li>
+                <li class="list-group-item text-left">
+                    {{ form_row(formNotifs.session_finished, { 'attr': {'class': 'form-control-custom m-0'}, 'label' : 'Lorsqu\'une session est terminée'  }) }}
+                </li>
+                <li class="list-group-item text-left">
+                    {{ form_row(formNotifs.session_canceled, { 'attr': {'class': 'form-control-custom m-0'}, 'label' : 'Lorsqu\'une session est annulée'  }) }}
+                </li>
+                <li class="list-group-item text-left">
+                    {{ form_row(formNotifs.telephone, { 'attr': {'class': 'form-control-custom m-0'}, 'label' : 'Activer les notifications sur son téléphone'  }) }}
+                </li>
+                <li class="list-group-item text-left">
+                    {{ form_row(formNotifs.mail, { 'attr': {'class': 'form-control-custom m-0'}, 'label' : 'Activer les notifications par mail'  }) }}
+                </li>
+                <li class="list-group-item text-left">
+                    {{ form_row(formNotifs.profil_interest, { 'attr': {'class': 'form-control-custom m-0'}, 'label' : 'Utilisateur s\'intéresse à mon profil'  }) }}
+                </li>
+                <li class="list-group-item text-left">
+                    {{ form_row(formNotifs.compatibility, { 'attr': {'class': 'form-control-custom m-0'}, 'label' : 'Un nouvel utilisateur est compatible est compatible avec ma requête'  }) }}
+                </li>
+                <li class="list-group-item text-left">
+                    {{ form_row(formNotifs.contract_proposition, { 'attr': {'class': 'form-control-custom m-0'}, 'label' : 'Un utilisateur me propose un contrat'  }) }}
+                </li>
+                <li class="list-group-item text-left">
+                    {{ form_row(formNotifs.contract_update, { 'attr': {'class': 'form-control-custom m-0'}, 'label' : 'Un contrat est mis à jour'  }) }}
+                </li>
+                <li class="list-group-item text-left">
+                    {{ form_row(formNotifs.new_message, { 'attr': {'class': 'form-control-custom m-0'}, 'label' : 'J\'ai un nouveau message'  }) }}
+                </li>
+                <li class="list-group-item text-left">
+                    {{ form_row(formNotifs.new_comment, { 'attr': {'class': 'form-control-custom m-0'}, 'label' : 'Activités liées à mes commentaires'  }) }}
+                </li>
+                <li class="list-group-item text-left">
+                    {{ form_row(formNotifs.assurance_update, { 'attr': {'class': 'form-control-custom m-0'}, 'label' : 'Activités liées à l\'assurance'  }) }}
+                </li>
+                <li class="list-group-item text-left">
+                    <button type="submit" class="btn btn-primary">Mettre à jour</button>
+                </li>
+            </ul>
+        {{ form_end(formNotifs) }}
+    </div>
+</div>

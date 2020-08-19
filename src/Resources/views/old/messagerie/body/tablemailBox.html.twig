@@ -1,0 +1,20 @@
+<table class="table table-inbox table-hover">
+
+{% for dataMail in dataMail %}
+
+        <tr onclick="redirec({{ dataMail.id }})" id ="mess_{{ dataMail.id }}" serverName ="{{ urlServername }}"  class={% if dataMail.source.id == app.user.id %} {% if dataMail.readCheckEmetteur %}"inbox-small-cells" {% else %} "unread" {% endif %}{% endif %}{% if dataMail.destinataire.id == app.user.id %} {% if dataMail.readCheckDestinataire %}"inbox-small-cells" {% else %} "unread" {% endif %}{% endif %}>
+
+                <td class="inbox-small-cells">
+                    <input type="checkbox" class="mail-checkbox">
+                </td>
+                <td class="inbox-small-cells"><i class="fa fa-star"></i></td>
+                <td class="view-message  dont-show">{% if filtre == 'reception' %}{{ dataMail.source.username }}{% else %}{{ dataMail.destinataire.username }} {% endif %}</td>
+                <td class="view-message ">{{ dataMail.objet }}</td>
+                <td class="view-message  inbox-small-cells"><!--<i class="fa fa-paperclip"></i></td> -->
+                <td class="view-message  text-right">{{ dataMail.created |date("m/d/Y h:m")  }}</td>
+
+        </tr>
+
+{% endfor %}
+
+</table>

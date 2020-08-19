@@ -1,0 +1,65 @@
+{% trans_default_domain 'FOSUserBundle' %}
+
+{{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'fos_user_registration_register'}}) }}
+
+
+    <div class="form-group row">
+        <div class="col-12">
+            {{ form_row(form.civility, { 'attr': {'class': 'form-control'} }) }}
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-12">
+            {{ form_row(form.name, { 'attr': {'class': 'form-control'} }) }}
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-12">
+            {{ form_row(form.lastname, { 'attr': {'class': 'form-control'} }) }}
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-12">
+            {{ form_row(form.email, { 'attr': {'class': 'form-control'} }) }}
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-12">
+            {{ form_row(form.username, { 'attr': {'class': 'form-control'} }) }}
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-12">
+            {{ form_row(form.plainPassword, { 'attr': {'class': 'form-control'} }) }}
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-12">
+            {{ form_row(form.agreeTerms, { 'attr': {'class': 'custom-control-inputx'} }) }}
+        </div>
+    </div>
+    <div class="form-group text-center row m-t-20">
+        <div class="col-12">
+            <button class="btn btn-primary btn-block waves-effect waves-light" type="submit">Register</button>
+        </div>
+    </div>
+    <div class="form-group m-t-10 mb-0 row">
+        <div class="col-12 m-t-20 text-center">
+            <a href="pages-login.html" class="text-muted">Vous possedez déjà un compte?</a>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+    <div>
+        <input type="submit" value="{{ 'registration.submit'|trans }}" />
+    </div>
+{{ form_end(form) }}

@@ -1,0 +1,49 @@
+<div class="row">
+
+    {% set totalMedia = listArticles|length %}
+    {% if app.request.get('load') == "all-article" %}
+        {% set listArticles = listArticles %}
+    {% else %}
+        {% set listArticles = listArticles|slice(0,medias.max_elements) %}
+    {% endif %}
+
+
+    {% for article in listArticles %}
+        <div class="m-2">
+            <div class="text-center">
+                <a href="">{{ article.getName() }}</a>
+                {{ displayBtnEdit({
+                    'idModal':'modal-btn-edit-articles-'~article.getId(),
+                    'titleModal': 'Modification de votre article',
+                    'titleLink':'Editer l\'article?',
+                    'onclick': 'loadMediaVideo(\''~path('ajax.form.article')~'\',\'#content-ajax-modal-btn-edit-articles-'~article.getId()~'\', \''~profilUser.getId()~'\', \''~article.getId()~'\');' }
+                )}}
+
+                {{ displayBtnDelete(
+                    {
+                        'idModal'      : 'modal-btn-delete-audio-'~article.getId(),
+                        'linkDelete'   :  path('profil.media.delete',{ 'idMedia':article.getId(), 'typeMedia':'article', 'token' : csrf_token('delete-item') }),
+                        'titleModal'   : 'Attention, suppression imminente',
+                        'contentModal' : 'Confirmer la suppression de l\'article?'
+                    }
+                ) }}
+            </div>
+            <div class="media-hover">
+                <a href="?media-id={{ article.getId() }}&type=article">
+                    <img src="{{ medias.default_article }}" width="{{ medias_article_width }}" class="rounded">
+                </a>
+            </div>
+            <p class="text-center">
+                {{ displayAdsName(article) }}
+            <p>
+        </div>
+    {% endfor %}
+
+    {%  if listArticles|length >= medias.max_elements %}
+        <div class="d-flex m-2">
+            <div class="d-flex media-hover align-items-center" style="">
+                <a href="?load=all-article#bloc-article" title="Charger tous les articles"> <i class="fas fa-ellipsis-h fa-2x"></i></a>
+            </div>
+        </div>
+    {% endif %}
+</div>

@@ -1,0 +1,27 @@
+<a href="{{ path('myaccount') }}" class="list-group-item list-group-item-action {% if currentMenu == "dispos" %}active{% endif %}">
+    <i class="fas fa-calendar-check"></i> Configuration de mes disponibilités
+</a>
+<a href="{{ path('myaccount.notifications') }}" class="list-group-item list-group-item-action {% if currentMenu == "notifications" %}active{% endif %}">
+    <i class="fas fa-bell"></i> Gestion des notifications
+</a>
+<a href="{{ path('myaccount.profile') }}" class="list-group-item list-group-item-action {% if currentMenu == "profile" %}active{% endif %}">
+    <i class="fas fa-user-circle"></i> Configuration du profil
+</a>
+<a href="{{ path('myaccount.competences') }}" class="list-group-item list-group-item-action {% if currentMenu == "competences" %}active{% endif %}">
+    <i class="fas fa-id-card"></i> Configuration des expériences
+</a>
+<a href="{{ path('myaccount.check.experiences') }}" class="list-group-item list-group-item-action {% if currentMenu == "check-experiences" %}active{% endif %}">
+    <i class="fas fa-clipboard-check"></i> Vérifications des expériences
+</a>
+<a href="{{ path('myaccount.check.documents') }}" class="list-group-item list-group-item-action {% if currentMenu == "check-documents" %}active{% endif %}">
+    <i class="fas fa-user-check"></i> Vérifications de documents d'identité
+</a>
+<a href="{{ path('myaccount.ratings') }}" class="list-group-item list-group-item-action {% if currentMenu == "ratings" %}active{% endif %}">
+    <i class="fas fa-star-half-alt"></i> Mes avis
+</a>
+<a href="{{ path('myaccount.transactions') }}" class="list-group-item list-group-item-action {% if currentMenu == "transactions" %}active{% endif %}">
+    <i class="fas fa-running"></i> Mes transactions
+</a>
+<a href="{{ path('myaccount.bank-account') }}" class="list-group-item list-group-item-action {% if currentMenu == "bank-account" %}active{% endif %}">
+    <i class="fas fa-money-check-edit-alt"></i> Mes informations bancaires
+</a>

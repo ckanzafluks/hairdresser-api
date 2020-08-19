@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Creation du contrat{% endblock %}
+
+{% block body %}
+    <div class="col-xs-12 col-sm-12 pt-2 text-center">
+        {% include 'common/flash-messages.html.twig' %}
+    </div>
+
+    <div class="container bg-white">
+        <div class="col-xs-12 col-sm-12 pt-5">
+            <div>
+                {{ wo_render_breadcrumbs() }}
+            </div>
+        </div>
+
+        <div class="row">
+            <table class="table table-hover mt-5">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Interlocuteur</th>
+                        <th scope="col">Sujet</th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for channel in listChannel %}
+                    <tr style="word-break: break-all;">
+                        <th scope="row"></th>
+                        <td>Echange avec {{ channel.getReceiver().getName() }}</td>
+                        <td>{{ channel.getAds().getName() }}</td>
+                        <td>
+                            <a href="{{ path('contract.message',{'token':channel.getToken()} ) }}">
+                                <button type="button" class="btn btn-primary">Détail</button>
+                            </a>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+{% endblock %}

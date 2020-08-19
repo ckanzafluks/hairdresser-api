@@ -1,0 +1,30 @@
+<i class="fas fa-camera-retro fa-2x" style="background-color: #0b0b0b;cursor: pointer;" data-toggle="modal" data-target="#exampleModal" style="cursor: pointer;" title="Modifier votre photo"></i>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title text-dark" id="exampleModalLabel">CHARGEZ UNE IMAGE</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                {{ form_start(formPhoto) }}
+                    <div class="input-group">
+                        {{ form_row(formPhoto.photo, { 'attr': {'class': 'form-control m-0'} }) }}
+                    </div>
+                    <div class="input-group">
+                        <div class="row pt-2 m-0">
+                            <button type="submit" class="btn btn-primary">VALIDER</button>
+                        </div>
+                    </div>
+                {{ form_end(formPhoto) }}
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">FERMER</button>
+            </div>
+        </div>
+    </div>
+</div>

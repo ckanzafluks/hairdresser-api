@@ -1,0 +1,165 @@
+{% extends 'dashbord_admin/index.html.twig' %}
+
+{% block body %}
+    <div class="content-wrap">
+        <div class="success">
+
+        </div>
+        <div class="page-title">
+            <h1>Edition utilisateur</h1>
+            <p>Détail utilisateur</p>
+        </div>
+        <div class="content-inner remove-ext5">
+            <div class="wdgt-box profile-wrp">
+                <div class="row mrg">
+                    <div class="col-md-3 col-sm-12 col-lg-3">
+                        <div class="profile-info-wrp edit-prf">
+                            <div class="insta-wrp thm-bg text-center">
+                                <i class="fa fa-pencil edit-btn"></i>
+                                <span><img id="rslt-img" iduser="{{ users.id }}" src="{% if app.user.photo == null %}/homepage-child/images/mystery-man.jpg{% else %}{{ app.user.photo }}{% endif %}" alt="insta-dp.jpg"><span class="usr-sts onln"></span><label class="fileContainer"><input id="upld-file" type="file"></label></span>
+                                <div class="grn-inf-lst"><input type="text" id="pseudo" placeholder="pseudo" value="{{users.username}}"></div>
+                                <div class="grn-inf-lst"><input type="text" id="lastname" placeholder="Nom" value="{{users.lastname}}"></div>
+                                <div class="grn-inf-lst"><input type="text" id="firstname" placeholder="Prénom" value="{{ users.firstname }}"></div>
+                                <input type="checkbox" checked data-toggle="toggle">
+                                <div class="opt-btn-lst">
+                                    <div class="opt-btn">
+                                        <span style="margin-top: 5px"><i class="fa fa-close"></i>Bloqué:</span>
+
+
+                                        <span>
+                                                <button id="locked" locked="{{ users.isEnabled }}" style="margin-left: 10px" {% if users.isEnabled %} class="btn btn-success btn-sm">Off{% else %}class="btn btn-danger btn-sm">On{% endif %}</button>
+
+                                        </span>
+                                    </div>
+
+                                    <a href="#" id="save"  title="">Save Change</a>
+                                    <div>
+                                  <!--  <a href="{{ path('suppUsers',{'id': users.id}) }}" title="" class="brd-rd5 btn btn-danger">Suppression</a> -->
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="usr-abut-wrp">
+                                <div class="usr-cnt-inf">
+                                    <h5 class="prf-edit-tl">Contact Information<i class="fa fa-pencil edit-btn"></i></h5>
+                                    <div class="grn-inf-lst"><input type="text" id="address" placeholder="adresse" value="{{users.address}}"></div>
+                                    <div class="grn-inf-lst"><input type="text" id="city" placeholder="Ville" value="{{users.city}}"></div>
+                                    <div class="grn-inf-lst"><input type="text" id="phone" placeholder="téléphone 01" value="{{users.phone1}}"></div>
+                                    <div class="grn-inf-lst"><input type="text" id="phone2" placeholder="téléphone 02" value="{{users.phone1}}"></div>
+                                    <div class="grn-inf-lst"><input type="email" id="mail" placeholder="Email" value="{{ users.email}}"></div>
+                                    <div class="grn-inf-lst"><i class="fa fa-facebook-square"></i><input id="facebook" type="text" placeholder="Facebook"></div>
+                                    <div class="grn-inf-lst"><i class="fa fa-twitter"></i><input id="twitter" type="text" placeholder="Twitter"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-9 col-sm-12 col-lg-9">
+                        <div class="usr-actvty-wrp">
+                            <h4>Activity<span class="badge">05 Messages</span></h4>
+                            <div class="slct-box">
+                                <i>Added:</i>
+                                <select>
+                                    <option>Any Date</option>
+                                    <option>15-9-2019</option>
+                                    <option>12-8-2019</option>
+                                    <option>08-7-2019</option>
+                                    <option>10-6-2019</option>
+                                </select>
+                            </div>
+                            <!--<div class="cht-frm">
+                                <form>
+                                    <textarea placeholder="Your Message"></textarea>
+                                    <div class="cht-frm-btns">
+                                        <ul class="cht-frm-btns-lst">
+                                            <li>
+                                                <label class="fileContainer">
+                                                    <i class="fa fa-picture-o"></i>
+                                                    <input type="file">
+                                                </label>
+                                            </li>
+                                            <li>
+                                                <label class="fileContainer">
+                                                    <i class="fa fa-microphone"></i>
+                                                    <input type="file">
+                                                </label>
+                                            </li>
+                                            <li>
+                                                <label class="fileContainer">
+                                                    <i class="fa fa-cloud-upload"></i>
+                                                    <input type="file">
+                                                </label>
+                                            </li>
+                                            <li>
+                                                <label class="fileContainer">
+                                                    <i class="fa fa-paper-plane"></i>
+                                                    <input type="file">
+                                                </label>
+                                            </li>
+                                        </ul>
+                                        <button type="submit">Post</button>
+                                    </div>
+                                </form>
+                            </div> -->
+                            <div class="act-pst-lst">
+                                <div class="act-pst">
+                                    <!-- <img src="../assets/images/resources/acti-thmb1.jpg" alt="acti-thmb1.jpg"> -->
+                                    <div class="act-pst-inf">
+                                        <div class="act-pst-inr"><h5><a href="#" title="">Sadi Orlaf</a></h5> posted in <a href="#" title="">Material</a></div>
+                                        <span class="spnd-tm">5 Min Ago</span>
+                                        <div class="act-pst-dta">
+                                            <p>That's awesome!</p>
+                                        </div>
+                                        <span class="pst-tm"><a href="#" title=""><i class="fa fa-trash-o"></i>Remove</a></span>
+                                        <div class="act-pst-lk-stm">
+                                            <a href="#" title=""><i class="ion-heart"></i></a>
+                                            <a href="#" title=""><i class="ion-thumbsup"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="act-pst">
+                                    <!--    <img src="../assets/images/resources/acti-thmb2.jpg" alt="acti-thmb2.jpg"> -->
+                                       <div class="act-pst-inf">
+                                           <div class="act-pst-inr"><h5><a href="#" title="">Overtunk</a></h5> posted in <a href="#" title="">New Blog</a></div>
+                                           <span class="spnd-tm">37 Min Ago</span>
+                                           <div class="act-pst-dta">
+                                               <p>That's awesome!</p>
+                                           </div>
+                                           <span class="pst-tm"><a href="#" title=""><i class="fa fa-trash-o"></i>Remove</a></span>
+                                           <div class="act-pst-lk-stm">
+                                               <a href="#" title=""><i class="ion-heart"></i></a>
+                                               <a href="#" title=""><i class="ion-thumbsup"></i></a>
+                                           </div>
+                                       </div>
+                                   </div>
+                                   <div class="act-pst">
+                                  <!--     <img src="../assets/images/resources/acti-thmb3.jpg" alt="acti-thmb3.jpg"> -->
+                                    <div class="act-pst-inf">
+                                        <div class="act-pst-inr"><h5><a href="#" title="">Kim Smith</a></h5> add <a href="#" title="">1 photo</a></div>
+                                        <span class="spnd-tm">50 Min Ago</span>
+                                        <div class="act-pst-dta">
+                                            <p>That's awesome!</p>
+                                          <!--  <img src="../assets/images/resources/act-pst-img1.jpg" alt="act-pst-img1.jpg"> -->
+                                        </div>
+                                        <span class="pst-tm"><a href="#" title=""><i class="fa fa-trash-o"></i>Remove</a></span>
+                                        <div class="act-pst-lk-stm">
+                                            <a href="#" title=""><i class="ion-heart"></i></a>
+                                            <a href="#" title=""><i class="ion-thumbsup"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                            </div><!-- Activity Post List -->
+                            <div class="vw-mr-act">
+                                <a href="#" title="">View More Activity</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+{% endblock %}

@@ -1,0 +1,176 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Profil Detail{% endblock %}
+
+
+{% block body %}
+    <div id="profile-container">
+        <div class="jumbotron jumbotron-fluid bgcolor-container">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-3 text-capitalize">
+                        <img class="rounded-circle img-responsive" width="150px" alt="300x200" src="{{ displayImage(profilUser) }}" style="border: 7px solid white;">
+                    </div>
+                    <div class="col-sm-9 text-capitalize ">
+                        <h3>{{ profilUser.name }}</h3>
+                        <p>{{ displayStars(profilUser) }}</p>
+                        <p>{{ displayLocalisation(profilUser) }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container-fluid">
+            {% include 'common/flash-messages.html.twig' %}
+
+            <!-- right menu -->
+            <div class="row">
+                <div class="col-xs-6 col-sm-3 sidebar-offcanvas order-sm-2" id="sidebar">
+                    {#
+                    <div class="tab-pane fade show active pb-2" id="nav-homex" role="tabpanel" aria-labelledby="nav-home-tab">
+                        <!--left col-->
+                        <ul class="list-group pb-3">
+                            <li class="list-group-item text-left bg-primary text-white"><span class="pull-left"><strong>Changer de profil</strong></span></li>
+                            {% for uProfile in listProfile %}
+                                <li class="list-group-item text-left {{ profile == uProfile.getName() ? 'activeProfile' }}">
+                                    <span class="pull-left">
+                                        <a href="{{ path('profil.detail',{ 'profile':uProfile.getName(), 'id':profilUser.getId(), 'name':profilUser.getUsername() }) }}" title="Profil mentoré">
+                                            <i class="fa fa-address-card fa-1x"></i> Profil {{ uProfile.getName() }}
+                                        </a>
+                                    </span>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    #}
+
+                    {% include 'profil/menuRightProfileAds.html.twig' %}
+                </div>
+                <!-- // right menu -->
+
+                <!-- Breadcrumbs -->
+                <div class="container-fluid pb-4">
+                    {{ wo_render_breadcrumbs() }}
+                </div>
+
+                <!-- left menu -->
+                <div class="col-xs-6 col-sm-9 order-sm-1">
+                    <div class="tab-content" id="">
+                        <div class="tab-pane fade show active pb-4" role="tabpanel" aria-labelledby="nav-home-tab">
+                            <!--left col-->
+                            <ul class="list-group">
+
+                                {% if currentAds.getId() %}
+                                    <li class="list-group-item text-left text-white police-oldenburg bg-primary">
+                                        <span class=""><strong>{{ currentAds.getName() }}</strong></span>
+                                    </li>
+                                    <li class="list-group-item text-left">
+                                        {{ displayBtnEdit({
+                                            'idModal':'modal-btn-edit-ads-description-'~currentAds.getId(),
+                                            'titleModal': 'Edition',
+                                            'titleLink':'Editer la description',
+                                            'icon': 'fa-edit',
+                                            'onclick': 'loadAdsEdition(\''~path('ajax.form.ads.edition')~'\',\'#content-ajax-modal-btn-edit-ads-description-'~currentAds.getId()~'\', \''~profilUser.getId()~'\', \''~currentAds.getId()~'\');' }
+                                        )}}
+                                        {{ currentAds.getDescription()|nl2br }}
+                                    </li>
+                                {% else %}
+                                    <li class="list-group-item text-left text-white police-oldenburg bg-primary">
+                                        <span class=""><strong>PRESENTATION DU PROFIL</strong></span>
+                                    </li>
+                                    <li class="list-group-item text-left">
+                                        {{ displayBtnEdit({
+                                            'idModal':'modal-btn-edit-description',
+                                            'titleModal': 'Edition',
+                                            'titleLink':'Editer la présentation du profil',
+                                            'icon': 'fa-edit',
+                                            'onclick': 'loadEditionProfil(\''~path('ajax.form.profile.edition')~'\',\'#content-ajax-modal-btn-edit-description\','~profilUser.getId()~');' }
+                                        )}}
+                                        {{ profilUser.descriptionProfil()|display }}
+                                    </li>
+                                {% endif %}
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- start__LISTE DES OBJECTIFS PERSONNELS -->
+                    <div class="tab-content" id="">
+                        <div class="tab-pane fade show active pb-4" role="tabpanel" aria-labelledby="nav-home-tab">
+                            <!--left col-->
+                            {% for profile in listProfile %}
+                                <ul class="list-group pb-3">
+                                    <li class="list-group-item text-left bg-primary text-white">
+                                    <span class="pull-left">
+                                        <strong>
+                                            {{ profile.getName()}}
+                                            <span class="bg-white">
+                                                {{ displayBtnEdit({
+                                                    'idModal':'modal-btn-add-adds',
+                                                    'titleModal': 'Ajout d\'une expérience ou un objectif',
+                                                    'titleLink':'Ajouter expérience ou objectif?',
+                                                    'icon': 'fa-plus-square',
+                                                    'onclick': 'loadAds(\''~path('ajax.form.ads')~'\',\'#content-ajax-modal-btn-add-adds\','~profilUser.getId()~');' }
+                                                )}}
+                                            </span>
+                                        </strong>
+                                    </span>
+                                    </li>
+
+                                    {% set currentAdsList = listAds[profile.getId()] %}
+                                    {% if currentAdsList|length > 0 %}
+                                        {% for ads in currentAdsList %}
+                                            {% set urlDetailAds = path('profil.detail.ads',
+                                                {
+                                                    'userId'    : profilUser.getId(),
+                                                    'profile'   : profile.getName(),
+                                                    'name'      : profilUser.getUsername(),
+                                                    'adsId'     : ads.getId(),
+                                                    'adsName'   : ads.getName()
+                                                })
+                                            %}
+                                            <li class="list-group-item text-left {{ currentAds.getId() == ads.getId() ? 'activeProfile' }} b-radius">
+                                            <span class="pull-left">
+
+                                                <a href="{{ urlDetailAds }}" title="{{ ads.getDescription() }}" data-toggle="tooltip">
+                                                    {{ ads.getName() }}
+                                                </a>
+                                                {{ displayBtnEdit({
+                                                    'idModal':'modal-btn-edit-adds-'~ads.getId(),
+                                                    'titleModal': 'Modifier expérience ou objectif',
+                                                    'titleLink':'Modifier expérience ou objectif?',
+                                                    'icon': 'fa-edit',
+                                                    'onclick': 'loadAds(\''~path('ajax.form.ads')~'\',\'#content-ajax-modal-btn-edit-adds-'~ads.getId()~'\', \''~profilUser.getId()~'\', \''~ads.getId()~'\');' }
+                                                )}}
+                                            </span>
+                                            </li>
+                                        {% endfor %}
+
+
+                                    {% else %}
+                                        <li class="list-group-item text-left">
+                                        <span class="pull-left">
+                                            Aucune donnée pour le moment.
+                                        </span>
+                                        </li>
+                                    {% endif %}
+                                </ul>
+                            {% endfor %} <!--endfor listProfile -->
+                        </div>
+                    </div>
+                    <!-- end___LISTE DES OBJECTIFS PERSONNELS -->
+                </div>
+                <!--/tab-content-->
+            </div>
+            <!--/col-9-->
+        </div>
+    </div>
+    {% include 'messagerie/form/formNewMessage.html.twig' %}
+{% endblock %}
+
+{% block stylesheets %}
+        {{ parent() }}
+        <link href="{{ absolute_url('/homepage-child/css/profile.css') }}" rel="stylesheet">
+{% endblock %}
+{% block customJavascripts %}
+    <script src="{{ asset('homepage/js/formModale.js') }}"></script>
+{% endblock %}

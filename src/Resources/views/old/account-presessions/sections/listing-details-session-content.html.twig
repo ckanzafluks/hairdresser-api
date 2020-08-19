@@ -1,0 +1,66 @@
+<table class="table table-hover mt-4">
+    <thead>
+    <tr>
+        <th scope="col">#</th>
+        <th scope="col">Date</th>
+        <th scope="col">Concerné(e)s</th>
+        <th scope="col">Statut</th>
+        <th scope="col">Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% if sessionsList|length <= 0 %}
+        <tr>
+            <td colspan="100" class="text-center">Aucune donnée trouvée</td>
+        </tr>
+    {% else %}
+        {% for session in sessionsList %}
+            <tr style="word-break: break-all;
+            {% if session.getStatus().getValue() == 8 %}background-color: darkseagreen;{% endif %}
+
+">
+                <th scope="row">{{ loop.index }}</th>
+                <td>{{ session.getProposedDate()|localizeddate('none', 'none', null, null, 'dd MMMM Y à HH:mm') }}</td>
+                <td>
+                    <i class="fas fa-user-tie"></i> {{ session.getPresession().getMentor().getName() }} <br />
+                    <i class="fas fa-user"></i> {{ session.getPresession().getMentore().getName() }}
+                </td>
+                <td>{{ session.getStatus().getName() }}</td>
+                <td>
+                    <div class="dropdown">
+                        <a class="text-color-white" href="{{ path('session.view', {
+                            'id': preSession.getId(),
+                            'sessionId': session.getId(),
+                            'type': app.request.get("type")
+                        }) }}">
+                            <button class="btn bg-blue" type="button">Détails</button>
+                        </a>
+
+                        {% if session.getAmount() > 0 %}
+                            {{ displayBtnInvoice(session,app.user) }}
+                        {% endif %}
+
+                        {% if session.getAmountRefound() > 0 %}
+                            {{ displayBtnInvoiceRefund(session,app.user) }}
+                        {% endif %}
+
+                        {% if session.getPresession().getObjectif().getUser().getId() == app.getUser().getId() %}
+                            {% if session.getStatus().value == getStatusConstant('STATUS_ATTENTE_PAIEMENT_MENTORE') or session.getStatus().value == getStatusConstant('STATUS_VALIDE') %}
+                                <button class="btn bg-success mt-1" type="button">
+                                    <a class="text-color-white" href="{{ path('sessions.payment', {
+                                        'id': preSession.getId(),
+                                        'sessionId': session.getId(),
+                                        'type': app.request.get("type")
+                                    }) }}">
+                                        <i class="fas fa-shopping-cart"></i> Procéder au paiement
+                                    </a>
+                                </button>
+                            {% endif %}
+                        {% endif %}
+                    </div>
+                </td>
+            </tr>
+        {% endfor %}
+    {% endif %}
+    </tbody>
+</table>

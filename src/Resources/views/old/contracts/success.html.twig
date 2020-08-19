@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Creation du contrat{% endblock %}
+
+{% block body %}
+    <div class="container bg-white">
+
+        <div class="row p-3">{{ wo_render_breadcrumbs() }}</div>
+
+        <div class="p-2 mb-3">
+            {% include 'common/flash-messages.html.twig' %}
+        </div>
+
+        <div class="card p-2 mb-3">
+            <div class="card-body">
+                <h5 class="card-title"><i class="fas fa-id-card-alt"></i> {{ currentAds.getName() }}</h5>
+                <p class="card-text">{{ currentAds.getDescription() }}</p>
+                <a href="{{ path("profil.detail.ads",{
+                    'profile':currentAds.getProfile().getName(),
+                    'adsId':currentAds.getId(),
+                    'adsName':currentAds.getName(),
+                    'userId':receiver.getId(),
+                    'name':receiver.getName() }) }}" class="btn btn-primary">Accéder au profil</a>
+            </div>
+        </div>
+
+        <div class="card p-2 mb-3">
+            <div class="card-body">
+                <h5 class="card-title"><i class="fas fa-id-card-alt"></i> Mon profil ({{ app.user }})</h5>
+                <p class="card-text">{{ app.user.getDescriptionProfil() }}</p>
+                <a href="#" class="btn btn-primary">Accéder</a>
+            </div>
+        </div>
+
+        <div class="card p-2 mb-3">
+            <div class="card-body">
+                <h5 class="card-title">Profil de {{ receiver.getName() }}</h5>
+                <p class="card-text">{{ receiver.getDescriptionProfil() }}</p>
+                <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="container bg-white"></div>
+{% endblock %}

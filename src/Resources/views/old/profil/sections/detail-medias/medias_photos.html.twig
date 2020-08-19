@@ -1,0 +1,46 @@
+{% for photosArrays in mediasList %}
+    {% for photo in photosArrays %}
+        {%  if loop.index == 1 or prevAds != photo.getMedias().getAds().getName() %}
+            <div class="rpt-5 row m-4 font-weight-bold">
+                {{ photo.getMedias().getAds().getName() }}
+            </div>
+        {% endif %}
+        <div class="d-inline-flex m-2">
+            <div class="justify-content-center">
+                <span>{{ photo.getName() }}</span>
+                <div class="">
+                    {{ displayBtnEdit({
+                        'idModal':'modal-btn-add-photo',
+                        'titleModal': 'Ajout d\'une image',
+                        'titleLink':'Ajouter une image',
+                        'icon': 'fa-plus-square',
+                        'onclick': 'loadMediaPhoto(\''~path('ajax.form.photo')~'\',\'#content-ajax-modal-btn-add-photo\','~profilUser.getId()~');' }
+                    )}}
+
+                    {{ displayBtnEdit({
+                        'idModal':'modal-btn-edit-photo-'~photo.getId(),
+                        'titleModal': 'Modification de votre photo',
+                        'titleLink':'Editer la photo?',
+                        'onclick': 'loadMediaPhoto(\''~path('ajax.form.photo')~'\',\'#content-ajax-modal-btn-edit-photo-'~photo.getId()~'\', \''~profilUser.getId()~'\', \''~photo.getId()~'\');' }
+                    )}}
+
+                    {{ displayBtnDelete(
+                        {
+                            'idModal'      : 'modal-btn-delete-videos-'~photo.getId(),
+                            'linkDelete'   :  path('profil.media.delete',{ 'idMedia':photo.getId(), 'typeMedia':'photo', 'token' : csrf_token('delete-item') }),
+                            'titleModal'   : 'Attention, suppression imminente',
+                            'contentModal' : 'Confirmer la suppression de la photo?'
+                        }
+                    )}}
+                    <a href="{{ asset( photo.getPathfile() ) }}" data-toggle="lightbox" data-gallery="{{ photo.getMedias().getAds().getName() }}" data-title="{{ asset( photo.getName() ) }}" data-type="image">
+                        <img class="d-flex" height="{{ medias_image_width }}" src="{{ asset( photo.getPathfile() ) }}" title="Cliquez pour agrandir" >
+                    </a>
+                </div>
+                <p>
+                    {{ displayAdsName(photo) }}
+                <p>
+            </div>
+        </div>
+        {% set prevAds = photo.getMedias().getAds().getName()  %}
+    {% endfor %}
+{% endfor %}

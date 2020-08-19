@@ -1,0 +1,136 @@
+<div id='calendar' class="bg-white pt-5"></div>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Attention</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" id="content-body">
+                Confirmer la sélection de date <span id="content-body-date"></span>?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+                <button type="button" class="btn btn-primary"  id="btn-save-agenda">Valider</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% block customJavascripts %}
+
+    <link href='{{ absolute_url('/homepage-child/fullcalendar/packages/core/main.css') }}' rel='stylesheet' />
+    <link href='{{ absolute_url('/homepage-child/fullcalendar/packages/daygrid/main.css') }}' rel='stylesheet' />
+    <script src='{{ absolute_url('/homepage-child/fullcalendar/packages/core/main.js') }}'></script>
+    <script src='{{ absolute_url('/homepage-child/fullcalendar/packages/daygrid/main.js') }}'></script>
+
+    <script src='{{ absolute_url('/homepage-child/fullcalendar/packages/timegrid/main.js') }}'></script>
+    <link href='{{ absolute_url('/homepage-child/fullcalendar/packages/timegrid/main.css') }}' rel='stylesheet' />
+
+    <script src='{{ absolute_url('/homepage-child/fullcalendar/packages/list/main.js') }}'></script>
+    <link href='{{ absolute_url('/homepage-child/fullcalendar/packages/list/main.css') }}' rel='stylesheet' />
+    <script src='{{ absolute_url('/homepage-child/fullcalendar/packages/interaction/main.js') }}'></script>
+    <script src='{{ absolute_url('/homepage-child/js/moment.js') }}'></script>
+    <script src='{{ absolute_url('/homepage-child/js/moment-with-locales.js') }}'></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            let calendarEl = document.getElementById('calendar');
+            let calendar = new FullCalendar.Calendar(calendarEl, {
+                locale: 'fr',
+                ignoreTimezone: false,
+                header: {
+                    left: 'prev,next today',
+                    center: 'title',
+                    right: 'dayGridMonth,timeGridWeek,timeGridDay'
+                },
+                buttonText: {
+                    today: 'Aujourd\'hui',
+                    month: 'Mois',
+                    week:  'Semaine',
+                    day:   'Jour',
+                    list:  'Liste'
+                },
+                navLinks: true, // can click day/week names to navigate views
+                selectable: true,
+                editable: false,
+                plugins: [ 'interaction', 'dayGrid', 'timeGrid','list', 'interaction', 'dayGridPlugin' ],
+                views: {
+                    timeGrid: {
+                        eventLimit: 1 // adjust to 6 only for timeGridWeek/timeGridDay
+                    }
+                },
+                events: "{{ path("myaccount.load-event-calendar") }}",
+                eventClick: function(event) {
+                    //calendar.removeEvent(event);
+                },
+                eventRender: function(eventObj) {
+
+                    $(eventObj.el).find(".fc-title").append('&nbsp;<span style="cursor: pointer;" class="float-right pr-4" title="Supprimer l\'évènement?"><i class="deleteEvent fas fa-trash-alt"></span>');
+                    $(eventObj.el).find(".deleteEvent").click(function () {
+                        if ( confirm("Supprimer l'évènement?")) {
+                            $.ajax({
+                                method: 'post',
+                                url : "{{ path('myaccount.remove-event-calendar') }}",
+                                dataType : "html",
+                                data : {
+                                    idEvent : eventObj.event.id
+                                }
+                            }).done(function(htmlResult) {
+                                eventObj.event.remove();
+                            });
+                            return false;
+
+                        }
+                    });
+
+                },
+                select: function(event) {
+
+                    //let modal = $('#exampleModalCenter').modal();
+                    //modal.show();
+                    //$("#content-body-date").html("");
+                    //$("#content-body-date").html("Du <strong>"+moment(event.start).format("DD-MM-YYYY hh:mm:ss")+ "</strong> au <strong>" + moment(event.end).format("DD-MM-YYYY hh:mm:ss") + "</strong>" );
+
+
+                    //$('#btn-save-agenda').on('click', function(obj) {
+                        // Ajax save action
+                        $.ajax({
+                            method: 'post',
+                            url : "{{ path('myaccount.save-calendar') }}",
+                            dataType : "html",
+                            data : {
+                                userId : "{{ app.user.getId() }}",
+                                start: moment(event.start).format("YYYY-MM-DD HH:mm:ss"),
+                                end: moment(event.end).format("YYYY-MM-DD HH:mm:ss"),
+                                allDay: event.allDay
+                            }
+                        }).done(function(htmlResult) {
+                            //$(idDomElement).html(htmlResult);
+                            calendar.addEvent({
+                                title: 'Disponible',
+                                start: event.start,
+                                end: event.end,
+                                allDay: event.allDay
+                            });
+                            alert('Evènement créé avec succès!');
+                        });
+                        return false;
+                    //});
+                },
+                unselect: function(){
+                    $('#submitButton').unbind();
+                },
+                dateClick: function(arg) {
+                    console.log(arg);
+                }
+            });
+            //calendar.setOption('locale', 'fr');
+            calendar.render();
+        });
+    </script>
+{% endblock %}

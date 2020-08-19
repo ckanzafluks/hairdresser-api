@@ -1,0 +1,11 @@
+<ul class="nav nav-tabs mt-2">
+    <li class="nav-item">
+        <a class="nav-link {% if section is defined and section == 'sent' %}active{% endif %}"    href="{{ path('contracts.listing', {'section':'sent'}) }}">Envoyées</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link {% if section is defined and section == 'received' %}active{% endif %}" href="{{ path('contracts.listing', {'section':'received'}) }}">Recues</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link {% if section is defined and section == 'archived' %}active{% endif %}" href="{{ path('contracts.listing', {'section':'received'}) }}">Terminées</a>
+    </li>
+</ul>

@@ -1,0 +1,69 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Gestion des sessions{% endblock %}
+
+{% block body %}
+    {% include '/common/flash-messages.html.twig' %}
+
+    <div class="container-fluid bg-white">
+        <div class="container pb-4">
+            <div class="col-xs-12 col-sm-12 pt-5">
+                <div>
+                    {{ wo_render_breadcrumbs() }}
+                </div>
+
+                <div class="alert alert-primary mt-3 text-center" role="alert">
+                    <h3>Création d'une session</h3>
+                </div>
+
+                <div>
+                    {{ form_start(formSession) }}
+                    <div class="panel panel-primary">
+                        <div class="my-custom-class-for-errors">
+                            {{ form_errors(formSession) }}
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-12">
+                                {{ form_row(formSession.proposed_date, {
+                                    'attr': {
+                                        'class': 'form-control m-0 datetimepicker',
+                                        'readonly':'readonly'
+                                    }
+                                })}}
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-12">
+                                {{ form_row(formSession.location, {
+                                    'attr': {
+                                        'class': 'form-control m-0'
+                                    }
+                                })}}
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-12">
+                                {{ form_row(formSession.description, { 'attr': {'class': 'form-control m-0'} }) }}
+                            </div>
+                        </div>
+                        <div class="form-group text-center row m-t-20">
+                            <div class="col-12">
+                                <button class="btn btn-primary btn-block waves-effect waves-light" type="submit">Valider</button>
+                            </div>
+                        </div>
+                    </div>
+                    {{ form_end(formSession) }}
+                </div>
+
+
+            </div>
+        </div>
+    <style>
+        .form-inline {
+            flex-flow:row;
+        }
+        .form-control {
+            padding-left: 0px;
+        }
+    </style>
+{% endblock %}

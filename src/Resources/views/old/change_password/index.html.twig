@@ -1,0 +1,19 @@
+{% extends 'base.dashbord.register.html.twig' %}
+
+{% block titleform %}Changement du mot de passe{% endblock %}
+
+{% block formulaire %}
+    <div class="p-3 form-registrer">
+        {{ form_start(changePasswordForm) }}
+        <div class="form-group row">
+            <div class="col-12">
+                {{ form_row(changePasswordForm.email, { 'attr': {'class': 'form-control'} }) }}
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-12">
+                {{ form_row(changePasswordForm.password, { 'attr': {'class': 'form-control'} }) }}
+            </div>
+        </div>
+    </div>
+{% endblock %}

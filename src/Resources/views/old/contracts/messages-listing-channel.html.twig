@@ -1,0 +1,98 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Creation du contrat{% endblock %}
+
+{% block body %}
+    <div class="col-xs-12 col-sm-12 pt-2 text-center">
+        {% for message in app.flashes('success') %}
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                {{ message }}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        {% endfor %}
+        {% for message in app.flashes('error') %}
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                {{ message }}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        {% endfor %}
+    </div>
+
+    <div class="container bg-white">
+        <div class="col-xs-12 col-sm-12 pt-5">
+            <div>
+                {{ wo_render_breadcrumbs() }}
+            </div>
+        </div>
+
+        <div class="p-2 mb-3">
+            {% include 'common/flash-messages.html.twig' %}
+        </div>
+
+        <form name="form-contract" method="post" action="">
+
+            <div id="contract" class="row mrg20" style="display: nonex;">
+                <div class="alert alert-info w-100 text-center  p-1 m-1" role="alert">
+                    <h3>Echange sur {{ currentAds.getName() }} </h3>
+                </div>
+
+                <div class="col-12 mt-2">
+
+                    <div class="form-group current mb-5">
+                        <label for="oooo">
+                            Messagerie
+                        </label>
+                        <div class="alert alert-danger" role="alert">
+                            Attention, tous les échanges seront soumis à notre charte de bonne conduite et validés par nos modérateurs.
+                        </div>
+                        <div class="rowx">
+                            <div>
+                                {% include 'contracts/common/bloc-list-messages.html.twig' with {'messageList': messageList} %}
+                            </div>
+
+                            <div class="row">
+                                <div class="col-2 col-lg-1 incoming_msg_img float-left bloc-contract-messagerie">
+                                    <img class="rounded-circle img-responsive img-contract-messagerie" height="80px" width="80px" alt="300x200" src="{{ displayImage(app.user) }}">
+                                    <span class="author"><strong>{{ app.user.getName() }}</strong></span>
+                                </div>
+                                <div class="col-5" id="bloc-textarea">
+                                    <textarea class="form-control m-0 p-0" name="message" id="message" rows="3" required></textarea>
+                                </div>
+                                <div class="col-1 m-0 p-0">
+                                    <button id="send-message" type="submit" rel="{{ app.user.getId() }}*{{ app.request.get("idUser") }}*{{ app.request.get("idAds") }}*{{ token }}*{{ path("contract.send.message") }}" class="btn btn-primary btn-circle" title="Envoyer votre message"><i class="fas fa-paper-plane fa-2x"></i></button>
+                                </div>
+                                <input type="hidden" name="idUser"   value="{{ app.request.get("idUser") }}">
+                                <input type="hidden" name="idAds"    value="{{ currentAds.getId() }}">
+                                <input type="hidden" name="token"    value="{{ token }}">
+                                <input type="hidden" name="receiver" value="{{ receiver }}">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+{% endblock %}
+
+{% block stylesheets %}
+    <style>
+        .even {
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-end;
+        }
+    </style>
+
+    {{ parent() }}
+    <link href="https://fonts.googleapis.com/css?family=Lora|Noto+Serif|Nunito|Open+Sans&display=swap" rel="stylesheet">
+    <link href="{{ absolute_url('/homepage-child/css/contracts.css') }}" rel="stylesheet">
+{% endblock %}
+
+{% block customJavascripts %}
+
+{% endblock %}

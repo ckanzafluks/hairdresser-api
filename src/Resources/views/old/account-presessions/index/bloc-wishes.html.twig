@@ -1,0 +1,76 @@
+<div class="tab-content" id="notifications">
+    <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+        <!--left col-->
+
+        <ul class="list-group pt-5">
+            <li class="list-group-item text-left text-white police-oldenburg bg-primary">
+                <span class=""><strong>SOUHAITS DU PROFIL</strong></span>
+                <i class="fas fa-edit" data-toggle="modal" data-target="#wishesModal" style="cursor: pointer;" title="Modifier"></i>
+            </li>
+            <li class="list-group-item text-left">
+                {% for wish in userWishesList %}
+                    <div class="card m-2">
+                        <div class="card-body">
+                            <h5 class="card-title text-muted">{{ wish.getName() }}</h5>
+                            {#<h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>#}
+                            <p class="card-text"> {{ wish.getDescription() }} </p>
+                        </div>
+                    </div>
+                {% endfor %}
+            </li>
+        </ul>
+    </div>
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="wishesModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title text-dark" id="exampleModalLabel">MODIFIER VOTRE LISTE DE SOUHAITS</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div id="formWishes">
+                        {{ form_start(formWishes) }}
+                            <div class="panel panel-primary">
+                                <div class="my-custom-class-for-errors">
+                                    {{ form_errors(formUser) }}
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col">
+                                        {{form_row(formWishes)}}
+                                    </div>
+                                    <ul>
+                                        {% for emailField in formWishes %}
+                                            <li>
+                                                {{ form_errors(emailField) }}
+                                                <div class="form-group row">
+                                                    {{ form_widget(emailField) }}
+                                                </div>
+                                            </li>
+                                        {% endfor %}
+                                    </ul>
+                                </div>
+                                <div class="form-group text-center row m-t-20">
+                                    <div class="col-12">
+                                        <button class="btn btn-primary btn-block waves-effect waves-light" type="submit">Mettre à jour</button>
+                                    </div>
+                                </div>
+                            </div>
+                        {{ form_end(formWishes) }}
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">FERMER</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% block javascripts %}
+
+{% endblock javascripts %}

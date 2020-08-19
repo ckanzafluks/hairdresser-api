@@ -1,0 +1,18 @@
+{{ form_start(formMusic, {'attr': {'id': 'form'}}) }}
+<div class="my-custom-class-for-errors">
+    {{ form_errors(formMusic) }}
+</div>
+{{ form_end(formMusic) }}
+<script>
+    jQuery('#form').find("#medias_musics_music").on('change',function(){
+        let fullPath = $(this).val();
+        if (fullPath) {
+            var startIndex = (fullPath.indexOf('\\') >= 0 ? fullPath.lastIndexOf('\\') : fullPath.lastIndexOf('/'));
+            var filename = fullPath.substring(startIndex);
+            if (filename.indexOf('\\') === 0 || filename.indexOf('/') === 0) {
+                filename = filename.substring(1);
+            }
+            jQuery(".custom-file").find('label').html(filename);
+        }
+    });
+</script>

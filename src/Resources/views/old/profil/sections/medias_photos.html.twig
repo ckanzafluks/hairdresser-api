@@ -1,0 +1,58 @@
+<div class="row">
+    {% set totalMedia = listPhotos|length %}
+    {% if app.request.get('load') == "all-photos" %}
+        {% set listPhotos = listPhotos %}
+    {% else %}
+        {% set listPhotos = listPhotos|slice(0,medias.max_elements) %}
+    {% endif %}
+
+
+
+    {% for photo in listPhotos %}
+        <div class="m-2 p-2">
+            <div class="d-flex justify-content-center">
+                <span>{{ photo.getName() }}</span>
+                <div class="d-flex">
+                    {{ displayBtnEdit({
+                        'idModal':'modal-btn-edit-photo-'~photo.getId(),
+                        'titleModal': 'Modification de votre photo',
+                        'titleLink':'Editer l\'image?',
+                        'onclick': 'loadMediaPhoto(\''~path('ajax.form.photo')~'\',\'#content-ajax-modal-btn-edit-photo-'~photo.getId()~'\', \''~profilUser.getId()~'\', \''~photo.getId()~'\');' }
+                    )}}
+
+                    {{ displayBtnDelete(
+                        {
+                            'idModal'      : 'modal-btn-delete-photo-'~photo.getId(),
+                            'linkDelete'   :  path('profil.media.delete',{ 'idMedia':photo.getId(), 'typeMedia':'photo', 'token' : csrf_token('delete-item') }),
+                            'titleModal'   : 'Attention, suppression imminente',
+                            'contentModal' : 'Confirmer la suppression de la photo?'
+                        }
+                    )}}
+                </div>
+            </div>
+            {#
+            <a href="{{ asset( photo.getPathfile() ) }}" data-toggle="lightbox" data-gallery="gallery_photo" data-title="{{ asset( photo.getName() ) }}" data-type="image" data-always-showClose="true" data-loading-message="Chargement en cours...">
+                <img class="d-flex img-fluidx" height="{{ medias_image_width }}" src="{{ asset( photo.getPathfile() ) }}">
+            </a>
+            #}
+          
+            <div class="media-hover">
+                <a href="?media-id={{ photo.getId() }}&type=photo">
+                    <img src="{{ medias.default_photo }}" width="{{ medias.width }}" class="rounded">
+                </a>
+            </div>
+            <p class="text-center">
+                {{ displayAdsName(photo) }}
+            <p>
+        </div>
+    {% endfor %}
+
+
+    {%  if totalMedia > medias.max_elements %}
+        <div class="d-flex m-2">
+            <div class="d-flex media-hover align-items-center" style="">
+                <a href="?load=all-photos#bloc-photo" title="Charger toutes les photos"> <i class="fas fa-ellipsis-h fa-2x"></i></a>
+            </div>
+        </div>
+    {% endif %}
+</div>

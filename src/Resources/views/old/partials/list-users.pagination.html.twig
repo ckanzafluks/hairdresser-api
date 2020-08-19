@@ -1,0 +1,11 @@
+{# display navigation #}
+
+{# if pagination.getTotalItemCount > 0 #}
+<div class="row">
+    {{ knp_pagination_render(pagination, null, {}, {
+        'position': 'centered',
+        'size': 'large',
+        'rounded': true,
+    }) }}
+</div>
+

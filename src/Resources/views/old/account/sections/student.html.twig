@@ -1,0 +1,38 @@
+<!--
+<div class="row">
+    <div class="col-sm-12">
+        <h1 class="">Informations du profil</h1>
+    </div>
+</div>
+-->
+
+
+<p class="row" style="padding-top: 10px;">
+    <div class="d-flex justify-content-end col pull-right ">
+        <a href="{{ path('myaccount.edit', { 'section' : section }) }}">
+            <button type="button" class="btn btn-primary">MODIFIER LE PROFIL ETUDIANT</button>
+        </a>
+    </div>
+</p>
+
+<div class="tab-content" id="nav-tabContent">
+    <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+        <!--left col-->
+        <ul class="list-group pt-5">
+            <li class="list-group-item text-left"><span class="pull-left"><strong>Pseudo :</strong></span> {{ user.username|display }} </li>
+            <li class="list-group-item text-left"><span class="pull-left"><strong>Civilité :</strong></span> {{ user.civility|display }} &nbsp;</li>
+            <li class="list-group-item text-left"><span class="pull-left"><strong>Nom :</strong></span> {{ user.firstname|display }} &nbsp;</li>
+            <li class="list-group-item text-left"><span class="pull-left"><strong>Prénom :</strong></span> {{ user.lastname|display }} &nbsp;</li>
+            <li class="list-group-item text-left"><span class="pull-left"><strong>Adresse email :</strong></span> {{ user.email|display }} &nbsp;</li>
+            <li class="list-group-item text-left"><span class="pull-left"><strong>Date de naissance :</strong></span> {{ user.birthday|date('d/m/Y') }} &nbsp;
+            <li class="list-group-item text-left"><span class="pull-left"><strong>Adresse :</strong></span> {{ user.address|display }} &nbsp;</li>
+            <li class="list-group-item text-left"><span class="pull-left"><strong>Complément adresse :</strong></span> {{ user.complementAddress|display }} </li>
+            <li class="list-group-item text-left"><span class="pull-left"><strong>Code postal :</strong></span> {{ user.postalCode|display }} </li>
+            <li class="list-group-item text-left"><span class="pull-left"><strong>Ville :</strong></span> {{ user.city|display }} </li>
+            <li class="list-group-item text-left"><span class="pull-left"><strong>Pays :</strong></span> {{ user.country|display }} </li>
+            <li class="list-group-item text-left"><span class="pull-left"><strong>Téléphone 1 :</strong></span> {{ user.phone1|display }} </li>
+            <li class="list-group-item text-left"><span class="pull-left"><strong>Téléphone 2 :</strong></span> {{ user.phone2|display }} </li>
+            <li class="list-group-item text-left"><span class="pull-left"><strong>Description :</strong></span> {{ user.descriptionProfil|display }} </li>
+        </ul>
+    </div>
+</div>

@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edition profil {% endblock %}
+
+
+{% block body %}
+
+    {% set url = path('myaccount') %}
+    <div id="profile-container">
+
+        <div class="jumbotron jumbotron-fluid  bgcolor-container">
+            <div class="container">
+                <div class="row">
+                    <div id="bloc-photo" class="col-sm-3 text-capitalize">
+                        <img height="150px" class="placeholder img-responsive" src="{{ asset(displayImage(user)) }}" style="border-radius: 50%;">
+                        {#
+                        {% include 'account/sections/modal-upload.html.twig' with {
+                            'user': user ,
+                            'section':section,
+                            'formPhoto':formPhoto,
+                        } %}
+                        #}
+                    </div>
+                    <div class="col-sm-9 text-capitalize ">
+                        <h3>{{ user.name }}</h3>
+                        <p>{{ displayStars(user) }}</p>
+                        <p>{{ displayLocalisation(user) }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row pb-4">
+                <div class="col-xs-6 col-sm-6">
+                    <a class="nav-link" href="/myaccount/">
+                        <button type="button" class="btn btn-primary">
+                            <i class="fa fa-address-book fa-1x"></i> RETOUR VERS MON PROFIL
+                        </button>
+                    </a>
+                    {% include 'account/sections/' ~ section ~ '-edition.html.twig' with {'user': user , 'section':section} %}
+                </div>
+
+                <div class="col-xs-6 col-sm-6">
+
+                </div>
+
+                <!--/tab-content-->
+            </div>
+            <!--/col-9-->
+        </div>
+    </div>
+{% endblock %}
