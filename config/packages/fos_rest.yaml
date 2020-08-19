@@ -1,5 +1,16 @@
 # Read the documentation: https://symfony.com/doc/master/bundles/FOSRestBundle/index.html
-fos_rest: null
+fos_rest:
+    serializer:
+        serialize_null: true
+    versioning:
+        enabled: true
+        resolvers:
+            media_type: # Accept header
+                enabled: true
+                regex: '/(v|version)=(?P<version>[0-9\.]+)/'
+    view:
+        mime_types:
+            json: ['application/json', 'application/json;version=1.0', 'application/json;version=2.0']
 #    param_fetcher_listener:  true
 #    allowed_methods_listener:  true
 #    routing_loader: true

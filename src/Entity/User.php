@@ -13,12 +13,30 @@ use JMS\Serializer\Annotation as Serializer;
 use Mgilet\NotificationBundle\Annotation\Notifiable;
 use Mgilet\NotificationBundle\NotifiableInterface;
 
+use Hateoas\Configuration\Annotation as Hateoas;
+
 /**
  * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
  * @Serializer\ExclusionPolicy("ALL")
  * @UniqueEntity(fields={"email"}, message="Un compte avec cette adresse email existe déjà!")
  * @UniqueEntity(fields={"username"}, message="Un compte avec ce pseudo existe déjà!")
  * @Serializer\ExclusionPolicy("ALL")
+ *
+ * @Hateoas\Relation(
+ *      "self",
+ *      href = @Hateoas\Route(
+ *          "api_users",
+ *          absolute = true
+ *      )
+ * )
+ * @Hateoas\Relation(
+ *      "getById",
+ *      href = @Hateoas\Route(
+ *          "api_users_id",
+ *          parameters = { "id" = "expr(object.getId())" },
+ *          absolute = true
+ *      )
+ * )
  */
 class User extends BaseUser
 {
@@ -200,10 +218,10 @@ class User extends BaseUser
     private $userFileIdentities;
 
     /**
-     * Encrypted password. Must be persisted.
+     *
      *
      * @var string
-     * @Serializer\Exclude()
+     * @Serializer\Exclude
      */
     protected $roles;
 

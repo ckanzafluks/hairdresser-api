@@ -5,259 +5,12 @@
       <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/app/.htaccess" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/app/AppCache.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/app/AppKernel.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/app/Resources/views/base.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/app/Resources/views/default/index.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/app/config/config.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/app/config/config_dev.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/app/config/config_prod.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/app/config/config_test.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/app/config/parameters.yml.dist" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/app/config/routing.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/app/config/routing_dev.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/app/config/security.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/app/config/services.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/bin/console" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/bin/symfony_requirements" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/composer.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/composer.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/phpunit.xml.dist" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/src/.htaccess" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/src/AppBundle/AppBundle.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/src/AppBundle/Controller/DefaultController.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/tests/AppBundle/Controller/DefaultControllerTest.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/var/SymfonyRequirements.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/var/sessions/.gitkeep" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/web/.htaccess" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/web/app.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/web/app_dev.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/web/apple-touch-icon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/web/config.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/web/favicon.ico" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/web/robots.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/404.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/about.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/blog-detail.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/blog.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/blog2.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/booking.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/cart.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/checkout.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/comingsoon.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/contact.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/css/bootstrap.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/css/color.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/css/fonts/FontAwesome.otf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/css/fonts/fontawesome-webfont.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/css/fonts/fontawesome-webfont.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/css/fonts/fontawesome-webfont.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/css/fonts/fontawesome-webfont.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/css/fonts/fontawesome-webfont.woff2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/css/fonts/icomoon.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/css/fonts/icomoon.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/css/fonts/icomoon.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/css/fonts/icomoon.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/css/icons.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/css/responsive.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/css/revolution/fonts/revicons/index.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/css/revolution/fonts/revicons/revicons.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/css/revolution/fonts/revicons/revicons.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/css/revolution/fonts/revicons/revicons.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/css/revolution/fonts/revicons/revicons.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/css/revolution/layers.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/css/revolution/navigation.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/css/revolution/pe-icon-7-stroke/css/helper.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/css/revolution/pe-icon-7-stroke/css/index.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/css/revolution/pe-icon-7-stroke/css/pe-icon-7-stroke.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/css/revolution/pe-icon-7-stroke/fonts/Pe-icon-7-stroke.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/css/revolution/pe-icon-7-stroke/fonts/Pe-icon-7-stroke.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/css/revolution/pe-icon-7-stroke/fonts/Pe-icon-7-stroke.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/css/revolution/pe-icon-7-stroke/fonts/Pe-icon-7-stroke.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/css/revolution/pe-icon-7-stroke/fonts/index.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/css/revolution/pe-icon-7-stroke/index.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/css/revolution/settings.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/css/slick.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/css/style.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/elements-lemon-spa-and-beauty-responsive-html5-template-T6LDGP-BkCUKb0J-10-12/Main_File(s)/01_documentation/images/bg.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/elements-lemon-spa-and-beauty-responsive-html5-template-T6LDGP-BkCUKb0J-10-12/Main_File(s)/01_documentation/images/bg.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/elements-lemon-spa-and-beauty-responsive-html5-template-T6LDGP-BkCUKb0J-10-12/Main_File(s)/01_documentation/images/logo.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/elements-lemon-spa-and-beauty-responsive-html5-template-T6LDGP-BkCUKb0J-10-12/Main_File(s)/01_documentation/images/screenshot8.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/elements-lemon-spa-and-beauty-responsive-html5-template-T6LDGP-BkCUKb0J-10-12/Main_File(s)/01_documentation/images/screenshot9.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/elements-lemon-spa-and-beauty-responsive-html5-template-T6LDGP-BkCUKb0J-10-12/Main_File(s)/01_documentation/images/stillidea-logo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/elements-lemon-spa-and-beauty-responsive-html5-template-T6LDGP-BkCUKb0J-10-12/Main_File(s)/01_documentation/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/elements-lemon-spa-and-beauty-responsive-html5-template-T6LDGP-BkCUKb0J-10-12/Main_File(s)/01_documentation/style.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/elements-lemon-spa-and-beauty-responsive-html5-template-T6LDGP-BkCUKb0J-10-12/Main_File(s)/02_lemon_html/404.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/elements-lemon-spa-and-beauty-responsive-html5-template-T6LDGP-BkCUKb0J-10-12/Main_File(s)/02_lemon_html/about.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/elements-lemon-spa-and-beauty-responsive-html5-template-T6LDGP-BkCUKb0J-10-12/Main_File(s)/02_lemon_html/blog-detail.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/elements-lemon-spa-and-beauty-responsive-html5-template-T6LDGP-BkCUKb0J-10-12/Main_File(s)/02_lemon_html/blog.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/elements-lemon-spa-and-beauty-responsive-html5-template-T6LDGP-BkCUKb0J-10-12/Main_File(s)/02_lemon_html/blog2.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/elements-lemon-spa-and-beauty-responsive-html5-template-T6LDGP-BkCUKb0J-10-12/Main_File(s)/02_lemon_html/booking.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/elements-lemon-spa-and-beauty-responsive-html5-template-T6LDGP-BkCUKb0J-10-12/Main_File(s)/02_lemon_html/cart.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/elements-lemon-spa-and-beauty-responsive-html5-template-T6LDGP-BkCUKb0J-10-12/Main_File(s)/02_lemon_html/checkout.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/elements-lemon-spa-and-beauty-responsive-html5-template-T6LDGP-BkCUKb0J-10-12/Main_File(s)/02_lemon_html/comingsoon.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/elements-lemon-spa-and-beauty-responsive-html5-template-T6LDGP-BkCUKb0J-10-12/Main_File(s)/02_lemon_html/contact.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/elements-lemon-spa-and-beauty-responsive-html5-template-T6LDGP-BkCUKb0J-10-12/Main_File(s)/02_lemon_html/css/bootstrap.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/elements-lemon-spa-and-beauty-responsive-html5-template-T6LDGP-BkCUKb0J-10-12/Main_File(s)/02_lemon_html/css/color.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/elements-lemon-spa-and-beauty-responsive-html5-template-T6LDGP-BkCUKb0J-10-12/Main_File(s)/02_lemon_html/css/fonts/FontAwesome.otf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/elements-lemon-spa-and-beauty-responsive-html5-template-T6LDGP-BkCUKb0J-10-12/Main_File(s)/02_lemon_html/css/fonts/fontawesome-webfont.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/elements-lemon-spa-and-beauty-responsive-html5-template-T6LDGP-BkCUKb0J-10-12/Main_File(s)/02_lemon_html/css/fonts/fontawesome-webfont.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/elements-lemon-spa-and-beauty-responsive-html5-template-T6LDGP-BkCUKb0J-10-12/Main_File(s)/02_lemon_html/css/fonts/fontawesome-webfont.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/elements-lemon-spa-and-beauty-responsive-html5-template-T6LDGP-BkCUKb0J-10-12/Main_File(s)/02_lemon_html/css/fonts/fontawesome-webfont.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/elements-lemon-spa-and-beauty-responsive-html5-template-T6LDGP-BkCUKb0J-10-12/Main_File(s)/02_lemon_html/css/fonts/fontawesome-webfont.woff2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/elements-lemon-spa-and-beauty-responsive-html5-template-T6LDGP-BkCUKb0J-10-12/Main_File(s)/02_lemon_html/css/fonts/icomoon.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/elements-lemon-spa-and-beauty-responsive-html5-template-T6LDGP-BkCUKb0J-10-12/Main_File(s)/02_lemon_html/css/fonts/icomoon.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/elements-lemon-spa-and-beauty-responsive-html5-template-T6LDGP-BkCUKb0J-10-12/Main_File(s)/02_lemon_html/css/fonts/icomoon.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/elements-lemon-spa-and-beauty-responsive-html5-template-T6LDGP-BkCUKb0J-10-12/Main_File(s)/02_lemon_html/css/fonts/icomoon.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/elements-lemon-spa-and-beauty-responsive-html5-template-T6LDGP-BkCUKb0J-10-12/Main_File(s)/02_lemon_html/css/icons.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/elements-lemon-spa-and-beauty-responsive-html5-template-T6LDGP-BkCUKb0J-10-12/Main_File(s)/02_lemon_html/css/responsive.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/elements-lemon-spa-and-beauty-responsive-html5-template-T6LDGP-BkCUKb0J-10-12/Main_File(s)/02_lemon_html/css/revolution/fonts/revicons/index.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/elements-lemon-spa-and-beauty-responsive-html5-template-T6LDGP-BkCUKb0J-10-12/Main_File(s)/02_lemon_html/css/revolution/fonts/revicons/revicons.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/elements-lemon-spa-and-beauty-responsive-html5-template-T6LDGP-BkCUKb0J-10-12/Main_File(s)/02_lemon_html/css/revolution/fonts/revicons/revicons.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/elements-lemon-spa-and-beauty-responsive-html5-template-T6LDGP-BkCUKb0J-10-12/Main_File(s)/02_lemon_html/css/revolution/fonts/revicons/revicons.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/elements-lemon-spa-and-beauty-responsive-html5-template-T6LDGP-BkCUKb0J-10-12/Main_File(s)/02_lemon_html/css/revolution/fonts/revicons/revicons.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/elements-lemon-spa-and-beauty-responsive-html5-template-T6LDGP-BkCUKb0J-10-12/Main_File(s)/02_lemon_html/css/revolution/layers.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/elements-lemon-spa-and-beauty-responsive-html5-template-T6LDGP-BkCUKb0J-10-12/Main_File(s)/02_lemon_html/css/revolution/navigation.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/elements-lemon-spa-and-beauty-responsive-html5-template-T6LDGP-BkCUKb0J-10-12/Main_File(s)/02_lemon_html/css/revolution/pe-icon-7-stroke/css/helper.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/elements-lemon-spa-and-beauty-responsive-html5-template-T6LDGP-BkCUKb0J-10-12/Main_File(s)/02_lemon_html/css/revolution/pe-icon-7-stroke/css/index.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/elements-lemon-spa-and-beauty-responsive-html5-template-T6LDGP-BkCUKb0J-10-12/Main_File(s)/02_lemon_html/css/revolution/pe-icon-7-stroke/css/pe-icon-7-stroke.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/elements-lemon-spa-and-beauty-responsive-html5-template-T6LDGP-BkCUKb0J-10-12/Main_File(s)/02_lemon_html/css/revolution/pe-icon-7-stroke/fonts/Pe-icon-7-stroke.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/elements-lemon-spa-and-beauty-responsive-html5-template-T6LDGP-BkCUKb0J-10-12/Main_File(s)/02_lemon_html/css/revolution/pe-icon-7-stroke/fonts/Pe-icon-7-stroke.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/elements-lemon-spa-and-beauty-responsive-html5-template-T6LDGP-BkCUKb0J-10-12/Main_File(s)/02_lemon_html/css/revolution/pe-icon-7-stroke/fonts/Pe-icon-7-stroke.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/elements-lemon-spa-and-beauty-responsive-html5-template-T6LDGP-BkCUKb0J-10-12/Main_File(s)/02_lemon_html/css/revolution/pe-icon-7-stroke/fonts/Pe-icon-7-stroke.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/elements-lemon-spa-and-beauty-responsive-html5-template-T6LDGP-BkCUKb0J-10-12/Main_File(s)/02_lemon_html/css/revolution/pe-icon-7-stroke/fonts/index.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/elements-lemon-spa-and-beauty-responsive-html5-template-T6LDGP-BkCUKb0J-10-12/Main_File(s)/02_lemon_html/css/revolution/pe-icon-7-stroke/index.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/elements-lemon-spa-and-beauty-responsive-html5-template-T6LDGP-BkCUKb0J-10-12/Main_File(s)/02_lemon_html/css/revolution/settings.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/elements-lemon-spa-and-beauty-responsive-html5-template-T6LDGP-BkCUKb0J-10-12/Main_File(s)/02_lemon_html/css/slick.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/elements-lemon-spa-and-beauty-responsive-html5-template-T6LDGP-BkCUKb0J-10-12/Main_File(s)/02_lemon_html/css/style.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/elements-lemon-spa-and-beauty-responsive-html5-template-T6LDGP-BkCUKb0J-10-12/Main_File(s)/02_lemon_html/gallery1.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/elements-lemon-spa-and-beauty-responsive-html5-template-T6LDGP-BkCUKb0J-10-12/Main_File(s)/02_lemon_html/gallery2.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/elements-lemon-spa-and-beauty-responsive-html5-template-T6LDGP-BkCUKb0J-10-12/Main_File(s)/02_lemon_html/gallery3.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/elements-lemon-spa-and-beauty-responsive-html5-template-T6LDGP-BkCUKb0J-10-12/Main_File(s)/02_lemon_html/gallery4.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/elements-lemon-spa-and-beauty-responsive-html5-template-T6LDGP-BkCUKb0J-10-12/Main_File(s)/02_lemon_html/header10.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/elements-lemon-spa-and-beauty-responsive-html5-template-T6LDGP-BkCUKb0J-10-12/Main_File(s)/02_lemon_html/header11.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/elements-lemon-spa-and-beauty-responsive-html5-template-T6LDGP-BkCUKb0J-10-12/Main_File(s)/02_lemon_html/header2.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/elements-lemon-spa-and-beauty-responsive-html5-template-T6LDGP-BkCUKb0J-10-12/Main_File(s)/02_lemon_html/header3.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/elements-lemon-spa-and-beauty-responsive-html5-template-T6LDGP-BkCUKb0J-10-12/Main_File(s)/02_lemon_html/header4.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/elements-lemon-spa-and-beauty-responsive-html5-template-T6LDGP-BkCUKb0J-10-12/Main_File(s)/02_lemon_html/header5.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/elements-lemon-spa-and-beauty-responsive-html5-template-T6LDGP-BkCUKb0J-10-12/Main_File(s)/02_lemon_html/header6.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/elements-lemon-spa-and-beauty-responsive-html5-template-T6LDGP-BkCUKb0J-10-12/Main_File(s)/02_lemon_html/header7.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/elements-lemon-spa-and-beauty-responsive-html5-template-T6LDGP-BkCUKb0J-10-12/Main_File(s)/02_lemon_html/header8.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/elements-lemon-spa-and-beauty-responsive-html5-template-T6LDGP-BkCUKb0J-10-12/Main_File(s)/02_lemon_html/header9.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/elements-lemon-spa-and-beauty-responsive-html5-template-T6LDGP-BkCUKb0J-10-12/Main_File(s)/02_lemon_html/images/cart-icon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/elements-lemon-spa-and-beauty-responsive-html5-template-T6LDGP-BkCUKb0J-10-12/Main_File(s)/02_lemon_html/images/gallery-icon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/elements-lemon-spa-and-beauty-responsive-html5-template-T6LDGP-BkCUKb0J-10-12/Main_File(s)/02_lemon_html/images/logo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/elements-lemon-spa-and-beauty-responsive-html5-template-T6LDGP-BkCUKb0J-10-12/Main_File(s)/02_lemon_html/images/logo2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/elements-lemon-spa-and-beauty-responsive-html5-template-T6LDGP-BkCUKb0J-10-12/Main_File(s)/02_lemon_html/images/logo3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/elements-lemon-spa-and-beauty-responsive-html5-template-T6LDGP-BkCUKb0J-10-12/Main_File(s)/02_lemon_html/images/quotes.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/elements-lemon-spa-and-beauty-responsive-html5-template-T6LDGP-BkCUKb0J-10-12/Main_File(s)/02_lemon_html/images/title-border.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/elements-lemon-spa-and-beauty-responsive-html5-template-T6LDGP-BkCUKb0J-10-12/Main_File(s)/02_lemon_html/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/elements-lemon-spa-and-beauty-responsive-html5-template-T6LDGP-BkCUKb0J-10-12/Main_File(s)/02_lemon_html/index2.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/elements-lemon-spa-and-beauty-responsive-html5-template-T6LDGP-BkCUKb0J-10-12/Main_File(s)/02_lemon_html/index3.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/elements-lemon-spa-and-beauty-responsive-html5-template-T6LDGP-BkCUKb0J-10-12/Main_File(s)/02_lemon_html/index4.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/elements-lemon-spa-and-beauty-responsive-html5-template-T6LDGP-BkCUKb0J-10-12/Main_File(s)/02_lemon_html/js/bootstrap-number-input.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/elements-lemon-spa-and-beauty-responsive-html5-template-T6LDGP-BkCUKb0J-10-12/Main_File(s)/02_lemon_html/js/bootstrap.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/elements-lemon-spa-and-beauty-responsive-html5-template-T6LDGP-BkCUKb0J-10-12/Main_File(s)/02_lemon_html/js/enscroll-0.5.2.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/elements-lemon-spa-and-beauty-responsive-html5-template-T6LDGP-BkCUKb0J-10-12/Main_File(s)/02_lemon_html/js/isotope-initialize.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/elements-lemon-spa-and-beauty-responsive-html5-template-T6LDGP-BkCUKb0J-10-12/Main_File(s)/02_lemon_html/js/jquery.downCount.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/elements-lemon-spa-and-beauty-responsive-html5-template-T6LDGP-BkCUKb0J-10-12/Main_File(s)/02_lemon_html/js/jquery.isotope.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/elements-lemon-spa-and-beauty-responsive-html5-template-T6LDGP-BkCUKb0J-10-12/Main_File(s)/02_lemon_html/js/jquery.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/elements-lemon-spa-and-beauty-responsive-html5-template-T6LDGP-BkCUKb0J-10-12/Main_File(s)/02_lemon_html/js/jquery.poptrox.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/elements-lemon-spa-and-beauty-responsive-html5-template-T6LDGP-BkCUKb0J-10-12/Main_File(s)/02_lemon_html/js/jquery.scrolly.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/elements-lemon-spa-and-beauty-responsive-html5-template-T6LDGP-BkCUKb0J-10-12/Main_File(s)/02_lemon_html/js/owl.carousel.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/elements-lemon-spa-and-beauty-responsive-html5-template-T6LDGP-BkCUKb0J-10-12/Main_File(s)/02_lemon_html/js/revolution/initialize.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/elements-lemon-spa-and-beauty-responsive-html5-template-T6LDGP-BkCUKb0J-10-12/Main_File(s)/02_lemon_html/js/revolution/initialize2.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/elements-lemon-spa-and-beauty-responsive-html5-template-T6LDGP-BkCUKb0J-10-12/Main_File(s)/02_lemon_html/js/revolution/jquery.themepunch.revolution.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/elements-lemon-spa-and-beauty-responsive-html5-template-T6LDGP-BkCUKb0J-10-12/Main_File(s)/02_lemon_html/js/revolution/jquery.themepunch.tools.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/elements-lemon-spa-and-beauty-responsive-html5-template-T6LDGP-BkCUKb0J-10-12/Main_File(s)/02_lemon_html/js/revolution/revolution.extension.actions.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/elements-lemon-spa-and-beauty-responsive-html5-template-T6LDGP-BkCUKb0J-10-12/Main_File(s)/02_lemon_html/js/revolution/revolution.extension.carousel.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/elements-lemon-spa-and-beauty-responsive-html5-template-T6LDGP-BkCUKb0J-10-12/Main_File(s)/02_lemon_html/js/revolution/revolution.extension.kenburn.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/elements-lemon-spa-and-beauty-responsive-html5-template-T6LDGP-BkCUKb0J-10-12/Main_File(s)/02_lemon_html/js/revolution/revolution.extension.layeranimation.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/elements-lemon-spa-and-beauty-responsive-html5-template-T6LDGP-BkCUKb0J-10-12/Main_File(s)/02_lemon_html/js/revolution/revolution.extension.migration.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/elements-lemon-spa-and-beauty-responsive-html5-template-T6LDGP-BkCUKb0J-10-12/Main_File(s)/02_lemon_html/js/revolution/revolution.extension.navigation.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/elements-lemon-spa-and-beauty-responsive-html5-template-T6LDGP-BkCUKb0J-10-12/Main_File(s)/02_lemon_html/js/revolution/revolution.extension.parallax.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/elements-lemon-spa-and-beauty-responsive-html5-template-T6LDGP-BkCUKb0J-10-12/Main_File(s)/02_lemon_html/js/revolution/revolution.extension.slideanims.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/elements-lemon-spa-and-beauty-responsive-html5-template-T6LDGP-BkCUKb0J-10-12/Main_File(s)/02_lemon_html/js/revolution/revolution.extension.video.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/elements-lemon-spa-and-beauty-responsive-html5-template-T6LDGP-BkCUKb0J-10-12/Main_File(s)/02_lemon_html/js/script.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/elements-lemon-spa-and-beauty-responsive-html5-template-T6LDGP-BkCUKb0J-10-12/Main_File(s)/02_lemon_html/js/select2.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/elements-lemon-spa-and-beauty-responsive-html5-template-T6LDGP-BkCUKb0J-10-12/Main_File(s)/02_lemon_html/js/slick.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/elements-lemon-spa-and-beauty-responsive-html5-template-T6LDGP-BkCUKb0J-10-12/Main_File(s)/02_lemon_html/package-detail.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/elements-lemon-spa-and-beauty-responsive-html5-template-T6LDGP-BkCUKb0J-10-12/Main_File(s)/02_lemon_html/package.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/elements-lemon-spa-and-beauty-responsive-html5-template-T6LDGP-BkCUKb0J-10-12/Main_File(s)/02_lemon_html/package2.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/elements-lemon-spa-and-beauty-responsive-html5-template-T6LDGP-BkCUKb0J-10-12/Main_File(s)/02_lemon_html/product-detail.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/elements-lemon-spa-and-beauty-responsive-html5-template-T6LDGP-BkCUKb0J-10-12/Main_File(s)/02_lemon_html/products.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/elements-lemon-spa-and-beauty-responsive-html5-template-T6LDGP-BkCUKb0J-10-12/Main_File(s)/02_lemon_html/service-detail.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/elements-lemon-spa-and-beauty-responsive-html5-template-T6LDGP-BkCUKb0J-10-12/Main_File(s)/02_lemon_html/services.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/elements-lemon-spa-and-beauty-responsive-html5-template-T6LDGP-BkCUKb0J-10-12/Main_File(s)/02_lemon_html/services2.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/elements-lemon-spa-and-beauty-responsive-html5-template-T6LDGP-BkCUKb0J-10-12/Main_File(s)/02_lemon_html/team-detail.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/elements-lemon-spa-and-beauty-responsive-html5-template-T6LDGP-BkCUKb0J-10-12/Main_File(s)/02_lemon_html/team.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/gallery1.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/gallery2.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/gallery3.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/gallery4.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/header10.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/header11.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/header2.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/header3.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/header4.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/header5.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/header6.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/header7.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/header8.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/header9.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/images/cart-icon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/images/gallery-icon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/images/logo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/images/logo2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/images/logo3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/images/quotes.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/images/title-border.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/index2.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/index3.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/index4.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/js/bootstrap-number-input.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/js/bootstrap.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/js/enscroll-0.5.2.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/js/isotope-initialize.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/js/jquery.downCount.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/js/jquery.isotope.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/js/jquery.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/js/jquery.poptrox.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/js/jquery.scrolly.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/js/owl.carousel.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/js/revolution/initialize.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/js/revolution/initialize2.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/js/revolution/jquery.themepunch.revolution.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/js/revolution/jquery.themepunch.tools.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/js/revolution/revolution.extension.actions.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/js/revolution/revolution.extension.carousel.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/js/revolution/revolution.extension.kenburn.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/js/revolution/revolution.extension.layeranimation.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/js/revolution/revolution.extension.migration.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/js/revolution/revolution.extension.navigation.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/js/revolution/revolution.extension.parallax.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/js/revolution/revolution.extension.slideanims.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/js/revolution/revolution.extension.video.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/js/script.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/js/select2.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/js/slick.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/package-detail.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/package.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/package2.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/product-detail.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/products.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/service-detail.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/services.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/services2.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/team-detail.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/team.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sql/api.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sql/app.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sql/forum.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/bundles.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/bundles.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/packages/fos_rest.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/fos_rest.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../paques/MLD_PAQUES.mwb" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../paques/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/../paques/composer.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../paques/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../paques/composer.lock" afterDir="false" />
@@ -399,6 +152,8 @@
       <path value="$PROJECT_DIR$/vendor/doctrine/doctrine-fixtures-bundle" />
       <path value="$PROJECT_DIR$/vendor/jms/serializer-bundle" />
       <path value="$PROJECT_DIR$/vendor/symfony/swiftmailer-bundle" />
+      <path value="$PROJECT_DIR$/vendor/willdurand/hateoas-bundle" />
+      <path value="$PROJECT_DIR$/vendor/willdurand/hateoas" />
     </include_path>
   </component>
   <component name="ProjectId" id="1XiyEZW8U12sFfk1djcyaXqvHE9" />
@@ -569,7 +324,7 @@
       <workItem from="1597238140415" duration="616000" />
       <workItem from="1597239379221" duration="8438000" />
       <workItem from="1597253311038" duration="3631000" />
-      <workItem from="1597790559437" duration="6560000" />
+      <workItem from="1597790559437" duration="10451000" />
     </task>
     <servers />
   </component>
@@ -589,10 +344,10 @@
       <screen x="57" y="27" width="1863" height="1053" />
     </state>
     <state x="720" y="310" width="524" height="484" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/57.27.1863.1053@57.27.1863.1053" timestamp="1596436935658" />
-    <state x="766" y="296" width="424" height="513" key="FileChooserDialogImpl" timestamp="1595170955249">
+    <state x="766" y="296" width="424" height="513" key="FileChooserDialogImpl" timestamp="1597821543856">
       <screen x="57" y="27" width="1863" height="1053" />
     </state>
-    <state x="766" y="296" width="424" height="513" key="FileChooserDialogImpl/57.27.1863.1053@57.27.1863.1053" timestamp="1595170955249" />
+    <state x="766" y="296" width="424" height="513" key="FileChooserDialogImpl/57.27.1863.1053@57.27.1863.1053" timestamp="1597821543856" />
     <state x="477" y="187" key="SettingsEditor" timestamp="1593894521385">
       <screen x="57" y="27" width="1863" height="1053" />
     </state>
@@ -601,10 +356,10 @@
       <screen x="57" y="27" width="1863" height="1053" />
     </state>
     <state x="598" y="166" width="770" height="773" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/57.27.1863.1053@57.27.1863.1053" timestamp="1595320629148" />
-    <state x="552" y="221" width="1142" height="622" key="find.popup" timestamp="1597797937430">
+    <state x="552" y="221" width="1142" height="622" key="find.popup" timestamp="1597823690766">
       <screen x="57" y="27" width="1863" height="1053" />
     </state>
-    <state x="552" y="221" width="1142" height="622" key="find.popup/57.27.1863.1053@57.27.1863.1053" timestamp="1597797937430" />
+    <state x="552" y="221" width="1142" height="622" key="find.popup/57.27.1863.1053@57.27.1863.1053" timestamp="1597823690766" />
     <state x="1062" y="221" width="2319" height="622" key="find.popup/57.27.3783.1053@57.27.3783.1053" timestamp="1596204848948" />
     <state x="635" y="271" width="704" height="530" key="recent.locations.popup" timestamp="1590596113051">
       <screen x="57" y="27" width="1863" height="1053" />
