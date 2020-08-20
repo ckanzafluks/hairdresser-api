@@ -40,30 +40,6 @@ class UsersController extends AbstractController implements RequiredMethods
     {
         $this->_userRepository = $userRepository;
         $this->_serializer = $serializer;
-
-        //$requestStack->getCurrentRequest()->getMethod()
-
-        /*
-        $language = new ExpressionLanguage();
-        $language->register('someActionxxxx', function(){}, function ($arguments, $object) {
-
-            return true;
-
-            return false;
-        });
-
-
-        $requestStack
-
-        $serializer = SerializerBuilder::create()
-            ->setExpressionEvaluator(new ExpressionEvaluator($language))
-            ->build();
-        */
-
-
-
-
-
     }
 
     /**

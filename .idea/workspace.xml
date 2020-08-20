@@ -2,12 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="54f5417f-98d5-47b4-bc28-07b3ee590191" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/fos_rest.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/fos_rest.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/Api/RequiredMethods.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Api/RequiredMethods.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/Api/UsersController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Api/UsersController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/serializer/FOSUB/Model.User.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/serializer/FOSUB/Model.User.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../paques/MLD_PAQUES.mwb" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../paques/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/../paques/composer.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../paques/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../paques/composer.lock" afterDir="false" />
@@ -322,7 +317,7 @@
       <workItem from="1597239379221" duration="8438000" />
       <workItem from="1597253311038" duration="3631000" />
       <workItem from="1597790559437" duration="11054000" />
-      <workItem from="1597860037418" duration="13453000" />
+      <workItem from="1597860037418" duration="13683000" />
     </task>
     <servers />
   </component>
