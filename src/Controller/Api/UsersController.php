@@ -65,9 +65,7 @@ class UsersController extends AbstractController implements RequiredMethods
         $data = $request->getContent();
         //if ( $this->get('validator')->validate($data) ) {
             $user = $this->_serializer->deserialize($data, 'App\Entity\User', 'json', SerializationContext::create()->setGroups(array('create')));
-
-            var_dump($user);
-            die;
+            
 
             $em = $this->getDoctrine()->getManager();
             $em->persist($user);
