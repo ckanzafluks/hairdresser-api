@@ -3,13 +3,21 @@
 namespace App\Controller\Api;
 
 use App\Repository\UserRepository;
+use JMS\Serializer\Expression\ExpressionEvaluator;
+use JMS\Serializer\SerializerBuilder;
 use JMS\Serializer\SerializerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\ExpressionLanguage\ExpressionLanguage;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Response;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 
+/**
+ * Class UsersController
+ * @package App\Controller\Api
+ */
 class UsersController extends AbstractController implements RequiredMethods
 {
 
@@ -23,19 +31,46 @@ class UsersController extends AbstractController implements RequiredMethods
      */
     private $_serializer;
 
-
-    public function __construct(UserRepository $userRepository, SerializerInterface $serializer)
+    /**
+     * UsersController constructor.
+     * @param UserRepository $userRepository
+     * @param SerializerInterface $serializer
+     */
+    public function __construct(UserRepository $userRepository, SerializerInterface $serializer, RequestStack $requestStack)
     {
         $this->_userRepository = $userRepository;
         $this->_serializer = $serializer;
-    }
 
+        //$requestStack->getCurrentRequest()->getMethod()
+
+        /*
+        $language = new ExpressionLanguage();
+        $language->register('someActionxxxx', function(){}, function ($arguments, $object) {
+
+            return true;
+
+            return false;
+        });
+
+
+        $requestStack
+
+        $serializer = SerializerBuilder::create()
+            ->setExpressionEvaluator(new ExpressionEvaluator($language))
+            ->build();
+        */
+
+
+
+
+
+    }
 
     /**
      * @Route("/api/users/", name="api_users")
      * @Method({"GET"})
      */
-    public function list()
+    public function listAction()
     {
         $listUsers = $this->_userRepository->findAll();
         $data = $this->_serializer->serialize($listUsers, 'json');
@@ -45,10 +80,32 @@ class UsersController extends AbstractController implements RequiredMethods
     }
 
     /**
-     * @Route("/api/users/{id}", name="api_users_id")
+     * @Route("/api/users/create/", name="api_users_create")
+     * @Method({"PUT"},{"POST"})
+     */
+    public function createAction(Request $request)
+    {
+        $data = $request->getContent();
+        //if ( $this->get('validator')->validate($data) ) {
+            $user = $this->_serializer->deserialize($data, 'App\Entity\User', 'json');
+
+            var_dump($user);
+            die;
+
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($user);
+            $em->flush();
+        //}
+
+
+        return new Response('', Response::HTTP_CREATED);
+    }
+
+    /**
+     * @Route("/api/users/{id}/", name="api_users_id")
      * @Method({"GET"})
      */
-    public function get(Request $request)
+    public function getAction(Request $request)
     {
         $id = $request->get('id');
         $data = $this->_userRepository->find($id);
@@ -58,26 +115,10 @@ class UsersController extends AbstractController implements RequiredMethods
     }
 
     /**
-     * @Route("/api/users/create", name="api_users_create")
-     * @Method({"POST"})
+     * @Route("/api/users/{id}/", name="api_users_update")
+     * @Method({"PATCH"})
      */
-    public function create(Request $request)
-    {
-        $data = $request->getContent();
-        $user = $this->get('jms_serializer')->deserialize($data, 'App\Entity\Users', 'json');
-
-        $em = $this->getDoctrine()->getManager();
-        $em->persist($user);
-        $em->flush();
-
-        return new Response('', Response::HTTP_CREATED);
-    }
-
-    /**
-     * @param Request $request
-     * @todo: a faire
-     */
-    public function update(Request $request)
+    public function updateAction(Request $request)
     {
 
     }

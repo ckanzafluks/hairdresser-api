@@ -20,7 +20,6 @@ use Hateoas\Configuration\Annotation as Hateoas;
  * @Serializer\ExclusionPolicy("ALL")
  * @UniqueEntity(fields={"email"}, message="Un compte avec cette adresse email existe déjà!")
  * @UniqueEntity(fields={"username"}, message="Un compte avec ce pseudo existe déjà!")
- * @Serializer\ExclusionPolicy("ALL")
  *
  * @Hateoas\Relation(
  *      "self",
@@ -129,7 +128,7 @@ class User extends BaseUser
 
     /**
      * @ORM\Column(type="string", length=100, nullable=true)
-     * @Serializer\Expose
+     * @Serializer\Expose(if="service('request_stack').getCurrentRequest().getMethod()=='GET'")
      */
     private $firstname;
 
@@ -138,6 +137,9 @@ class User extends BaseUser
      * @Serializer\Expose
      */
     private $photo;
+
+
+    //$requestStack->getCurrentRequest()->getMethod()
 
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\Votes", mappedBy="idAuthor")
@@ -216,6 +218,8 @@ class User extends BaseUser
      * @ORM\OneToMany(targetEntity="App\Entity\UserFileIdentity", mappedBy="user")
      */
     private $userFileIdentities;
+
+
 
     /**
      *

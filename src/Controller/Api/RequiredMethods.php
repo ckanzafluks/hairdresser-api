@@ -6,12 +6,12 @@ use Symfony\Component\HttpFoundation\Request;
 
 Interface RequiredMethods
 {
-    public function list();
+    public function listAction();
 
-    public function get(Request $request);
+    public function createAction(Request $request);
 
-    public function create(Request $request);
+    public function getAction(Request $request);
 
-    public function update(Request $request);
+    public function updateAction(Request $request);
 
 }
