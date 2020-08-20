@@ -1,11 +1,7 @@
 FOS\UserBundle\Model\User:
     exclusion_policy: NONE
     properties:
-        emailCanonical:
-            exclude: true
-        password:
-            exclude: if="service('request_stack').getCurrentRequest().getMethod()=='POST'"
-        usernameCanonical:
-            exclude: true
-        salt:
-          exclude: true
+        #emailCanonical:
+            #exclude: true
+        #password:
+            #exclude: true

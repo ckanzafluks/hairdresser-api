@@ -5,6 +5,7 @@ namespace App\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
+use FOS\UserBundle\Model\GroupInterface;
 use FOS\UserBundle\Model\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
@@ -43,103 +44,210 @@ class User extends BaseUser
      * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
-     *
      * @Serializer\Expose
+     * @Serializer\Groups({"get", "list", "details", "create", "update"})
      */
     protected $id;
 
     /**
      * @ORM\Column(type="string", length=100, nullable=true)
      * @Serializer\Expose
+     * @Serializer\Groups({"get", "list", "details", "create", "update"})
      */
     protected $address;
 
     /**
      * @ORM\Column(type="string", length=50, nullable=true)
      * @Serializer\Expose
+     * @Serializer\Groups({"get", "list", "details", "create", "update"})
      */
     protected $complementAddress;
 
     /**
      * @ORM\Column(type="integer", length=5, nullable=true)
      * @Serializer\Expose
+     * @Serializer\Groups({"get", "list", "details", "create", "update"})
      */
     protected $postalCode;
 
     /**
      * @ORM\Column(type="string", length=50, nullable=true)
      * @Serializer\Expose
+     * @Serializer\Groups({"get", "list", "details", "create", "update"})
      */
     protected $city;
 
     /**
      * @ORM\Column(type="integer", nullable=true)
      * @Serializer\Expose
+     * @Serializer\Groups({"get", "list", "details", "create", "update"})
      */
     protected $typeUser;
 
     /**
      * @ORM\Column(type="text", nullable=true)
      * @Serializer\Expose
+     * @Serializer\Groups({"get", "list", "details", "create", "update"})
      */
     protected $descriptionProfil;
 
     /**
      * @ORM\Column(type="datetime", nullable=true)
      * @Serializer\Expose
+     * @Serializer\Groups({"get", "list", "details", "create", "update"})
      */
     protected $created;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      * @Serializer\Expose
+     * @Serializer\Groups({"get", "list", "details", "create", "update"})
      */
     private $name;
 
     /**
      * @ORM\Column(type="string", length=100, nullable=true)
      * @Serializer\Expose
+     * @Serializer\Groups({"get", "list", "details", "create", "update"})
      */
     private $lastname;
 
     /**
      * @ORM\Column(type="string", length=100, nullable=true)
      * @Serializer\Expose
+     * @Serializer\Groups({"get", "list", "details", "create", "update"})
      */
     private $country;
 
     /**
      * @ORM\Column(type="datetime", nullable=true)
      * @Serializer\Expose
+     * @Serializer\Groups({"get", "list", "details", "create", "update"})
      */
     private $birthday;
 
     /**
      * @ORM\Column(type="datetime", nullable=true)
+     * @Serializer\Groups({"get", "list", "details", "create", "update"})
      */
     private $updated;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Civility", inversedBy="users")
      * @Serializer\Expose
-     *
+     * @Serializer\Groups({"get", "list", "details", "create", "update"})
      */
     private $civility;
 
     /**
      * @ORM\Column(type="string", length=100, nullable=true)
-     * @Serializer\Expose(if="service('request_stack').getCurrentRequest().getMethod()=='GET'")
+     * @Serializer\Expose
+     * @Serializer\Groups({"get", "list", "details", "create", "update"})
      */
     private $firstname;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      * @Serializer\Expose
+     * @Serializer\Groups({"get", "list", "details", "create", "update"})
      */
     private $photo;
 
 
-    //$requestStack->getCurrentRequest()->getMethod()
+
+    // ici on redéfini les paramètres de la classe FosUserBundle
+
+    /**
+     * @Serializer\Expose
+     * @Serializer\Groups({"get", "create", "update"})
+     */
+    protected $password;
+
+    /**
+     * @var string
+     * @Serializer\Expose
+     * @Serializer\Groups({"get", "list", "details", "create", "update"})
+     */
+    protected $username;
+
+    /**
+     * @var string
+     * @Serializer\Expose
+     * @Serializer\Groups({"get", "list", "details", "create", "update"})
+     */
+    protected $usernameCanonical;
+
+    /**
+     * @var string
+     * @Serializer\Expose
+     * @Serializer\Groups({"get", "list", "details", "create", "update"})
+     */
+    protected $email;
+
+    /**
+     * @var string
+     * @Serializer\Expose
+     * @Serializer\Groups({"get", "list", "details", "create", "update"})
+     */
+    protected $emailCanonical;
+
+    /**
+     * @var bool
+     * @Serializer\Expose
+     * @Serializer\Groups({"get", "list", "details", "create", "update"})
+     */
+    protected $enabled;
+
+    /**
+     * The salt to use for hashing.
+     *
+     * @Serializer\Expose
+     * @Serializer\Groups({"get", "list", "details", "create", "update"})
+     */
+    protected $salt;
+
+    /**
+     * Plain password. Used for model validation. Must not be persisted.
+     *
+     * @var string
+     * @Serializer\Expose
+     * @Serializer\Groups({"create", "update"})
+     */
+    protected $plainPassword;
+
+    /**
+     *
+     * @var \DateTime|null
+     * @Serializer\Expose
+     * @Serializer\Groups({"get", "list", "details", "create", "update"})
+     */
+    protected $lastLogin;
+
+    /**
+     * Random string sent to the user email address in order to verify it.
+     *
+     * @var string|null
+     * @Serializer\Expose
+     * @Serializer\Groups({"get", "list", "details", "create", "update"})
+     */
+    protected $confirmationToken;
+
+    /**
+     * @var \DateTime|null
+     * @Serializer\Expose
+     * @Serializer\Groups({"get", "list", "details", "create", "update"})
+     */
+    protected $passwordRequestedAt;
+
+    /**
+     * @var
+     * @Serializer\Expose
+     * @Serializer\Groups({"get", "list", "details", "create", "update"})
+     */
+    protected $groups;
+
+    // fin redefinition
+
 
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\Votes", mappedBy="idAuthor")

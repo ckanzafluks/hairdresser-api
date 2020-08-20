@@ -4,6 +4,7 @@ namespace App\Controller\Api;
 
 use App\Repository\UserRepository;
 use JMS\Serializer\Expression\ExpressionEvaluator;
+use JMS\Serializer\SerializationContext;
 use JMS\Serializer\SerializerBuilder;
 use JMS\Serializer\SerializerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -49,7 +50,7 @@ class UsersController extends AbstractController implements RequiredMethods
     public function listAction()
     {
         $listUsers = $this->_userRepository->findAll();
-        $data = $this->_serializer->serialize($listUsers, 'json');
+        $data = $this->_serializer->serialize($listUsers, 'json', SerializationContext::create()->setGroups(array('list')));
         $response = new Response($data);
         $response->headers->set('Content-Type', 'application/json');
         return $response;
@@ -63,7 +64,7 @@ class UsersController extends AbstractController implements RequiredMethods
     {
         $data = $request->getContent();
         //if ( $this->get('validator')->validate($data) ) {
-            $user = $this->_serializer->deserialize($data, 'App\Entity\User', 'json');
+            $user = $this->_serializer->deserialize($data, 'App\Entity\User', 'json', SerializationContext::create()->setGroups(array('create')));
 
             var_dump($user);
             die;
@@ -85,7 +86,7 @@ class UsersController extends AbstractController implements RequiredMethods
     {
         $id = $request->get('id');
         $data = $this->_userRepository->find($id);
-        $response = new Response($this->_serializer->serialize($data, 'json'));
+        $response = new Response($this->_serializer->serialize($data, 'json'), SerializationContext::create()->setGroups(array('get')));
         $response->headers->set('Content-Type', 'application/json');
         return $response;
     }
