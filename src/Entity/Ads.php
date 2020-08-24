@@ -16,92 +16,92 @@ class Ads
      * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
+     * @Serializer\Expose
+     * @Serializer\Groups({"get", "list", "details", "create", "update"})
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Serializer\Expose
+     * @Serializer\Groups({"get", "list", "details", "create", "update"})
      */
     private $name;
 
     /**
      * @ORM\Column(type="text", nullable=true)
+     * @Serializer\Expose
+     * @Serializer\Groups({"get", "list", "details", "create", "update"})
      */
     private $description;
 
     /**
      * @ORM\Column(type="datetime", nullable=true)
+     * @Serializer\Expose
+     * @Serializer\Groups({"get", "list", "details", "create", "update"})
      */
     private $created;
 
 
     /**
      * @ORM\Column(type="time", nullable=true)
+     * @Serializer\Expose
+     * @Serializer\Groups({"get", "list", "details", "create", "update"})
      */
     private $updated;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="ads", fetch="EAGER")
+     * @Serializer\Expose
+     * @Serializer\Groups({"get", "list", "details", "create", "update"})
      */
     private $user;
 
-    /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Profile", inversedBy="ads", fetch="EAGER")
-     */
-    private $profile;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\SubCategory", inversedBy="ads")
+     * @Serializer\Expose
+     * @Serializer\Groups({"get", "list", "details", "create", "update"})
      */
     private $subCategory;
 
     /**
      * @ORM\Column(type="integer", nullable=true)
+     * @Serializer\Expose
+     * @Serializer\Groups({"get", "list", "details", "create", "update"})
      */
     private $experiancesannees;
 
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\Medias", mappedBy="ads")
+     * @Serializer\Expose
+     * @Serializer\Groups({"get", "list", "details", "create", "update"})
      */
     private $medias;
 
-    /**
-     * @ORM\OneToMany(targetEntity="App\Entity\ContractsAuthor", mappedBy="objectif")
-     */
-    private $contractsAuthor;
 
     /**
      * @ORM\Column(type="float", nullable=true)
+     * @Serializer\Expose
+     * @Serializer\Groups({"get", "list", "details", "create", "update"})
      */
     private $price;
 
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\ContractsMessages", mappedBy="ads")
+     * @Serializer\Expose
+     * @Serializer\Groups({"get", "list", "details", "create", "update"})
      */
     private $contractsMessages;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Presession", mappedBy="objectif")
-     */
-    private $presessions;
-
-    /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Presession", mappedBy="objectif")
-     */
-    private $ojectifPresession;
-
-    /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Category", inversedBy="ads")
+     * @Serializer\Expose
+     * @Serializer\Groups({"get", "list", "details", "create", "update"})
      */
     private $category;
 
-    /**
-     * @ORM\OneToMany(targetEntity="App\Entity\UserFileIdentity", mappedBy="ads")
-     */
-    private $userFileIdentities;
 
-
-  
 
     public function __construct()
     {
