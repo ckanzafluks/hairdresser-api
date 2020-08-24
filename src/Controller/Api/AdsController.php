@@ -97,9 +97,14 @@ class AdsController extends AbstractController implements RequiredMethods
     public function updateAction(Request $request)
     {
         $id = $request->get('id');
-        $data = $this->_adsRepository->find($id);
+        $data = $request->getContent();
 
-        
+        $adsUpdate= $this->_serializer->deserialize($data,'App\Entity\Ads', 'json');
+        $adsOrigine = $this->_adsRepository->find($id);
+
+
+
+
 
     }
 
