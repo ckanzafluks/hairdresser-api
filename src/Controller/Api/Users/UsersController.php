@@ -124,7 +124,7 @@ class UsersController extends AbstractController implements RequiredMethods
     }
 
     /**
-     * @Route("/api/users/{id}",name="api_users_edit", methods={"PATCH"})
+     * @Route("/api/users/{id}",name="api_users_update", methods={"PUT"})
      */
     public function updateAction(Request $request)
     {

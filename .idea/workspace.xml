@@ -2,14 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="54f5417f-98d5-47b4-bc28-07b3ee590191" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config/bundles.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/bundles.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/fos_rest.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/fos_rest.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/jms_serializer.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/jms_serializer.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/Api/UsersController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Api/Users/UsersController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/packages/routing.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/routing.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/packages/security.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/security.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/routes.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/routes.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/Api/Users/UsersController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Api/Users/UsersController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/Api/Users/UsersLoginController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Api/Users/UsersLoginController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../paques/src/Controller/AccountPresessionsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/../paques/src/Controller/AccountPresessionsController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../paques/src/Controller/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/../paques/src/Controller/HomeController.php" afterDir="false" />
@@ -183,6 +186,9 @@
       <path value="$PROJECT_DIR$/vendor/pagerfanta/pagerfanta" />
       <path value="$PROJECT_DIR$/vendor/white-october/pagerfanta-bundle" />
       <path value="$PROJECT_DIR$/vendor/symfony/deprecation-contracts" />
+      <path value="$PROJECT_DIR$/vendor/lexik/jwt-authentication-bundle" />
+      <path value="$PROJECT_DIR$/vendor/namshi/jose" />
+      <path value="$PROJECT_DIR$/vendor/lcobucci/jwt" />
     </include_path>
   </component>
   <component name="ProjectId" id="1XiyEZW8U12sFfk1djcyaXqvHE9" />
@@ -389,10 +395,10 @@
       <screen x="57" y="27" width="1863" height="1053" />
     </state>
     <state x="598" y="166" width="770" height="773" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/57.27.1863.1053@57.27.1863.1053" timestamp="1598339068185" />
-    <state x="552" y="221" width="1142" height="622" key="find.popup" timestamp="1598446453108">
+    <state x="552" y="221" width="1142" height="622" key="find.popup" timestamp="1598452686739">
       <screen x="57" y="27" width="1863" height="1053" />
     </state>
-    <state x="552" y="221" width="1142" height="622" key="find.popup/57.27.1863.1053@57.27.1863.1053" timestamp="1598446453108" />
+    <state x="552" y="221" width="1142" height="622" key="find.popup/57.27.1863.1053@57.27.1863.1053" timestamp="1598452686739" />
     <state x="1062" y="221" width="2319" height="622" key="find.popup/57.27.3783.1053@57.27.3783.1053" timestamp="1596204848948" />
     <state x="635" y="271" width="704" height="530" key="recent.locations.popup" timestamp="1590596113051">
       <screen x="57" y="27" width="1863" height="1053" />
