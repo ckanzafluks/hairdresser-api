@@ -1,5 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="54f5417f-98d5-47b4-bc28-07b3ee590191" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
@@ -194,9 +212,12 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+
     <property name="last_opened_file_path" value="$PROJECT_DIR$/src/Services" />
+
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
@@ -355,6 +376,7 @@
       <workItem from="1597253311038" duration="3631000" />
       <workItem from="1597790559437" duration="11054000" />
       <workItem from="1597860037418" duration="17399000" />
+
       <workItem from="1597930256784" duration="663000" />
       <workItem from="1598285385949" duration="5812000" />
       <workItem from="1598422380324" duration="18356000" />
@@ -363,6 +385,17 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="WindowStateProjectService">
     <state x="763" y="271" width="441" height="562" key="#com.intellij.ide.util.MemberChooser" timestamp="1590766956485">
@@ -381,6 +414,10 @@
       <screen x="57" y="27" width="1863" height="1053" />
     </state>
     <state x="766" y="296" width="424" height="513" key="FileChooserDialogImpl/57.27.1863.1053@57.27.1863.1053" timestamp="1597821543856" />
+    <state x="794" y="443" key="NewPhpFileDialog" timestamp="1598292901413">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="794" y="443" key="NewPhpFileDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1598292901413" />
     <state x="477" y="187" key="SettingsEditor" timestamp="1593894521385">
       <screen x="57" y="27" width="1863" height="1053" />
     </state>
