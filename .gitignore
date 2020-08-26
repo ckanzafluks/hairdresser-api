@@ -22,3 +22,4 @@
 /vendor/
 ###< symfony/framework-bundle ###
 .env
+.idea/workspace.xml

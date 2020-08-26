@@ -58,7 +58,7 @@ class AdsController extends AbstractController implements RequiredMethods
     }
 
     /**
-     * @Route("/api/ads/create/", name="api_ads_create")
+     * @Route("/api/ads/create", name="api_ads_create")
      * @Method({"PUT"},{"POST"})
      */
     public function createAction(Request $request)
