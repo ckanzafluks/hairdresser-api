@@ -59,8 +59,7 @@ class AdsController extends AbstractController implements RequiredMethods
     }
 
     /**
-     * @Route("/api/ads/create", name="api_ads_create")
-     * @Method({"PUT"},{"POST"})
+     * @Route("/api/ads/create", name="api_ads_create", methods={"GET"})
      */
     public function createAction(Request $request)
     {
@@ -80,8 +79,8 @@ class AdsController extends AbstractController implements RequiredMethods
     }
 
     /**
-     * @Route("/api/ads/{id}/", name="api_ads_id")
-     * @Method({"GET"})
+     * @Route("/api/ads/{id}/", name="api_ads_id", requirements={"id"="\d+"}, methods={"GET"})
+     *
      */
     public function getAction(Request $request)
     {
@@ -93,8 +92,7 @@ class AdsController extends AbstractController implements RequiredMethods
     }
 
     /**
-     * @Route("/api/ads/{id}/", name="api_ads_update")
-     * @Method({"PATCH"})
+     * @Route("/api/ads/{id}/", name="api_ads_update", requirements={"id"="\d+"}, methods={"UPDATE"})
      */
     public function updateAction(Request $request)
     {
