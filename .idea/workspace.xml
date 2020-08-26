@@ -3,22 +3,54 @@
   <component name="ChangeListManager">
     <list default="true" id="54f5417f-98d5-47b4-bc28-07b3ee590191" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/Api/UsersController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Api/UsersController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Resources/views/index/index.html.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../paques/MLD_PAQUES.mwb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../paques/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/../paques/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../paques/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../paques/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../paques/config/bundles.php" beforeDir="false" afterPath="$PROJECT_DIR$/../paques/config/bundles.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../paques/config/packages/doctrine.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/../paques/config/packages/doctrine.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../paques/config/routes.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/../paques/config/routes.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../paques/config/services.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/../paques/config/services.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/bundles.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/bundles.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/packages/fos_rest.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/fos_rest.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/packages/jms_serializer.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/jms_serializer.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/Api/UsersController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Api/Users/UsersController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../paques/src/Controller/AccountPresessionsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/../paques/src/Controller/AccountPresessionsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../paques/src/Controller/BaseController.php" beforeDir="false" afterPath="$PROJECT_DIR$/../paques/src/Controller/BaseController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../paques/src/Entity/Notification.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../paques/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/../paques/src/Entity/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../paques/src/Services/ManagerNotification.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../paques/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../paques/symfony.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../paques/templates/account-presessions/listing-details-session-view.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/../paques/templates/account-presessions/listing-details-session-view.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../paques/src/Controller/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/../paques/src/Controller/HomeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../paques/src/Controller/ProfilController.php" beforeDir="false" afterPath="$PROJECT_DIR$/../paques/src/Controller/ProfilController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../paques/src/Services/ContractSave.php" beforeDir="false" afterPath="$PROJECT_DIR$/../paques/src/Services/old/ContractSave.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../paques/src/Services/ContractsEmails.php" beforeDir="false" afterPath="$PROJECT_DIR$/../paques/src/Services/old/ContractsEmails.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../paques/src/Services/ContractsEmailsSave.php" beforeDir="false" afterPath="$PROJECT_DIR$/../paques/src/Services/old/ContractsEmailsSave.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../paques/src/Services/EnteteMessage.php" beforeDir="false" afterPath="$PROJECT_DIR$/../paques/src/Services/old/EnteteMessage.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../paques/src/Services/FileUploader.php" beforeDir="false" afterPath="$PROJECT_DIR$/../paques/src/Services/old/FileUploader.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../paques/src/Services/FileUploaderPhotoAds.php" beforeDir="false" afterPath="$PROJECT_DIR$/../paques/src/Services/old/FileUploaderPhotoAds.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../paques/src/Services/FormPreSessionSave.php" beforeDir="false" afterPath="$PROJECT_DIR$/../paques/src/Services/old/FormPreSessionSave.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../paques/src/Services/FormSave.php" beforeDir="false" afterPath="$PROJECT_DIR$/../paques/src/Services/old/FormSave.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../paques/src/Services/FormSaveAds.php" beforeDir="false" afterPath="$PROJECT_DIR$/../paques/src/Services/old/FormSaveAds.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../paques/src/Services/FormSaveMediaArticle.php" beforeDir="false" afterPath="$PROJECT_DIR$/../paques/src/Services/old/FormSaveMediaArticle.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../paques/src/Services/FormSaveMediaMusic.php" beforeDir="false" afterPath="$PROJECT_DIR$/../paques/src/Services/old/FormSaveMediaMusic.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../paques/src/Services/FormSaveMediaPhoto.php" beforeDir="false" afterPath="$PROJECT_DIR$/../paques/src/Services/old/FormSaveMediaPhoto.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../paques/src/Services/FormSaveMediaVideo.php" beforeDir="false" afterPath="$PROJECT_DIR$/../paques/src/Services/old/FormSaveMediaVideo.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../paques/src/Services/InscriptionEmails.php" beforeDir="false" afterPath="$PROJECT_DIR$/../paques/src/Services/old/InscriptionEmails.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../paques/src/Services/InvoicesOrders.php" beforeDir="false" afterPath="$PROJECT_DIR$/../paques/src/Services/old/InvoicesOrders.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../paques/src/Services/ManagerNotification.php" beforeDir="false" afterPath="$PROJECT_DIR$/../paques/src/Services/old/ManagerNotification.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../paques/src/Services/MediasDeleter.php" beforeDir="false" afterPath="$PROJECT_DIR$/../paques/src/Services/old/MediasDeleter.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../paques/src/Services/MediasDetailsLoader.php" beforeDir="false" afterPath="$PROJECT_DIR$/../paques/src/Services/old/MediasDetailsLoader.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../paques/src/Services/MediasLoader.php" beforeDir="false" afterPath="$PROJECT_DIR$/../paques/src/Services/old/MediasLoader.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../paques/src/Services/PreSessions.php" beforeDir="false" afterPath="$PROJECT_DIR$/../paques/src/Services/old/PreSessions.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../paques/src/Services/PreSessionsActions.php" beforeDir="false" afterPath="$PROJECT_DIR$/../paques/src/Services/old/PreSessionsActions.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../paques/src/Services/SessionsActions.php" beforeDir="false" afterPath="$PROJECT_DIR$/../paques/src/Services/old/SessionsActions.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../paques/src/Services/SessionsEmails.php" beforeDir="false" afterPath="$PROJECT_DIR$/../paques/src/Services/old/SessionsEmails.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../paques/templates/account-presessions/sections/listing-received.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/../paques/templates/account-presessions/sections/listing-received.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../paques/templates/common/bloc-dispos.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/../paques/templates/common/bloc-dispos.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../paques/templates/contracts/success.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/../paques/templates/contracts/success.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../paques/templates/partials/list-users.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/../paques/templates/partials/list-users.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../paques/templates/profil/detail.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/../paques/templates/profil/detail.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../paques/templates/profil/detail_2.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/../paques/templates/profil/detail_2.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../paques/templates/profil/sections/detail-medias/medias_articles.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/../paques/templates/profil/sections/detail-medias/medias_articles.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../paques/templates/profil/sections/detail-medias/medias_audios.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/../paques/templates/profil/sections/detail-medias/medias_audios.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../paques/templates/profil/sections/detail-medias/medias_photos.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/../paques/templates/profil/sections/detail-medias/medias_photos.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../paques/templates/profil/sections/detail-medias/medias_videos.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/../paques/templates/profil/sections/detail-medias/medias_videos.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../paques/templates/profil/sections/medias_articles.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/../paques/templates/profil/sections/medias_articles.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../paques/templates/profil/sections/medias_audios.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/../paques/templates/profil/sections/medias_audios.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../paques/templates/profil/sections/medias_photos.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/../paques/templates/profil/sections/medias_photos.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../paques/templates/profil/sections/medias_videos.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/../paques/templates/profil/sections/medias_videos.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -148,6 +180,9 @@
       <path value="$PROJECT_DIR$/vendor/symfony/swiftmailer-bundle" />
       <path value="$PROJECT_DIR$/vendor/willdurand/hateoas-bundle" />
       <path value="$PROJECT_DIR$/vendor/willdurand/hateoas" />
+      <path value="$PROJECT_DIR$/vendor/pagerfanta/pagerfanta" />
+      <path value="$PROJECT_DIR$/vendor/white-october/pagerfanta-bundle" />
+      <path value="$PROJECT_DIR$/vendor/symfony/deprecation-contracts" />
     </include_path>
   </component>
   <component name="ProjectId" id="1XiyEZW8U12sFfk1djcyaXqvHE9" />
@@ -161,24 +196,24 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/Controller/Api" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/Services" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/../paques/src/Services/old" />
+      <recent name="$PROJECT_DIR$/src/Controller/Api/Users" />
       <recent name="$PROJECT_DIR$/src" />
       <recent name="$PROJECT_DIR$/serializer" />
       <recent name="$PROJECT_DIR$" />
-      <recent name="$PROJECT_DIR$/src/Controller/Api" />
-      <recent name="$PROJECT_DIR$/assets/js" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/Controller/Api" />
-      <recent name="$PROJECT_DIR$/serializer/FOSUB" />
-      <recent name="$PROJECT_DIR$/config/packages" />
-      <recent name="$PROJECT_DIR$/src" />
-      <recent name="$PROJECT_DIR$/config/routes" />
+      <recent name="$PROJECT_DIR$/src/Services" />
+      <recent name="$PROJECT_DIR$/../paques/src/Services/Users" />
+      <recent name="$PROJECT_DIR$/src/Controller/Api/Users" />
+      <recent name="$PROJECT_DIR$/../paques" />
+      <recent name="$PROJECT_DIR$/src/Repository" />
     </key>
   </component>
   <component name="RunManager">
@@ -320,7 +355,9 @@
       <workItem from="1597253311038" duration="3631000" />
       <workItem from="1597790559437" duration="11054000" />
       <workItem from="1597860037418" duration="17399000" />
-      <workItem from="1597930256784" duration="61000" />
+      <workItem from="1597930256784" duration="663000" />
+      <workItem from="1598285385949" duration="5812000" />
+      <workItem from="1598422380324" duration="18356000" />
     </task>
     <servers />
   </component>
@@ -336,10 +373,10 @@
       <screen x="57" y="27" width="1863" height="1053" />
     </state>
     <state x="596" y="27" width="765" height="1053" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/57.27.1863.1053@57.27.1863.1053" timestamp="1597794954546" />
-    <state x="720" y="310" width="524" height="484" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1597909654434">
+    <state x="720" y="310" width="524" height="484" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1598446514799">
       <screen x="57" y="27" width="1863" height="1053" />
     </state>
-    <state x="720" y="310" width="524" height="484" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/57.27.1863.1053@57.27.1863.1053" timestamp="1597909654434" />
+    <state x="720" y="310" width="524" height="484" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/57.27.1863.1053@57.27.1863.1053" timestamp="1598446514799" />
     <state x="766" y="296" width="424" height="513" key="FileChooserDialogImpl" timestamp="1597821543856">
       <screen x="57" y="27" width="1863" height="1053" />
     </state>
@@ -348,14 +385,14 @@
       <screen x="57" y="27" width="1863" height="1053" />
     </state>
     <state x="477" y="187" key="SettingsEditor/57.27.1863.1053@57.27.1863.1053" timestamp="1593894521385" />
-    <state x="598" y="166" width="770" height="773" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1595320629148">
+    <state x="598" y="166" width="770" height="773" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1598339068185">
       <screen x="57" y="27" width="1863" height="1053" />
     </state>
-    <state x="598" y="166" width="770" height="773" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/57.27.1863.1053@57.27.1863.1053" timestamp="1595320629148" />
-    <state x="552" y="221" width="1142" height="622" key="find.popup" timestamp="1597888353967">
+    <state x="598" y="166" width="770" height="773" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/57.27.1863.1053@57.27.1863.1053" timestamp="1598339068185" />
+    <state x="552" y="221" width="1142" height="622" key="find.popup" timestamp="1598446453108">
       <screen x="57" y="27" width="1863" height="1053" />
     </state>
-    <state x="552" y="221" width="1142" height="622" key="find.popup/57.27.1863.1053@57.27.1863.1053" timestamp="1597888353967" />
+    <state x="552" y="221" width="1142" height="622" key="find.popup/57.27.1863.1053@57.27.1863.1053" timestamp="1598446453108" />
     <state x="1062" y="221" width="2319" height="622" key="find.popup/57.27.3783.1053@57.27.3783.1053" timestamp="1596204848948" />
     <state x="635" y="271" width="704" height="530" key="recent.locations.popup" timestamp="1590596113051">
       <screen x="57" y="27" width="1863" height="1053" />
@@ -365,10 +402,10 @@
       <screen x="57" y="27" width="1863" height="1053" />
     </state>
     <state x="650" y="253" key="run.anything.popup/57.27.1863.1053@57.27.1863.1053" timestamp="1595892516208" />
-    <state x="650" y="257" width="677" height="678" key="search.everywhere.popup" timestamp="1596178798944">
+    <state x="650" y="257" width="677" height="678" key="search.everywhere.popup" timestamp="1598446742010">
       <screen x="57" y="27" width="1863" height="1053" />
     </state>
-    <state x="650" y="257" width="677" height="678" key="search.everywhere.popup/57.27.1863.1053@57.27.1863.1053" timestamp="1596178798944" />
+    <state x="650" y="257" width="677" height="678" key="search.everywhere.popup/57.27.1863.1053@57.27.1863.1053" timestamp="1598446742010" />
     <state x="713" y="455" width="540" height="194" key="vcs.readOnlyHandler.ReadOnlyStatusDialog" timestamp="1597253764442">
       <screen x="57" y="27" width="1863" height="1053" />
     </state>

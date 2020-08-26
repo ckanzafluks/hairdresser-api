@@ -19,9 +19,12 @@ use Hateoas\Configuration\Annotation as Hateoas;
 /**
  * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
  * @Serializer\ExclusionPolicy("ALL")
- * @UniqueEntity(fields={"email"}, message="Un compte avec cette adresse email existe déjà!")
+ * @UniqueEntity(
+ *   fields={"email"},
+ *   errorPath="email",
+ *   message="Un compte avec cette adresse email existe déjà!"
+ * )
  * @UniqueEntity(fields={"username"}, message="Un compte avec ce pseudo existe déjà!")
- *
  * @Hateoas\Relation(
  *      "self",
  *      href = @Hateoas\Route(
@@ -258,12 +261,14 @@ class User extends BaseUser
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      * @Serializer\Expose
+     * @Serializer\Groups({"get", "list", "details", "create", "update"})
      */
     private $phone1;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      * @Serializer\Expose
+     * @Serializer\Groups({"get", "list", "details", "create", "update"})
      */
     private $phone2;
 
@@ -309,6 +314,7 @@ class User extends BaseUser
 
     /**
      * @ORM\Column(type="string", length=100, nullable=true)
+     * @Serializer\Groups({"get", "list", "details", "create", "update"})
      */
     private $stripeCustomerId;
 
@@ -324,10 +330,9 @@ class User extends BaseUser
 
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\UserFileIdentity", mappedBy="user")
+     * @Serializer\Groups({"get", "list", "details", "create", "update"})
      */
     private $userFileIdentities;
-
-
 
     /**
      *
