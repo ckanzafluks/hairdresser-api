@@ -64,8 +64,9 @@ class AdsController extends AbstractController implements RequiredMethods
     public function createAction(Request $request)
     {
         $data = $request->getContent();
+        //dump($data);die;
         //if ( $this->get('validator')->validate($data) ) {
-        $ads = $this->_serializer->deserialize($data, 'App\Entity\Ads', 'json', SerializationContext::create()->setGroups(array('create')));
+        $ads = $this->_serializer->deserialize($data, 'App\Entity\Ads', 'json');
 
 
         $em = $this->getDoctrine()->getManager();
@@ -85,7 +86,7 @@ class AdsController extends AbstractController implements RequiredMethods
     {
         $id = $request->get('id');
         $data = $this->_adsRepository->find($id);
-        $response = new Response($this->_serializer->serialize($data, 'json'), SerializationContext::create()->setGroups(array('get')));
+        $response = new Response($this->_serializer->serialize($data, 'json', SerializationContext::create()->setGroups(array('get'))));
         $response->headers->set('Content-Type', 'application/json');
         return $response;
     }
@@ -101,11 +102,7 @@ class AdsController extends AbstractController implements RequiredMethods
 
         $adsUpdate= $this->_serializer->deserialize($data,'App\Entity\Ads', 'json');
         $adsOrigine = $this->_adsRepository->find($id);
-
-
-
-
-
+        
     }
 
 
