@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Controller\Api;
+namespace App\Controller\Api\Ads;
 
+use App\Controller\Api\RequiredMethods;
 use App\Repository\AdsRepository;
 use App\Repository\UserRepository;
 use JMS\Serializer\Expression\ExpressionEvaluator;
@@ -18,7 +19,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 
 /**
  * Class UsersController
- * @package App\Controller\Api
+ * @package App\Controller\Api\Ads
  */
 class AdsController extends AbstractController implements RequiredMethods
 {
