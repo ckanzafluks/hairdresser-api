@@ -48,6 +48,9 @@ class UsersController extends AbstractController implements RequiredMethods
      */
     private $_checkFields;
 
+    /**
+     * @var UserPasswordEncoderInterface
+     */
     private $_passwordEncoder;
 
     /**
@@ -67,7 +70,7 @@ class UsersController extends AbstractController implements RequiredMethods
     }
 
     /**
-     * @Route("/api/users/", name="api_users", methods={"GET"})
+     * @Route("/free-api/users/", name="api_users", methods={"GET"})
      */
     public function listAction()
     {
@@ -79,11 +82,10 @@ class UsersController extends AbstractController implements RequiredMethods
     }
 
     /**
-     * @Route("/api/users/", name="api_users_create", methods={"PUT","POST"})
+     * @Route("/free-api/users/", name="api_users_create", methods={"PUT","POST"})
      */
     public function createAction(Request $request)
     {
-
         $data = $request->getContent();
         $user = $this->_serializer->deserialize($data, 'App\Entity\User', 'json'); /* @var $user User */
 
@@ -107,7 +109,7 @@ class UsersController extends AbstractController implements RequiredMethods
     }
 
     /**
-     * @Route("/api/users/{id}/", name="api_users_id", requirements={"id"="\d+"}, methods={"GET"})
+     * @Route("/free-api/users/{id}/", name="api_users_id", requirements={"id"="\d+"}, methods={"GET"})
      */
     public function getAction(Request $request)
     {
