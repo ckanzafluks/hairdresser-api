@@ -6,20 +6,49 @@
 
 
 # Installation du projet
+````
 composer update (Installer les sources)
 php bin/console doctrine:database:create
 php bin/console doctrine:schema:create
 php bin/console doctrine:fixtures:load
+````
 
 
 # Répertoire des controlleurs des api
-src/Controller/Api/UsersController.php pour les api de l'entité User
+````
+src/Controller/Api/Users/UsersController.php pour les api de l'entité User
+src/Controller/Api/Ads/AdsController.php pour les api de l'entité Ads 
+````
+Il en sera de même pour toutes les autres entités ou webServices
 
-- Listing : /api/users/ (GET)
-- Recupération par id : /api/users/{id} (GET)  
-- Affichage : /api/users/create/ (PUT)
+# Connexion JWT Token avec LexikJWTAuthenticationBundle
+Cf doc : https://github.com/lexik/LexikJWTAuthenticationBundle
+
+URL : /api/login_check
+Avec saisi dans l'onglet "Body" et dans la section "Raw" de Postman les valeurs suivantes :
+````
+{
+  "username": "email@domain.com",
+  "password": "password"
+}
+````
+
+
+# Restriction des controlleurs des api avec JWT Token
+On distingue deux types d'api : 
+- Celles dites ouvertes sans restrictions : Ex. la liste des utilisateurs, la liste des annonces, qui ne demanderont pas forcément un accès particulier. 
+- Et celles dites privées avec Jeton d'accès (JWT), comme par exemple la création d'utilisateurs ou encore la mise à jour d'une ressources particulière.
+
+Les ressources libres seront distinguées par "free-api"
+Et celles sécurisés par "api" tout court.
+
+## Exemples:
+````
+- Listing : /free-api/users/ (GET)
+- Recupération par id : /free-api/users/{id} (GET)
 - Mise à jour : /api/users/update/ (PATCH)
-- Delete : /api/users/delete/{id} (DELETE)
+- Delete : /api/users/{id} (DELETE)
+````
 
 Au niveau de l'accès à la ressources, la restriction se fait au niveau de l'entité via les paramètres suivants :
 
@@ -59,8 +88,6 @@ FOS\UserBundle\Model\User:
           exclude: "true"
 ````
 
-# Doc pour FOSRestBundle
-https://symfony.com/doc/master/bundles/FOSRestBundle/versioning.html
 
 # Petite doc sur l'auto decouverte de notre api, à faire plus tard
 https://openclassrooms.com/fr/courses/4087036-construisez-une-api-rest-avec-symfony/4343816-rendez-votre-api-auto-decouvrable-dernier-niveau-du-modele-de-maturite-de-richardson
