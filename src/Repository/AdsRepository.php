@@ -14,12 +14,29 @@ use Doctrine\Common\Persistence\ManagerRegistry;
  * @method Ads[]    findAll()
  * @method Ads[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class AdsRepository extends ServiceEntityRepository
+class AdsRepository extends AbstractRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
         parent::__construct($registry, Ads::class);
     }
+
+    /**
+     * @param $limit
+     * @param $offset
+     * @return \Pagerfanta\Pagerfanta
+     */
+    public function getAll($limit, $offset)
+    {
+        $qb = $this
+            ->createQueryBuilder('a')
+            ->where('a.active=1')
+            ->orderBy('a.id', 'asc')
+        ;
+        return $this->paginate($qb, $limit, $offset);
+    }
+
+
 
     /**
      * Retourne la liste des annonces d'un utilisateur selon le type d'annonce ( mentor ou mentoré )

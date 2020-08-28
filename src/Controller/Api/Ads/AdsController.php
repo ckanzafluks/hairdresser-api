@@ -2,6 +2,7 @@
 
 namespace App\Controller\Api\Ads;
 
+use App\Controller\Api\BaseController;
 use App\Controller\Api\RequiredMethods;
 use App\Repository\AdsRepository;
 use App\Repository\UserRepository;
@@ -18,10 +19,10 @@ use Symfony\Component\HttpFoundation\Response;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 
 /**
- * Class UsersController
+ * Class AdsController
  * @package App\Controller\Api\Ads
  */
-class AdsController extends AbstractController implements RequiredMethods
+class AdsController extends BaseController implements RequiredMethods
 {
 
     /**
@@ -35,6 +36,11 @@ class AdsController extends AbstractController implements RequiredMethods
     private $_serializer;
 
     /**
+     * @var AdsRepository
+     */
+    private $_adsRepository;
+
+    /**
      * UsersController constructor.
      * @param AdsRepository $adsRepository
      * @param SerializerInterface $serializer
@@ -46,21 +52,27 @@ class AdsController extends AbstractController implements RequiredMethods
     }
 
     /**
-     * @Route("/api/ads/", name="api_ads")
-     * @Method({"GET"})
+     * @Route("/free-api/ads/", name="api_ads", methods={"GET"})
      */
-    public function listAction()
+    public function listAction(Request $request)
     {
-        $listAds = $this->_adsRepository->findAll();
-        $data = $this->_serializer->serialize($listAds, 'json', SerializationContext::create()->setGroups(array('list')));
+
+        $page   = $request->query->get('page',1);
+        $offset = ($page*self::TOTAL_RESULTS_PER_PAGE)-1;
+        $listAdsPaginator = $this->_adsRepository->getAll(self::TOTAL_RESULTS_PER_PAGE, $offset);
+
+        $results['totalPage']    = $listAdsPaginator->getNbPages();
+        $results['totalResults'] = $listAdsPaginator->getNbResults();
+        $results['results']      = $listAdsPaginator->getCurrentPageResults();
+
+        $data = $this->_serializer->serialize($results, 'json', SerializationContext::create()->setGroups(array('list')));
         $response = new Response($data);
         $response->headers->set('Content-Type', 'application/json');
         return $response;
     }
 
     /**
-     * @Route("/api/ads/create", name="api_ads_create")
-     * @Method({"PUT"},{"POST"})
+     * @Route("/free-api/ads/create", name="api_ads_create", methods={"POST","PUT"})
      */
     public function createAction(Request $request)
     {
@@ -80,8 +92,7 @@ class AdsController extends AbstractController implements RequiredMethods
     }
 
     /**
-     * @Route("/api/ads/{id}/", name="api_ads_id")
-     * @Method({"GET"})
+     * @Route("/free-api/ads/{id}/", name="api_ads_id", methods={"GET"})
      */
     public function getAction(Request $request)
     {
@@ -93,8 +104,7 @@ class AdsController extends AbstractController implements RequiredMethods
     }
 
     /**
-     * @Route("/api/ads/{id}/", name="api_ads_update")
-     * @Method({"PATCH"})
+     * @Route("/api/ads/{id}/", name="api_ads_update", methods={"PATCH"})
      */
     public function updateAction(Request $request)
     {

@@ -16,6 +16,11 @@ class UserRepository extends AbstractRepository
         parent::__construct($registry, User::class);
     }
 
+    /**
+     * @param $limit
+     * @param $offset
+     * @return \Pagerfanta\Pagerfanta
+     */
     public function getAll($limit, $offset)
     {
         $qb = $this

@@ -73,6 +73,7 @@ class Step4Fixtures extends Fixture
                     $ads
                         ->setUser($user)
                         ->setProfile($profil)
+                        ->setActive(1)
                         ->setDescription($this->_knpUIpsum->getWords(30))
                         ->setName($type . md5(time()))
                         ->setCategory($category[$randcat])
