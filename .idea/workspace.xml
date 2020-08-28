@@ -3,8 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="54f5417f-98d5-47b4-bc28-07b3ee590191" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/security.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/security.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/Api/RequiredMethods.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Api/RequiredMethods.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/Api/Users/UsersController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Api/Users/UsersController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/Api/Users/UsersLoginController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repository/AbstractRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/AbstractRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repository/UserRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/UserRepository.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../paques/src/Controller/AccountPresessionsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/../paques/src/Controller/AccountPresessionsController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../paques/src/Controller/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/../paques/src/Controller/HomeController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../paques/src/Controller/ProfilController.php" beforeDir="false" afterPath="$PROJECT_DIR$/../paques/src/Controller/ProfilController.php" afterDir="false" />
@@ -194,24 +197,24 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/Services" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/Controller/Api" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/Controller/Api" />
+      <recent name="$PROJECT_DIR$/src/Services" />
+      <recent name="$PROJECT_DIR$/../paques/src/Services/Users" />
+      <recent name="$PROJECT_DIR$/src/Controller/Api/Users" />
+      <recent name="$PROJECT_DIR$/../paques" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/../paques/src/Services/old" />
       <recent name="$PROJECT_DIR$/src/Controller/Api/Users" />
       <recent name="$PROJECT_DIR$/src" />
       <recent name="$PROJECT_DIR$/serializer" />
       <recent name="$PROJECT_DIR$" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/Services" />
-      <recent name="$PROJECT_DIR$/../paques/src/Services/Users" />
-      <recent name="$PROJECT_DIR$/src/Controller/Api/Users" />
-      <recent name="$PROJECT_DIR$/../paques" />
-      <recent name="$PROJECT_DIR$/src/Repository" />
     </key>
   </component>
   <component name="RunManager">
@@ -359,7 +362,7 @@
       <workItem from="1598462867246" duration="1492000" />
       <workItem from="1598464912129" duration="3255000" />
       <workItem from="1598542016415" duration="2714000" />
-      <workItem from="1598560222206" duration="36000" />
+      <workItem from="1598560222206" duration="5399000" />
     </task>
     <servers />
   </component>
@@ -375,10 +378,10 @@
       <screen x="57" y="27" width="1863" height="1053" />
     </state>
     <state x="596" y="27" width="765" height="1053" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/57.27.1863.1053@57.27.1863.1053" timestamp="1597794954546" />
-    <state x="720" y="310" width="524" height="484" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1598446514799">
+    <state x="720" y="310" width="524" height="484" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1598560741434">
       <screen x="57" y="27" width="1863" height="1053" />
     </state>
-    <state x="720" y="310" width="524" height="484" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/57.27.1863.1053@57.27.1863.1053" timestamp="1598446514799" />
+    <state x="720" y="310" width="524" height="484" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/57.27.1863.1053@57.27.1863.1053" timestamp="1598560741434" />
     <state x="766" y="296" width="424" height="513" key="FileChooserDialogImpl" timestamp="1597821543856">
       <screen x="57" y="27" width="1863" height="1053" />
     </state>
