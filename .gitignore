@@ -20,8 +20,6 @@
 /public/bundles/
 /var/
 /vendor/
-###< symfony/framework-bundle ###
-.env
-.idea/workspace.xml
-.idea/workspace.xml
+###> lexik/jwt-authentication-bundle ###
+#/config/jwt/*.pem
 .idea/workspace.xml

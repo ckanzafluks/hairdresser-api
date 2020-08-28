@@ -15,6 +15,7 @@
         "friendsofsymfony/user-bundle": "2.1.2",
         "jms/serializer-bundle": "^3.7",
         "knpuniversity/lorem-ipsum-bundle": "^1.0",
+        "lexik/jwt-authentication-bundle": "^2.8",
         "sensio/framework-extra-bundle": "^5.5",
         "sonata-project/admin-bundle": "^3.34",
         "sonata-project/core-bundle": "^3.12",
