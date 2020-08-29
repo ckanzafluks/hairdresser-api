@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use JMS\Serializer\Annotation as Serializer;
+
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\VotesRepository")
@@ -13,11 +15,13 @@ class Votes
      * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
+     * @Serializer\Groups({"get", "list", "details", "create", "update"})
      */
     private $id;
 
     /**
      * @ORM\Column(type="text", nullable=true)
+     * @Serializer\Groups({"get", "list", "details", "create", "update"})
      */
     private $description;
 
@@ -28,16 +32,19 @@ class Votes
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="votes")
+     * @Serializer\Groups({"get", "list", "details", "create", "update"})
      */
     private $idAuthor;
 
     /**
      * @ORM\Column(type="integer")
+     * @Serializer\Groups({"get", "list", "details", "create", "update"})
      */
     private $idReceiver;
 
     /**
      * @ORM\Column(type="float", nullable=true)
+     * @Serializer\Groups({"get", "list", "details", "create", "update"})
      */
     private $rating;
 
