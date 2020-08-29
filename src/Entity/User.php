@@ -342,6 +342,11 @@ class User extends BaseUser
      */
     protected $roles;
 
+    /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    private $jwtToken;
+
 
     public function __construct()
     {
@@ -924,6 +929,18 @@ class User extends BaseUser
                 $userFileIdentity->setUser(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getJwtToken(): ?string
+    {
+        return $this->jwtToken;
+    }
+
+    public function setJwtToken(?string $jwtToken): self
+    {
+        $this->jwtToken = $jwtToken;
 
         return $this;
     }
