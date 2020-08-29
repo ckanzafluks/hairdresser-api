@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Controller\Api\Ads;
+namespace App\Controller\Api\Vote;
 
 use App\Controller\Api\BaseController;
 use App\Controller\Api\RequiredMethods;
 use App\Repository\AdsRepository;
 use App\Repository\UserRepository;
+use App\Repository\VotesRepository;
 use JMS\Serializer\Expression\ExpressionEvaluator;
 use JMS\Serializer\SerializationContext;
 use JMS\Serializer\SerializerBuilder;
@@ -19,10 +20,10 @@ use Symfony\Component\HttpFoundation\Response;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 
 /**
- * Class AdsController
- * @package App\Controller\Api\Ads
+ * Class VoteController
+ * @package App\Controller\Api\Vote
  */
-class AdsController extends BaseController implements RequiredMethods
+class VoteController extends BaseController implements RequiredMethods
 {
 
     /**
@@ -36,34 +37,34 @@ class AdsController extends BaseController implements RequiredMethods
     private $_serializer;
 
     /**
-     * @var AdsRepository
+     * @var VotesRepository
      */
-    private $_adsRepository;
+    private $_voteRepository;
 
     /**
      * UsersController constructor.
-     * @param AdsRepository $adsRepository
+     * @param VoteRepository $voteRepository
      * @param SerializerInterface $serializer
      */
-    public function __construct(AdsRepository $adsRepository, SerializerInterface $serializer, RequestStack $requestStack)
+    public function __construct(VotesRepository $voteRepository, SerializerInterface $serializer, RequestStack $requestStack)
     {
-        $this->_adsRepository = $adsRepository;
+        $this->_voteRepository = $voteRepository;
         $this->_serializer = $serializer;
     }
 
     /**
-     * @Route("/free-api/ads/", name="api_ads", methods={"GET"})
+     * @Route("/free-api/vote/", name="api_vote", methods={"GET"})
      */
     public function listAction(Request $request)
     {
 
         $page   = $request->query->get('page',1);
         $offset = ($page*self::TOTAL_RESULTS_PER_PAGE)-1;
-        $listAdsPaginator = $this->_adsRepository->getAll(self::TOTAL_RESULTS_PER_PAGE, $offset);
+        $listVotePaginator = $this->_voteRepository->getAll(self::TOTAL_RESULTS_PER_PAGE, $offset);
 
-        $results['totalPage']    = $listAdsPaginator->getNbPages();
-        $results['totalResults'] = $listAdsPaginator->getNbResults();
-        $results['results']      = $listAdsPaginator->getCurrentPageResults();
+        $results['totalPage']    = $listVotePaginator->getNbPages();
+        $results['totalResults'] = $listVotePaginator->getNbResults();
+        $results['results']      = $listVotePaginator->getCurrentPageResults();
 
         $data = $this->_serializer->serialize($results, 'json', SerializationContext::create()->setGroups(array('list')));
         $response = new Response($data);
@@ -72,18 +73,18 @@ class AdsController extends BaseController implements RequiredMethods
     }
 
     /**
-     * @Route("/free-api/ads/create", name="api_ads_create", methods={"POST","PUT"})
+     * @Route("/free-api/vote/create", name="api_ads_create", methods={"POST","PUT"})
      */
     public function createAction(Request $request)
     {
         $data = $request->getContent();
         //dump($data);die;
         //if ( $this->get('validator')->validate($data) ) {
-        $ads = $this->_serializer->deserialize($data, 'App\Entity\Ads', 'json');
+        $vote = $this->_serializer->deserialize($data, 'App\Entity\Votes', 'json');
 
 
         $em = $this->getDoctrine()->getManager();
-        $em->persist($ads);
+        $em->persist($vote);
         $em->flush();
         //}
 
@@ -91,29 +92,25 @@ class AdsController extends BaseController implements RequiredMethods
         return new Response('', Response::HTTP_CREATED);
     }
 
-	/**
-     * @Route("/free-api/ads/{id}/", requirements={"id"="\d+"}, name="api_ads_id", methods={"GET"})
+    /**
+     * @Route("/free-api/vote/{id}/", requirements={"id"="\d+"}, name="api_vote_id", methods={"GET"})
      */
     public function getAction(Request $request)
     {
         $id = $request->get('id');
-        $data = $this->_adsRepository->find($id);
+        $data = $this->_voteRepository->find($id);
         $response = new Response($this->_serializer->serialize($data, 'json', SerializationContext::create()->setGroups(array('get'))));
         $response->headers->set('Content-Type', 'application/json');
         return $response;
     }
 
     /**
-     * @Route("/api/ads/{id}/",  requirements={"id"="\d+"}, methods={"PATCH"})
+     * @Route("/api/vote/{id}/",  requirements={"id"="\d+"}, methods={"PATCH"})
      */
     public function updateAction(Request $request)
     {
-        $id = $request->get('id');
-        $data = $request->getContent();
-
-        $adsUpdate= $this->_serializer->deserialize($data,'App\Entity\Ads', 'json');
-        $adsOrigine = $this->_adsRepository->find($id);
         
+
     }
 
 
