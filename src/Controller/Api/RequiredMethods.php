@@ -6,7 +6,7 @@ use Symfony\Component\HttpFoundation\Request;
 
 Interface RequiredMethods
 {
-    public function listAction();
+    public function listAction(Request $request);
 
     public function createAction(Request $request);
 
