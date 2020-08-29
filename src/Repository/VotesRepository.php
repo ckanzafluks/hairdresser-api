@@ -12,13 +12,26 @@ use Doctrine\Common\Persistence\ManagerRegistry;
  * @method Votes[]    findAll()
  * @method Votes[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class VotesRepository extends ServiceEntityRepository
+class VotesRepository  extends AbstractRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
         parent::__construct($registry, Votes::class);
     }
 
+    /**
+     * @param $limit
+     * @param $offset
+     * @return \Pagerfanta\Pagerfanta
+     */
+    public function getAll($limit, $offset)
+    {
+        $qb = $this
+            ->createQueryBuilder('a')
+            ->orderBy('a.id', 'asc')
+        ;
+        return $this->paginate($qb, $limit, $offset);
+    }
 
     public function getVotes($userId)
     {
