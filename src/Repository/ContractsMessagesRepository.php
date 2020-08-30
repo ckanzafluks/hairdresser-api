@@ -12,11 +12,27 @@ use Doctrine\Persistence\ManagerRegistry;
  * @method ContractsMessages[]    findAll()
  * @method ContractsMessages[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class ContractsMessagesRepository extends ServiceEntityRepository
+class ContractsMessagesRepository extends AbstractRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
         parent::__construct($registry, ContractsMessages::class);
+    }
+
+    /**
+     * @param $limit
+     * @param $offset
+     * @return \Pagerfanta\Pagerfanta
+     */
+    public function getAllMessageSend($limit, $offset, $author)
+    {
+        $qb = $this
+            ->createQueryBuilder('a')
+            ->where('a.author = :author')
+            ->setParameter('author', $author)
+            ->orderBy('a.created', 'asc')
+        ;
+        return $this->paginate($qb, $limit, $offset);
     }
 
     public function getChannels($userId)

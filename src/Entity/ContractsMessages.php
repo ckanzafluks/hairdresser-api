@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use JMS\Serializer\Annotation as Serializer;
+
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\ContractsMessagesRepository")
@@ -13,31 +15,37 @@ class ContractsMessages
      * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
+     * @Serializer\Groups({"get", "list", "details", "create", "update"})
      */
     private $id;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="contractsMessages")
+     * @Serializer\Groups({"get", "list", "details", "create", "update"})
      */
     private $author;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="contractsMessages")
+     * @Serializer\Groups({"get", "list", "details", "create", "update"})
      */
     private $receiver;
 
     /**
      * @ORM\Column(type="text", nullable=true)
+     * @Serializer\Groups({"get", "list", "details", "create", "update"})
      */
     private $description;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
+     * @Serializer\Groups({"get", "list", "details", "create", "update"})
      */
     private $token;
 
     /**
      * @ORM\Column(type="datetime", nullable=true)
+     * @Serializer\Groups({"get", "list", "details", "create", "update"})
      */
     private $created;
 
@@ -48,13 +56,10 @@ class ContractsMessages
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Ads", inversedBy="contractsMessages")
+     * @Serializer\Groups({"get", "list", "details", "create", "update"})
      */
     private $ads;
 
-    /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\ContractsAuthor", inversedBy="contractsMessages")
-     */
-    private $contractsAuthor;
 
     public function getId(): ?int
     {
@@ -145,15 +150,5 @@ class ContractsMessages
         return $this;
     }
 
-    public function getContractsAuthor(): ?ContractsAuthor
-    {
-        return $this->contractsAuthor;
-    }
 
-    public function setContractsAuthor(?ContractsAuthor $contractsAuthor): self
-    {
-        $this->contractsAuthor = $contractsAuthor;
-
-        return $this;
-    }
 }
