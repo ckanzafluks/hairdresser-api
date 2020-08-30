@@ -35,6 +35,18 @@ class ContractsMessagesRepository extends AbstractRepository
         return $this->paginate($qb, $limit, $offset);
     }
 
+    public function getAllMessageReceveid($limit, $offset, $author)
+    {
+        $qb = $this
+            ->createQueryBuilder('a')
+            ->where('a.receiver = :author')
+            ->setParameter('author', $author)
+            ->orderBy('a.created', 'asc')
+        ;
+        return $this->paginate($qb, $limit, $offset);
+    }
+
+
     public function getChannels($userId)
     {
         return $this->createQueryBuilder('c')

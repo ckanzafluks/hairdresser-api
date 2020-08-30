@@ -5,6 +5,7 @@ namespace App\Controller\Api\ContactMessage;
 use App\Controller\Api\BaseController;
 use App\Controller\Api\RequiredMethods;
 use App\Entity\ContractsMessages;
+use App\Entity\User;
 use App\Repository\AdsRepository;
 use App\Repository\ContractsMessagesRepository;
 use App\Repository\UserRepository;
@@ -14,6 +15,7 @@ use JMS\Serializer\SerializerBuilder;
 use JMS\Serializer\SerializerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\ExpressionLanguage\ExpressionLanguage;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\Routing\Annotation\Route;
@@ -55,53 +57,69 @@ class MessageController extends BaseController implements RequiredMethods
     }
 
     /**
-     * @Route("/api/message/{idauter}", requirements={"id"="\d+"}, name="api_message", methods={"GET"})
+     * @Route("/api/message/sender/{idauter}", requirements={"id"="\d+"}, name="api_message_Send", methods={"GET"})
      */
     public function listMessageSendAction(Request $request)
     {
         /*@id
          * token must be used to identified user.
-         */
+         ***************************/
+        $id = $request->get('idauter');
+        $user= $this->getDoctrine()->getRepository(User::class)->find($id);
+        /*************************/
 
-        $id = $request->get('id');
+        if(!empty($user)) {
 
-        $page = $request->query->get('page', 1);
-        $offset = ($page * self::TOTAL_RESULTS_PER_PAGE) - 1;
-        $listMessagePaginator = $this->_messageRepository->getAllMessageSend(self::TOTAL_RESULTS_PER_PAGE, $offset, $id);
+            $page = $request->query->get('page', 1);
+            $offset = ($page * self::TOTAL_RESULTS_PER_PAGE) - 1;
+            $listMessagePaginator = $this->_messageRepository->getAllMessageSend(self::TOTAL_RESULTS_PER_PAGE, $offset, $user);
 
-        $results['totalPage'] = $listMessagePaginator->getNbPages();
-        $results['totalResults'] = $listMessagePaginator->getNbResults();
-        $results['results'] = $listMessagePaginator->getCurrentPageResults();
+            $results['totalPage'] = $listMessagePaginator->getNbPages();
+            $results['totalResults'] = $listMessagePaginator->getNbResults();
+            $results['results'] = $listMessagePaginator->getCurrentPageResults();
 
-        $data = $this->_serializer->serialize($results, 'json', SerializationContext::create()->setGroups(array('list')));
-        $response = new Response($data);
-        $response->headers->set('Content-Type', 'application/json');
-        return $response;
+            $data = $this->_serializer->serialize($results, 'json', SerializationContext::create()->setGroups(array('list')));
+            $response = new Response($data);
+            $response->headers->set('Content-Type', 'application/json');
+            return $response;
+
+        }else{
+
+            return new JsonResponse("user not exist", Response::HTTP_NOT_FOUND);
+        }
     }
 
     /**
-     * @Route("/api/message", requirements={"id"="\d+"}, name="api_message", methods={"GET"})
+     * @Route("/api/message/receveid/{idauter}", requirements={"id"="\d+"}, name="api_message_Received", methods={"GET"})
      */
     public function listMessageReceivedAction(Request $request)
     {
         /*@id
-         * token must be used to identified user.
-         */
+       * token must be used to identified user.
+       ***************************/
+        $id = $request->get('idauter');
+        $user= $this->getDoctrine()->getRepository(User::class)->find($id);
+        /*************************/
 
-        $id = $request->get('id');
+        if(!empty($user)) {
 
-        $page = $request->query->get('page', 1);
-        $offset = ($page * self::TOTAL_RESULTS_PER_PAGE) - 1;
-        $listMessagePaginator = $this->_messageRepository->getAll(self::TOTAL_RESULTS_PER_PAGE, $offset);
+            $page = $request->query->get('page', 1);
+            $offset = ($page * self::TOTAL_RESULTS_PER_PAGE) - 1;
+            $listMessagePaginator = $this->_messageRepository->getAllMessageReceveid(self::TOTAL_RESULTS_PER_PAGE, $offset, $user);
 
-        $results['totalPage'] = $listMessagePaginator->getNbPages();
-        $results['totalResults'] = $listMessagePaginator->getNbResults();
-        $results['results'] = $listMessagePaginator->getCurrentPageResults();
+            $results['totalPage'] = $listMessagePaginator->getNbPages();
+            $results['totalResults'] = $listMessagePaginator->getNbResults();
+            $results['results'] = $listMessagePaginator->getCurrentPageResults();
 
-        $data = $this->_serializer->serialize($results, 'json', SerializationContext::create()->setGroups(array('list')));
-        $response = new Response($data);
-        $response->headers->set('Content-Type', 'application/json');
-        return $response;
+            $data = $this->_serializer->serialize($results, 'json', SerializationContext::create()->setGroups(array('list')));
+            $response = new Response($data);
+            $response->headers->set('Content-Type', 'application/json');
+            return $response;
+
+        }else{
+
+            return new JsonResponse("user not exist", Response::HTTP_NOT_FOUND);
+        }
     }
 
     /**
@@ -144,7 +162,23 @@ class MessageController extends BaseController implements RequiredMethods
 
 
     }
+    /**
+     * @Route("/api/message/deleted/{id}/",  requirements={"id"="\d+"}, name="api_message_deleted", methods={"DELETE"})
+     */
+    public function suppMessageAction($id){
+    /* Todo:
+     * must add vérifcation user is allow to deleted message
+     *
+     * */
 
+        $message = $this->getDoctrine()->getRepository(ContractsMessages::class)->find($id);
+        $em = $this->getDoctrine()->getManager();
+
+        $em->remove($message);
+        $em->flush();
+
+        return new JsonResponse("message is deleted.", Response::HTTP_OK);
+    }
 
     public function listAction(Request $request)
     {
