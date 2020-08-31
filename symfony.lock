@@ -1,7 +1,4 @@
 {
-    "cocur/slugify": {
-        "version": "v4.0.0"
-    },
     "doctrine/annotations": {
         "version": "1.0",
         "recipe": {
@@ -23,9 +20,6 @@
     "doctrine/common": {
         "version": "2.13.3"
     },
-    "doctrine/data-fixtures": {
-        "version": "1.4.3"
-    },
     "doctrine/dbal": {
         "version": "2.10.2"
     },
@@ -42,18 +36,6 @@
             "config/packages/prod/doctrine.yaml",
             "src/Entity/.gitignore",
             "src/Repository/.gitignore"
-        ]
-    },
-    "doctrine/doctrine-fixtures-bundle": {
-        "version": "3.0",
-        "recipe": {
-            "repo": "github.com/symfony/recipes",
-            "branch": "master",
-            "version": "3.0",
-            "ref": "fc52d86631a6dfd9fdf3381d0b7e3df2069e51b3"
-        },
-        "files": [
-            "src/DataFixtures/AppFixtures.php"
         ]
     },
     "doctrine/doctrine-migrations-bundle": {
@@ -146,14 +128,11 @@
             "config/packages/prod/jms_serializer.yaml"
         ]
     },
-    "knplabs/knp-menu": {
-        "version": "2.6.0"
-    },
-    "knplabs/knp-menu-bundle": {
-        "version": "v2.3.0"
-    },
     "knpuniversity/lorem-ipsum-bundle": {
         "version": "v1.0.1"
+    },
+    "laminas/laminas-zendframework-bridge": {
+        "version": "1.1.0"
     },
     "lcobucci/jwt": {
         "version": "3.3.3"
@@ -208,62 +187,6 @@
         "files": [
             "config/packages/sensio_framework_extra.yaml"
         ]
-    },
-    "sonata-project/admin-bundle": {
-        "version": "3.64",
-        "recipe": {
-            "repo": "github.com/symfony/recipes-contrib",
-            "branch": "master",
-            "version": "3.64",
-            "ref": "e300c83e77d35a352b863a82c8d039f29f10fd62"
-        },
-        "files": [
-            "config/packages/sonata_admin.yaml",
-            "config/routes/sonata_admin.yaml",
-            "src/Admin/.gitignore"
-        ]
-    },
-    "sonata-project/block-bundle": {
-        "version": "3.20.0"
-    },
-    "sonata-project/cache": {
-        "version": "2.0.1"
-    },
-    "sonata-project/core-bundle": {
-        "version": "3.9",
-        "recipe": {
-            "repo": "github.com/symfony/recipes-contrib",
-            "branch": "master",
-            "version": "3.9",
-            "ref": "2f69bd1995730b73a5211a9707622fb25a925df7"
-        },
-        "files": [
-            "config/packages/sonata_core.yaml"
-        ]
-    },
-    "sonata-project/datagrid-bundle": {
-        "version": "2.5.0"
-    },
-    "sonata-project/doctrine-extensions": {
-        "version": "1.9.1"
-    },
-    "sonata-project/doctrine-orm-admin-bundle": {
-        "version": "3.21.0"
-    },
-    "sonata-project/easy-extends-bundle": {
-        "version": "2.5.0"
-    },
-    "sonata-project/exporter": {
-        "version": "2.3.0"
-    },
-    "sonata-project/form-extensions": {
-        "version": "0.1.2"
-    },
-    "sonata-project/intl-bundle": {
-        "version": "2.9.0"
-    },
-    "sonata-project/twig-extensions": {
-        "version": "0.1.1"
     },
     "swiftmailer/swiftmailer": {
         "version": "v6.2.3"
@@ -406,9 +329,6 @@
     "symfony/options-resolver": {
         "version": "v4.4.11"
     },
-    "symfony/polyfill-intl-grapheme": {
-        "version": "v1.18.1"
-    },
     "symfony/polyfill-intl-icu": {
         "version": "v1.18.1"
     },
@@ -450,9 +370,6 @@
             "config/routes.yaml"
         ]
     },
-    "symfony/security-acl": {
-        "version": "v3.1.0"
-    },
     "symfony/security-bundle": {
         "version": "4.4",
         "recipe": {
@@ -482,9 +399,6 @@
     },
     "symfony/stopwatch": {
         "version": "v4.4.11"
-    },
-    "symfony/string": {
-        "version": "v5.1.3"
     },
     "symfony/swiftmailer-bundle": {
         "version": "2.5",
@@ -567,23 +481,11 @@
     "symfony/yaml": {
         "version": "v4.4.11"
     },
-    "twig/extensions": {
-        "version": "1.0",
-        "recipe": {
-            "repo": "github.com/symfony/recipes",
-            "branch": "master",
-            "version": "1.0",
-            "ref": "a86723ee8d8b2f9437c8ce60a5546a1c267da5ed"
-        },
-        "files": [
-            "config/packages/twig_extensions.yaml"
-        ]
-    },
-    "twig/string-extra": {
-        "version": "v3.0.5"
-    },
     "twig/twig": {
         "version": "v2.13.1"
+    },
+    "webimpress/safe-writer": {
+        "version": "2.1.0"
     },
     "white-october/pagerfanta-bundle": {
         "version": "v1.3.2"
