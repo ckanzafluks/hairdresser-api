@@ -6,12 +6,14 @@ use App\Controller\Api\BaseController;
 use App\Controller\Api\RequiredMethods;
 use App\Repository\AdsRepository;
 use App\Repository\UserRepository;
+use App\Services\Ads\AdsService;
 use JMS\Serializer\Expression\ExpressionEvaluator;
 use JMS\Serializer\SerializationContext;
 use JMS\Serializer\SerializerBuilder;
 use JMS\Serializer\SerializerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\ExpressionLanguage\ExpressionLanguage;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\Routing\Annotation\Route;
@@ -104,28 +106,34 @@ class AdsController extends BaseController implements RequiredMethods
     }
 
     /**
-     * @Route("/api/ads/{id}/",  requirements={"id"="\d+"}, methods={"PATCH"})
+     * @Route("/api/ads/update/{id}/",  requirements={"id"="\d+"},  name="api_ads_update", methods={"PATCH"})
      */
-    public function updateAction(Request $request)
+    public function update_Action(Request $request, AdsService $adsService)
     {
         $id = $request->get('id');
         $data = $request->getContent();
 
+        $adsinitiale = $this->_adsRepository->find($id);
+        if(empty($adsinitiale)){
+            return new JsonResponse("Ads not found", Response::HTTP_NOT_FOUND);
+        }
+
         $adsUpdate= $this->_serializer->deserialize($data,'App\Entity\Ads', 'json');
-        $adsOrigine = $this->_adsRepository->find($id);
+
+        $ads = $adsService->updateAds($adsUpdate, $adsinitiale);
+
+        $em = $this->getDoctrine()->getManager();
+        $em->flush();
+
+        return new JsonResponse("Ads modified", Response::HTTP_ACCEPTED);
+
+
         
     }
 
 
-
-
-
-
-
-
-
-
-
-
-
+    public function updateAction(Request $request)
+    {
+        // TODO: Implement updateAction() method.
+    }
 }

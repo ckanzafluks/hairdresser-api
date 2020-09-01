@@ -131,8 +131,6 @@ class MessageController extends BaseController implements RequiredMethods
         //dump($data);die;
         //if ( $this->get('validator')->validate($data) ) {
         $ads = $this->_serializer->deserialize($data, 'App\Entity\Ads', 'json');
-
-
         $em = $this->getDoctrine()->getManager();
         $em->persist($ads);
         $em->flush();
@@ -159,13 +157,28 @@ class MessageController extends BaseController implements RequiredMethods
      */
     public function updateAction(Request $request)
     {
+        $id = $request->get('id');
+        $data = $request->getContent();
+
+        $messageinitiale = $this->_messageRepository->find($id);
+        if(empty($messageinitiale)){
+            return new JsonResponse("Message not found", Response::HTTP_NOT_FOUND);
+        }
+
+        $messageUpdated = $this->_serializer->deserialize($data,'App\Entity\Contract', 'json');
+        $messageinitiale->setDescription($messageUpdated->getDescription());
+
+        $em = $this->getDoctrine()->getManager();
+        $em->flush();
+
+        return new JsonResponse("Message modified", Response::HTTP_ACCEPTED);
 
 
     }
     /**
      * @Route("/api/message/deleted/{id}/",  requirements={"id"="\d+"}, name="api_message_deleted", methods={"DELETE"})
      */
-    public function suppMessageAction($id){
+    public function deleteMessageAction($id){
     /* Todo:
      * must add vérifcation user is allow to deleted message
      *
