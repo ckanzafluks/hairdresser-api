@@ -94,6 +94,7 @@ class UsersController extends BaseController implements RequiredMethods
             $user
                 ->setEnabled(false)
                 ->setPlainPassword($user->getPassword())
+               // ->setSuperAdmin(true)
                 ->setPassword($this->_passwordEncoder->encodePassword(
                     $user,
                     $user->getPassword()

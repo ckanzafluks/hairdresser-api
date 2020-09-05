@@ -122,6 +122,15 @@ class UserRepository extends AbstractRepository
             ->getOneOrNullResult();
     }
 
+    public function loadUserByToken($token)
+    {
+        return $this->createQueryBuilder('u')
+            ->where('u.jwtToken = :token')
+            ->setParameter('token', $token)
+            ->getQuery()
+            ->getOneOrNullResult();
+    }
+
     public function loadUserBy($params)
     {
         return $this->createQueryBuilder('u')

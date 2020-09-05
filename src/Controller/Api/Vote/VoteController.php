@@ -74,7 +74,7 @@ class VoteController extends BaseController implements RequiredMethods
     }
 
     /**
-     * @Route("/free-api/vote/create", name="api_ads_create", methods={"POST","PUT"})
+     * @Route("/free-api/vote/create", name="api_vote_create", methods={"POST","PUT"})
      */
     public function createAction(Request $request)
     {

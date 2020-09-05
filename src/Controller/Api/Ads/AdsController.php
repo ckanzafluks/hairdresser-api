@@ -4,9 +4,12 @@ namespace App\Controller\Api\Ads;
 
 use App\Controller\Api\BaseController;
 use App\Controller\Api\RequiredMethods;
+use App\Entity\Ads;
+use App\Entity\User;
 use App\Repository\AdsRepository;
 use App\Repository\UserRepository;
 use App\Services\Ads\AdsService;
+use App\Services\CheckUser\CheckUserService;
 use JMS\Serializer\Expression\ExpressionEvaluator;
 use JMS\Serializer\SerializationContext;
 use JMS\Serializer\SerializerBuilder;
@@ -41,19 +44,20 @@ class AdsController extends BaseController implements RequiredMethods
      * @var AdsRepository
      */
     private $_adsRepository;
-
     private $_adsService;
+    private $_checkUserService;
 
     /**
      * UsersController constructor.
      * @param AdsRepository $adsRepository
      * @param SerializerInterface $serializer
      */
-    public function __construct(AdsRepository $adsRepository, SerializerInterface $serializer, RequestStack $requestStack, AdsService  $adsService)
+    public function __construct(AdsRepository $adsRepository, SerializerInterface $serializer, RequestStack $requestStack, AdsService  $adsService, CheckUserService $checkUserService)
     {
         $this->_adsRepository = $adsRepository;
         $this->_serializer = $serializer;
         $this->_adsService = $adsService;
+        $this->_checkUserService = $checkUserService;
     }
 
     /**
@@ -77,20 +81,23 @@ class AdsController extends BaseController implements RequiredMethods
     }
 
     /**
-     * @Route("/free-api/ads/create", name="api_ads_create", methods={"POST","PUT"})
+     * @Route("/api/ads/create", name="api_ads_create", methods={"POST","PUT"})
      */
     public function createAction(Request $request)
     {
         $data = $request->getContent();
-        //dump($data);die;
-        //if ( $this->get('validator')->validate($data) ) {
-        $ads = $this->_serializer->deserialize($data, 'App\Entity\Ads', 'json');
+        $user = $this->_checkUserService->getUserByToken($request);
 
+        if(empty($user)){
+            return new JsonResponse('error user with token', Response::HTTP_FORBIDDEN);
+        }
+
+        $ads = $this->_serializer->deserialize($data, 'App\Entity\Ads', 'json'); /* @var $ads Ads */
+        $ads->setUser($user);
 
         $em = $this->getDoctrine()->getManager();
         $em->persist($ads);
         $em->flush();
-        //}
 
 
         return new Response('', Response::HTTP_CREATED);
@@ -115,8 +122,17 @@ class AdsController extends BaseController implements RequiredMethods
     {
         $id = $request->get('id');
         $data = $request->getContent();
-
         $adsinitiale = $this->_adsRepository->find($id);
+        $user = $this->_checkUserService->getUserByToken($request); /* @var $user User */
+
+
+        if (empty($user))
+        {
+            return new JsonResponse('error user with token', Response::HTTP_FORBIDDEN);
+        }elseif ($user != $adsinitiale->getUser() && !$this->_checkUserService->isAdmin($user)){
+
+            return new JsonResponse('no allowed', Response::HTTP_FORBIDDEN);
+        }
         if(empty($adsinitiale)){
             return new JsonResponse("Ads not found", Response::HTTP_NOT_FOUND);
         }
@@ -131,6 +147,31 @@ class AdsController extends BaseController implements RequiredMethods
         return new JsonResponse("Ads modified", Response::HTTP_ACCEPTED);
 
 
+    }
+
+    /**
+     * @Route("/api/ads/deleted/{id}/",  requirements={"id"="\d+"},  name="api_ads_deleted", methods={"PATCH"})
+     */
+    public function deletedAds(Request $request)
+    {
+        $id = $request->get('id');
+        $user = $this->_checkUserService->getUserByToken($request);
+        $ads = $this->_adsRepository->find($id);
+
+        if (empty($ads)){
+            return new JsonResponse("ads no exist", Response::HTTP_NOT_FOUND);
+        }
+
+        if(empty($user))
+        {
+            return new JsonResponse("user no exist", Response::HTTP_NOT_FOUND);
+        }elseif ($this->_checkUserService->isAdmin($user or $user == $ads->getUser())){
+            $em = $this->getDoctrine()->getManager();
+            $em->remove($ads);
+            $em->flush();
+        }
+
+        return new JsonResponse("deleted success", Response::HTTP_ACCEPTED);
 
     }
 }
