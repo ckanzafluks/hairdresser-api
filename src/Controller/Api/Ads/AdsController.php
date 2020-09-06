@@ -42,18 +42,15 @@ class AdsController extends BaseController implements RequiredMethods
      */
     private $_adsRepository;
 
-    private $_adsService;
-
     /**
      * UsersController constructor.
      * @param AdsRepository $adsRepository
      * @param SerializerInterface $serializer
      */
-    public function __construct(AdsRepository $adsRepository, SerializerInterface $serializer, RequestStack $requestStack, AdsService  $adsService)
+    public function __construct(AdsRepository $adsRepository, SerializerInterface $serializer, RequestStack $requestStack)
     {
         $this->_adsRepository = $adsRepository;
         $this->_serializer = $serializer;
-        $this->_adsService = $adsService;
     }
 
     /**
@@ -111,7 +108,7 @@ class AdsController extends BaseController implements RequiredMethods
     /**
      * @Route("/api/ads/update/{id}/",  requirements={"id"="\d+"},  name="api_ads_update", methods={"PATCH"})
      */
-    public function updateAction(Request $request)
+    public function update_Action(Request $request, AdsService $adsService)
     {
         $id = $request->get('id');
         $data = $request->getContent();
@@ -123,7 +120,7 @@ class AdsController extends BaseController implements RequiredMethods
 
         $adsUpdate= $this->_serializer->deserialize($data,'App\Entity\Ads', 'json');
 
-        $ads = $this->_adsService->updateAds($adsUpdate, $adsinitiale);
+        $ads = $adsService->updateAds($adsUpdate, $adsinitiale);
 
         $em = $this->getDoctrine()->getManager();
         $em->flush();
@@ -131,6 +128,12 @@ class AdsController extends BaseController implements RequiredMethods
         return new JsonResponse("Ads modified", Response::HTTP_ACCEPTED);
 
 
+        
+    }
 
+
+    public function updateAction(Request $request)
+    {
+        // TODO: Implement updateAction() method.
     }
 }
