@@ -129,23 +129,23 @@ class AdsController extends BaseController implements RequiredMethods
         if (empty($user))
         {
             return new JsonResponse('error user with token', Response::HTTP_FORBIDDEN);
-        }elseif ($user != $adsinitiale->getUser() && !$this->_checkUserService->isAdmin($user)){
-
-            return new JsonResponse('no allowed', Response::HTTP_FORBIDDEN);
         }
+
         if(empty($adsinitiale)){
             return new JsonResponse("Ads not found", Response::HTTP_NOT_FOUND);
+        }elseif ($adsinitiale->getUser() == $user or $this->_checkUserService->isAdmin($user))
+        {
+            $adsUpdate= $this->_serializer->deserialize($data,'App\Entity\Ads', 'json');
+            $ads = $this->_adsService->updateAds($adsUpdate, $adsinitiale);
+
+            $em = $this->getDoctrine()->getManager();
+            $em->flush();
+            return new JsonResponse("Ads modified", Response::HTTP_ACCEPTED);
+
+        }else{
+            return new JsonResponse("no allowed", Response::HTTP_FORBIDDEN);
+
         }
-
-        $adsUpdate= $this->_serializer->deserialize($data,'App\Entity\Ads', 'json');
-
-        $ads = $this->_adsService->updateAds($adsUpdate, $adsinitiale);
-
-        $em = $this->getDoctrine()->getManager();
-        $em->flush();
-
-        return new JsonResponse("Ads modified", Response::HTTP_ACCEPTED);
-
 
     }
 
@@ -165,7 +165,7 @@ class AdsController extends BaseController implements RequiredMethods
         if(empty($user))
         {
             return new JsonResponse("user no exist", Response::HTTP_NOT_FOUND);
-        }elseif ($this->_checkUserService->isAdmin($user or $user == $ads->getUser())){
+        }elseif ($this->_checkUserService->isAdmin($user) or $user == $ads->getUser()){
             $em = $this->getDoctrine()->getManager();
             $em->remove($ads);
             $em->flush();

@@ -48,7 +48,7 @@ class CheckUserService
         }
         $token_withoutBearer =mb_strimwidth($token, 7,strlen($token));
 
-        return $this->_userRepo->loadUserByToken($token_withoutBearer);
+        return $this->_userRepo->loadUserByToken($token_withoutBearer); /* retrurn User*/
     }
 
     public function isAdmin($user) /* @var $user \App\Entity\User */
