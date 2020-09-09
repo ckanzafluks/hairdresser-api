@@ -44,20 +44,19 @@ class AdsController extends BaseController implements RequiredMethods
      * @var AdsRepository
      */
     private $_adsRepository;
+
     private $_adsService;
-    private $_checkUserService;
 
     /**
      * UsersController constructor.
      * @param AdsRepository $adsRepository
      * @param SerializerInterface $serializer
      */
-    public function __construct(AdsRepository $adsRepository, SerializerInterface $serializer, RequestStack $requestStack, AdsService  $adsService, CheckUserService $checkUserService)
+
+    public function __construct(AdsRepository $adsRepository, SerializerInterface $serializer, RequestStack $requestStack)
     {
         $this->_adsRepository = $adsRepository;
         $this->_serializer = $serializer;
-        $this->_adsService = $adsService;
-        $this->_checkUserService = $checkUserService;
     }
 
     /**
@@ -118,7 +117,7 @@ class AdsController extends BaseController implements RequiredMethods
     /**
      * @Route("/api/ads/update/{id}/",  requirements={"id"="\d+"},  name="api_ads_update", methods={"PATCH"})
      */
-    public function updateAction(Request $request)
+    public function update_Action(Request $request, AdsService $adsService)
     {
         $id = $request->get('id');
         $data = $request->getContent();
@@ -139,7 +138,7 @@ class AdsController extends BaseController implements RequiredMethods
 
         $adsUpdate= $this->_serializer->deserialize($data,'App\Entity\Ads', 'json');
 
-        $ads = $this->_adsService->updateAds($adsUpdate, $adsinitiale);
+        $ads = $adsService->updateAds($adsUpdate, $adsinitiale);
 
         $em = $this->getDoctrine()->getManager();
         $em->flush();
@@ -149,29 +148,11 @@ class AdsController extends BaseController implements RequiredMethods
 
     }
 
-    /**
-     * @Route("/api/ads/deleted/{id}/",  requirements={"id"="\d+"},  name="api_ads_deleted", methods={"PATCH"})
-     */
-    public function deletedAds(Request $request)
+
+
+
+    public function updateAction(Request $request)
     {
-        $id = $request->get('id');
-        $user = $this->_checkUserService->getUserByToken($request);
-        $ads = $this->_adsRepository->find($id);
-
-        if (empty($ads)){
-            return new JsonResponse("ads no exist", Response::HTTP_NOT_FOUND);
-        }
-
-        if(empty($user))
-        {
-            return new JsonResponse("user no exist", Response::HTTP_NOT_FOUND);
-        }elseif ($this->_checkUserService->isAdmin($user or $user == $ads->getUser())){
-            $em = $this->getDoctrine()->getManager();
-            $em->remove($ads);
-            $em->flush();
-        }
-
-        return new JsonResponse("deleted success", Response::HTTP_ACCEPTED);
-
+        // TODO: Implement updateAction() method.
     }
 }
