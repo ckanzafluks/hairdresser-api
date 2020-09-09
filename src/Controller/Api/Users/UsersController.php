@@ -6,6 +6,7 @@ use App\Controller\Api\BaseController;
 use App\Controller\Api\RequiredMethods;
 use App\Entity\User;
 use App\Repository\UserRepository;
+use App\Services\CheckUser\CheckUserService;
 use App\Services\Users\CheckFields;
 use JMS\Serializer\SerializationContext;
 use JMS\Serializer\SerializerInterface;
@@ -42,12 +43,14 @@ class UsersController extends BaseController implements RequiredMethods
      */
     private $_passwordEncoder;
 
+    private $_checkUserService;
+
     /**
      * UsersController constructor.
      * @param UserRepository $userRepository
      * @param SerializerInterface $serializer
      */
-    public function __construct(UserRepository $userRepository, SerializerInterface $serializer,CheckFields $checkFields, UserPasswordEncoderInterface $passwordEncoder)
+    public function __construct(UserRepository $userRepository, SerializerInterface $serializer,CheckFields $checkFields, UserPasswordEncoderInterface $passwordEncoder, CheckUserService $checkUserService)
     {
         $this->_userRepository = $userRepository;
 
@@ -56,6 +59,8 @@ class UsersController extends BaseController implements RequiredMethods
         $this->_checkFields = $checkFields;
 
         $this->_passwordEncoder = $passwordEncoder;
+
+        $this->_checkUserService = $checkUserService;
     }
 
     /**
@@ -125,11 +130,21 @@ class UsersController extends BaseController implements RequiredMethods
     }
 
     /**
-     * @Route("/api/users/{id}",name="api_users_update", methods={"PUT"})
+     * @Route("/api/users/update/{id}",name="api_users_update", methods={"PUT"})
      */
     public function updateAction(Request $request)
     {
 
     }
+
+    /**
+     * @Route("/api/users/deleted/{id}",name="api_users_deleted", methods={"PUT"})
+     */
+    public function deletedAction(Request $request)
+    {
+
+    }
+
+
 
 }
