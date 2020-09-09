@@ -8,8 +8,10 @@ use App\Entity\User;
 use App\Repository\UserRepository;
 use App\Services\CheckUser\CheckUserService;
 use App\Services\Users\CheckFields;
+use App\Services\Users\UserService;
 use JMS\Serializer\SerializationContext;
 use JMS\Serializer\SerializerInterface;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Response;
@@ -44,13 +46,13 @@ class UsersController extends BaseController implements RequiredMethods
     private $_passwordEncoder;
 
     private $_checkUserService;
-
+    private $_userService; 
     /**
      * UsersController constructor.
      * @param UserRepository $userRepository
      * @param SerializerInterface $serializer
      */
-    public function __construct(UserRepository $userRepository, SerializerInterface $serializer,CheckFields $checkFields, UserPasswordEncoderInterface $passwordEncoder, CheckUserService $checkUserService)
+    public function __construct(UserRepository $userRepository, SerializerInterface $serializer,CheckFields $checkFields, UserPasswordEncoderInterface $passwordEncoder, CheckUserService $checkUserService, UserService $userService)
     {
         $this->_userRepository = $userRepository;
 
@@ -61,6 +63,8 @@ class UsersController extends BaseController implements RequiredMethods
         $this->_passwordEncoder = $passwordEncoder;
 
         $this->_checkUserService = $checkUserService;
+        
+        $this->_userService = $userService;
     }
 
     /**
@@ -130,19 +134,64 @@ class UsersController extends BaseController implements RequiredMethods
     }
 
     /**
-     * @Route("/api/users/update/{id}",name="api_users_update", methods={"PUT"})
+     * @Route("/api/users/updateid}",name="api_users_update", methods={"PUT"})
      */
     public function updateAction(Request $request)
     {
+        $id = $request->get('id');
+        $data = $request->getContent();
+        $userinitiale = $this->_userRepository->find($id);
+        $user = $this->_checkUserService->getUserByToken($request); /* @var $user User */
+
+
+        if (empty($user))
+        {
+            return new JsonResponse('error user with token', Response::HTTP_FORBIDDEN);
+        }
+
+        if(empty($userinitiale)){
+            return new JsonResponse("Ads not found", Response::HTTP_NOT_FOUND);
+        }elseif ($userinitiale == $user or $this->_checkUserService->isAdmin($user))
+        {
+            $userUpdate = $this->_serializer->deserialize($data,'App\Entity\Ads', 'json');
+            $userUpdated = $this->_userService->updateAds($userUpdate, $userinitiale); ////
+
+            $em = $this->getDoctrine()->getManager();
+            $em->flush();
+            return new JsonResponse("User modified", Response::HTTP_ACCEPTED);
+
+        }else{
+            return new JsonResponse("no allowed", Response::HTTP_FORBIDDEN);
+
+        }
 
     }
+    
 
     /**
      * @Route("/api/users/deleted/{id}",name="api_users_deleted", methods={"PUT"})
      */
     public function deletedAction(Request $request)
     {
-
+        $id = $request->get('id');
+        $user = $this->_checkUserService->getUserByToken($request);
+        
+        if(empty($user))
+        {
+            return new JsonResponse("user no found", Response::HTTP_NOT_FOUND);
+        }
+        
+        if ($this->_checkUserService->isAdmin($user))
+        {
+            $userWilldeteled = $this->_userRepository->find($id);
+            if(empty($userWilldeteled)){return new JsonResponse("user cannot be deleted, user not found", Response::HTTP_NOT_FOUND);}
+            
+            $em = $this->getDoctrine()->getManager();
+            $em->remove($userWilldeteled);
+            $em->flush();
+        }else{
+            return new JsonResponse("you are not allow to deleted user", Response::HTTP_UNAUTHORIZED);
+        }
     }
 
 
