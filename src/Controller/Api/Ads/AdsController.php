@@ -45,6 +45,8 @@ class AdsController extends BaseController implements RequiredMethods
      */
     private $_adsRepository;
 
+    private $_checkUserService;
+
     private $_adsService;
 
     /**
@@ -53,10 +55,12 @@ class AdsController extends BaseController implements RequiredMethods
      * @param SerializerInterface $serializer
      */
 
-    public function __construct(AdsRepository $adsRepository, SerializerInterface $serializer, RequestStack $requestStack)
+    public function __construct(AdsRepository $adsRepository, SerializerInterface $serializer, RequestStack $requestStack, CheckUserService  $checkUserService)
     {
         $this->_adsRepository = $adsRepository;
         $this->_serializer = $serializer;
+        $this->_checkUserService =$checkUserService;
+
     }
 
     /**
@@ -64,7 +68,6 @@ class AdsController extends BaseController implements RequiredMethods
      */
     public function listAction(Request $request)
     {
-
         $page   = $request->query->get('page',1);
         $offset = ($page*self::TOTAL_RESULTS_PER_PAGE)-1;
         $listAdsPaginator = $this->_adsRepository->getAll(self::TOTAL_RESULTS_PER_PAGE, $offset);

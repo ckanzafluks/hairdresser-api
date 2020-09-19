@@ -32,22 +32,19 @@ class MediasPhotos
      */
     private $medias;
 
-    /**
-     * @ORM\Column(type="datetime", nullable=true)
-     */
-    private $created;
+
 
     /**
      * @ORM\Column(type="datetime", nullable=true)
      */
     private $updated;
-    
-    private $ads;
 
     /**
-     * @ORM\Column(type="integer", nullable=true)
+     * @ORM\ManyToOne(targetEntity=Ads::class, inversedBy="mediaphoto")
      */
-    private $idParent;
+    private $ads;
+
+
 
     public function getId(): ?int
     {
@@ -78,17 +75,7 @@ class MediasPhotos
         return $this;
     }
 
-    public function getMedias(): ?Medias
-    {
-        return $this->medias;
-    }
 
-    public function setMedias(?Medias $medias): self
-    {
-        $this->medias = $medias;
-
-        return $this;
-    }
 
     public function getCreated(): ?\DateTimeInterface
     {
@@ -122,26 +109,19 @@ class MediasPhotos
         $this->pathfile = '/uploads/users/'.$idUser.'/photoMedias/'.$this->name;
         
     }
-    
-    public function getAds()
+
+    public function getAds(): ?Ads
     {
         return $this->ads;
     }
-    
-    public function setAds($ads)
+
+    public function setAds(?Ads $ads): self
     {
         $this->ads = $ads;
-    }
-
-    public function getIdParent(): ?int
-    {
-        return $this->idParent;
-    }
-
-    public function setIdParent(int $idParent): self
-    {
-        $this->idParent = $idParent;
 
         return $this;
     }
+
+
+
 }

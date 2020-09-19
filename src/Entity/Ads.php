@@ -73,12 +73,6 @@ class Ads
      */
     private $experiancesannees;
 
-    /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Medias", mappedBy="ads")
-     * @Serializer\Expose
-     * @Serializer\Groups({"get", "list", "details", "create", "update"})
-     */
-    private $medias;
 
 
     /**
@@ -107,17 +101,22 @@ class Ads
      */
     private $active;
 
+    /**
+     * @ORM\OneToMany(targetEntity=MediasPhotos::class, mappedBy="ads")
+     */
+    private $mediaphoto;
+
 
 
     public function __construct()
     {
         $this->created = new \DateTime();
-        $this->medias  = new ArrayCollection();
         $this->contractsAuthor = new ArrayCollection();
         $this->contractsMessages = new ArrayCollection();
         $this->presessions = new ArrayCollection();
         $this->ojectifPresession = new ArrayCollection();
         $this->userFileIdentities = new ArrayCollection();
+        $this->mediaphoto = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -222,36 +221,6 @@ class Ads
         return $this;
     }
 
-    /**
-     * @return Collection|Medias[]
-     */
-    public function getMedias(): Collection
-    {
-        return $this->medias;
-    }
-
-    public function addMedia(Medias $media): self
-    {
-        if (!$this->medias->contains($media)) {
-            $this->medias[] = $media;
-            $media->setAds($this);
-        }
-
-        return $this;
-    }
-
-    public function removeMedia(Medias $media): self
-    {
-        if ($this->medias->contains($media)) {
-            $this->medias->removeElement($media);
-            // set the owning side to null (unless already changed)
-            if ($media->getAds() === $this) {
-                $media->setAds(null);
-            }
-        }
-
-        return $this;
-    }
 
     /**
      * @return Collection|ContractsAuthor[]
@@ -440,6 +409,37 @@ class Ads
     public function setActive(?bool $active): self
     {
         $this->active = $active;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|MediasPhotos[]
+     */
+    public function getMediaphoto(): Collection
+    {
+        return $this->mediaphoto;
+    }
+
+    public function addMediaphoto(MediasPhotos $mediaphoto): self
+    {
+        if (!$this->mediaphoto->contains($mediaphoto)) {
+            $this->mediaphoto[] = $mediaphoto;
+            $mediaphoto->setAds($this);
+        }
+
+        return $this;
+    }
+
+    public function removeMediaphoto(MediasPhotos $mediaphoto): self
+    {
+        if ($this->mediaphoto->contains($mediaphoto)) {
+            $this->mediaphoto->removeElement($mediaphoto);
+            // set the owning side to null (unless already changed)
+            if ($mediaphoto->getAds() === $this) {
+                $mediaphoto->setAds(null);
+            }
+        }
 
         return $this;
     }
