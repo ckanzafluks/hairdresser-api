@@ -8,7 +8,7 @@ use App\Entity\Ads;
 use App\Entity\User;
 use App\Repository\AdsRepository;
 use App\Repository\UserRepository;
-use App\Services\Ads\AdsService;
+use App\Services\Api\AdsService;
 use App\Services\CheckUser\CheckUserService;
 use JMS\Serializer\Expression\ExpressionEvaluator;
 use JMS\Serializer\SerializationContext;
