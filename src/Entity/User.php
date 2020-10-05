@@ -347,6 +347,16 @@ class User extends BaseUser
      */
     private $jwtToken;
 
+    /**
+     * @ORM\Column(type="string", length=20, nullable=true)
+     */
+    private $siret;
+
+    /**
+     * @ORM\Column(type="string", length=50, nullable=true)
+     */
+    private $enterprise_name;
+
 
     public function __construct()
     {
@@ -941,6 +951,30 @@ class User extends BaseUser
     public function setJwtToken(?string $jwtToken): self
     {
         $this->jwtToken = $jwtToken;
+
+        return $this;
+    }
+
+    public function getSiret(): ?string
+    {
+        return $this->siret;
+    }
+
+    public function setSiret(?string $siret): self
+    {
+        $this->siret = $siret;
+
+        return $this;
+    }
+
+    public function getEnterpriseName(): ?string
+    {
+        return $this->enterprise_name;
+    }
+
+    public function setEnterpriseName(?string $enterprise_name): self
+    {
+        $this->enterprise_name = $enterprise_name;
 
         return $this;
     }
