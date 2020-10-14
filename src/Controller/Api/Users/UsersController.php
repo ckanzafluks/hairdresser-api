@@ -8,6 +8,7 @@ use App\Entity\User;
 use App\Repository\UserRepository;
 use App\Services\Users\CheckFields;
 use JMS\Serializer\SerializationContext;
+use JMS\Serializer\DeserializationContext;
 use JMS\Serializer\SerializerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
@@ -85,7 +86,8 @@ class UsersController extends BaseController implements RequiredMethods
     public function createAction(Request $request)
     {
         $data = $request->getContent();
-        $user = $this->_serializer->deserialize($data, 'App\Entity\User', 'json'); /* @var $user User */
+        $user = $this->_serializer->deserialize($data, 'App\Entity\User', 'json', DeserializationContext::create()->setGroups(array('create'))); /* @var $user User */
+
 
         $isValid = $this->_checkFields->isValidEntity($user);
         if ( $isValid['totalErrors'] > 0 ) {
@@ -103,7 +105,15 @@ class UsersController extends BaseController implements RequiredMethods
             $em = $this->getDoctrine()->getManager();
             $em->persist($user);
             $em->flush();
-            return new Response($user->getId(), Response::HTTP_CREATED);
+
+            $dataReturn = [
+                'id'       => $user->getId(),
+                'email'    => $user->getEmail(),
+                'username' => $user->getUsername(),
+                'type'     => $user->getTypeUser(),
+            ];
+            return new Response( json_encode($dataReturn), Response::HTTP_CREATED
+            );
         }
     }
 

@@ -81,7 +81,7 @@ class User extends BaseUser
     protected $city;
 
     /**
-     * @ORM\Column(type="integer", nullable=true)
+     * @ORM\Column(type="string", nullable=true)
      * @Serializer\Expose
      * @Serializer\Groups({"get", "list", "details", "create", "update"})
      */
@@ -346,6 +346,20 @@ class User extends BaseUser
      * @ORM\Column(type="text", nullable=true)
      */
     private $jwtToken;
+
+    /**
+     * @ORM\Column(type="string", length=20, nullable=true)
+     * @Serializer\Expose
+     * @Serializer\Groups({"get", "list", "details", "create", "update"})
+     */
+    private $siret;
+
+    /**
+     * @ORM\Column(type="string", length=50, nullable=true)
+     * @Serializer\Expose
+     * @Serializer\Groups({"get", "list", "details", "create", "update"})
+     */
+    private $enterprise_name;
 
 
     public function __construct()
@@ -941,6 +955,30 @@ class User extends BaseUser
     public function setJwtToken(?string $jwtToken): self
     {
         $this->jwtToken = $jwtToken;
+
+        return $this;
+    }
+
+    public function getSiret(): ?string
+    {
+        return $this->siret;
+    }
+
+    public function setSiret(?string $siret): self
+    {
+        $this->siret = $siret;
+
+        return $this;
+    }
+
+    public function getEnterpriseName(): ?string
+    {
+        return $this->enterprise_name;
+    }
+
+    public function setEnterpriseName(?string $enterprise_name): self
+    {
+        $this->enterprise_name = $enterprise_name;
 
         return $this;
     }
