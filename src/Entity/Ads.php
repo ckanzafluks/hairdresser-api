@@ -113,11 +113,7 @@ class Ads
     {
         $this->created = new \DateTime();
         $this->medias  = new ArrayCollection();
-        $this->contractsAuthor = new ArrayCollection();
         $this->contractsMessages = new ArrayCollection();
-        $this->presessions = new ArrayCollection();
-        $this->ojectifPresession = new ArrayCollection();
-        $this->userFileIdentities = new ArrayCollection();
     }
 
     public function getId(): ?int

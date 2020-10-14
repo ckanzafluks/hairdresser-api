@@ -81,7 +81,7 @@ class User extends BaseUser
     protected $city;
 
     /**
-     * @ORM\Column(type="integer", nullable=true)
+     * @ORM\Column(type="string", nullable=true)
      * @Serializer\Expose
      * @Serializer\Groups({"get", "list", "details", "create", "update"})
      */
@@ -349,11 +349,15 @@ class User extends BaseUser
 
     /**
      * @ORM\Column(type="string", length=20, nullable=true)
+     * @Serializer\Expose
+     * @Serializer\Groups({"get", "list", "details", "create", "update"})
      */
     private $siret;
 
     /**
      * @ORM\Column(type="string", length=50, nullable=true)
+     * @Serializer\Expose
+     * @Serializer\Groups({"get", "list", "details", "create", "update"})
      */
     private $enterprise_name;
 

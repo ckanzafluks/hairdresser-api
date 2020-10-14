@@ -30,7 +30,7 @@ class CheckFields
 
     const MESSAGE_USER_EXIST = "L'adresse email existe déjà! Veuillez en choisir une autre.";
 
-    const MESSAGE_USERNAME_EXIST = "Le pseudo choisi existe déjà! Veuillez en choisir une autre.";
+    const MESSAGE_USERNAME_EXIST = "Le pseudo choisi existe déjà! Veuillez en choisir un autre.";
 
     const MESSAGE_PASSWORD_EMPTY = "Le mot de passe est vide.";
 
@@ -56,9 +56,8 @@ class CheckFields
             ['field' => $userEntity->getEmail(),    'constraint' => new NotNull(['message' => self::EMPTY_VALUE])],
             ['field' => $userEntity->getPassword(), 'constraint' => new NotNull(['message' => self::MESSAGE_PASSWORD_EMPTY])],
             ['field' => $userEntity->getTypeUser(), 'constraint' => new NotNull(['message' => self::MESSAGE_PROFIL_EMPTY])],
-            
-            ['field' => $userEntity,'constraint' => new UniqueEntity(['fields' => ['email'],    'message' => self::MESSAGE_USER_EXIST])],
-            ['field' => $userEntity,'constraint' => new UniqueEntity(['fields' => ['username'], 'message' => self::MESSAGE_USERNAME_EXIST])],
+            ['field' => $userEntity,                'constraint' => new UniqueEntity(['fields' => ['email'],    'message' => self::MESSAGE_USER_EXIST])],
+            ['field' => $userEntity,                'constraint' => new UniqueEntity(['fields' => ['username'], 'message' => self::MESSAGE_USERNAME_EXIST])],
         ];
 
         foreach ($validatorsList as $params) {
