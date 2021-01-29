@@ -45,11 +45,12 @@ class AuthenticationSuccessListener {
         $this->_entityManager->persist($user);
         $this->_entityManager->flush();
 
-        $userJson = $this->_serializer->serialize($user, 'json');
+        //$userJson = $this->_serializer->serialize($user, 'json');
         $event->setData([
             'code'    => $event->getResponse()->getStatusCode(),
             'payload' => $event->getData(),
-            'user'    => $userJson,
+            'userId'  => $user->getId(),
+            'userEmail'  => $user->getEmail(),
         ]);
     }
 }
