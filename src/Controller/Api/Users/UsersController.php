@@ -81,7 +81,7 @@ class UsersController extends BaseController implements RequiredMethods
     }
 
     /**
-     * @Route("/free-api/users/", name="api_users_create", methods={"PUT","POST"})
+     * @Route("/free-api/users/", name="api_users_create", methods={"POST"})
      */
     public function createAction(Request $request)
     {

@@ -104,12 +104,14 @@ class User extends BaseUser
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      * @Serializer\Expose
+     * @JMS\Serializer\Annotation\Type("string")
      * @Serializer\Groups({"get", "list", "details", "create", "update"})
      */
     private $name;
 
     /**
      * @ORM\Column(type="string", length=100, nullable=true)
+     * @JMS\Serializer\Annotation\Type("string")
      * @Serializer\Expose
      * @Serializer\Groups({"get", "list", "details", "create", "update"})
      */
@@ -118,6 +120,7 @@ class User extends BaseUser
     /**
      * @ORM\Column(type="string", length=100, nullable=true)
      * @Serializer\Expose
+     * @JMS\Serializer\Annotation\Type("string")
      * @Serializer\Groups({"get", "list", "details", "create", "update"})
      */
     private $country;
@@ -145,6 +148,7 @@ class User extends BaseUser
     /**
      * @ORM\Column(type="string", length=100, nullable=true)
      * @Serializer\Expose
+     * @JMS\Serializer\Annotation\Type("string")
      * @Serializer\Groups({"get", "list", "details", "create", "update"})
      */
     private $firstname;
@@ -152,6 +156,7 @@ class User extends BaseUser
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      * @Serializer\Expose
+     * @JMS\Serializer\Annotation\Type("string")
      * @Serializer\Groups({"get", "list", "details", "create", "update"})
      */
     private $photo;
@@ -169,6 +174,7 @@ class User extends BaseUser
     /**
      * @var string
      * @Serializer\Expose
+     * @JMS\Serializer\Annotation\Type("string")
      * @Serializer\Groups({"get", "list", "details", "create", "update"})
      */
     protected $username;
@@ -176,6 +182,7 @@ class User extends BaseUser
     /**
      * @var string
      * @Serializer\Expose
+     * @JMS\Serializer\Annotation\Type("string")
      * @Serializer\Groups({"get", "list", "details", "create", "update"})
      */
     protected $usernameCanonical;
@@ -183,6 +190,7 @@ class User extends BaseUser
     /**
      * @var string
      * @Serializer\Expose
+     * @JMS\Serializer\Annotation\Type("string")
      * @Serializer\Groups({"get", "list", "details", "create", "update"})
      */
     protected $email;
@@ -190,6 +198,7 @@ class User extends BaseUser
     /**
      * @var string
      * @Serializer\Expose
+     * @JMS\Serializer\Annotation\Type("string")
      * @Serializer\Groups({"get", "list", "details", "create", "update"})
      */
     protected $emailCanonical;
@@ -214,6 +223,7 @@ class User extends BaseUser
      *
      * @var string
      * @Serializer\Expose
+     * @JMS\Serializer\Annotation\Type("string")
      * @Serializer\Groups({"create", "update"})
      */
     protected $plainPassword;
@@ -231,6 +241,7 @@ class User extends BaseUser
      *
      * @var string|null
      * @Serializer\Expose
+     * @JMS\Serializer\Annotation\Type("string")
      * @Serializer\Groups({"get", "list", "details", "create", "update"})
      */
     protected $confirmationToken;
