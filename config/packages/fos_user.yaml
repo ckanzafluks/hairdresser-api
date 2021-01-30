@@ -3,15 +3,16 @@ fos_user:
     firewall_name: main
     user_class: App\Entity\User
     from_email:
-        address: "contact@pâques.com"
+        address: "noreply@clictacoiffure.com"
         sender_name: "PÂQUES"
 
-    change_password:
-        form:
-            type: AppBundle\Form\ChangePasswordType
+    resetting:
+        email:
+            template: emails/fos_user/reset-password.email.html.twig
 
     registration:
         confirmation:
             enabled: true
+            template: emails/fos_user/registration_confirmation.email.html.twig
 
 
