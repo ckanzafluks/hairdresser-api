@@ -7,6 +7,7 @@ use App\Controller\Api\RequiredMethods;
 use App\Entity\User;
 use App\Repository\UserRepository;
 use App\Services\Users\CheckFields;
+use App\Services\Users\UserPasswordResetService;
 use JMS\Serializer\SerializationContext;
 use JMS\Serializer\DeserializationContext;
 use JMS\Serializer\SerializerInterface;
@@ -34,51 +35,58 @@ class ResetPasswordController
     private $_serializer;
 
     /**
-     * @var CheckFields
-     */
-    private $_checkFields;
-
-    /**
-     * @var UserPasswordEncoderInterface
-     */
-    private $_passwordEncoder;
-
-    /**
      * UsersController constructor.
      * @param UserRepository $userRepository
      * @param SerializerInterface $serializer
      */
-    public function __construct(UserRepository $userRepository, SerializerInterface $serializer,CheckFields $checkFields, UserPasswordEncoderInterface $passwordEncoder)
+    public function __construct(UserRepository $userRepository, SerializerInterface $serializer)
     {
         $this->_userRepository = $userRepository;
-
         $this->_serializer = $serializer;
-
-        $this->_checkFields = $checkFields;
-
-        $this->_passwordEncoder = $passwordEncoder;
     }
 
     /**
      * @Route("/free-api/users/reset-password/{email}", name="api_users_reset_password", methods={"POST"})
      * @param Request $request
+     * @return Response
      */
-    public function resetPasswordAction(Request $request)
+    public function resetPasswordAction(Request $request, UserPasswordResetService $userPasswordResetService)
     {
-        // @todo : a faire
+        // we load user by email
+        $userEmail = $this->_userRepository->findOneBy(['email',$request->get('email')]);
+
+        // we send email
+        $result = $userPasswordResetService->sendEmailResetPassword($userEmail);
+
+        // json return
+        $dataReturn = [
+            'success' => $result,
+        ];
+        return new Response( json_encode($dataReturn), Response::HTTP_CREATED);
     }
 
     /**
      * @Route("/free-api/users/confirm-reset-password/{token}", name="api_users_confirm_password", methods={"GET"})
      * @param Request $request
+     * @param UserPasswordResetService $userPasswordResetService
+     * @return Response
      */
-    public function confirmResetPasswordAction(Request $request)
+    public function confirmResetPasswordAction(Request $request, UserPasswordResetService $userPasswordResetService)
     {
         // Load by token
         $userEntity = $this->_userRepository->findOneBy(['XXXXXtokenXXXX' => $request->get('XXXXXtokenXXXXX')]); //......
 
-        // Update user (active=1)
+        // Update user (we set active=1)
+        // ...... @todo: .....
 
+        // We send confirm email activation
+        $result = $userPasswordResetService->sendEmailConfirmPassword($userEntity);
+
+        // json return
+        $dataReturn = [
+            'success' => $result,
+        ];
+        return new Response( json_encode($dataReturn), Response::HTTP_CREATED);
     }
 
 
