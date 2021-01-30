@@ -94,7 +94,7 @@ class UsersController extends BaseController implements RequiredMethods
             return new Response($this->_serializer->serialize($isValid,'json'), Response::HTTP_INTERNAL_SERVER_ERROR);
         } else {
             $user
-                ->setEnabled(false)
+                ->setEnabled(true)
                 ->setPlainPassword($user->getPassword())
                // ->setSuperAdmin(true)
                 ->setPassword($this->_passwordEncoder->encodePassword(
