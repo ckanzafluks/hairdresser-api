@@ -65,6 +65,9 @@
     "egulias/email-validator": {
         "version": "2.1.19"
     },
+    "exsyst/swagger": {
+        "version": "v0.4.2"
+    },
     "friendsofsymfony/ckeditor-bundle": {
         "version": "2.0",
         "recipe": {
@@ -145,6 +148,19 @@
     "namshi/jose": {
         "version": "7.2.3"
     },
+    "nelmio/api-doc-bundle": {
+        "version": "3.0",
+        "recipe": {
+            "repo": "github.com/symfony/recipes-contrib",
+            "branch": "master",
+            "version": "3.0",
+            "ref": "c8e0c38e1a280ab9e37587a8fa32b251d5bc1c94"
+        },
+        "files": [
+            "config/packages/nelmio_api_doc.yaml",
+            "config/routes/nelmio_api_doc.yaml"
+        ]
+    },
     "nelmio/cors-bundle": {
         "version": "1.5",
         "recipe": {
@@ -168,6 +184,15 @@
     },
     "php": {
         "version": "7.4"
+    },
+    "phpdocumentor/reflection-common": {
+        "version": "2.2.0"
+    },
+    "phpdocumentor/reflection-docblock": {
+        "version": "5.2.2"
+    },
+    "phpdocumentor/type-resolver": {
+        "version": "1.4.0"
     },
     "phpstan/phpdoc-parser": {
         "version": "0.4.10"
@@ -429,6 +454,9 @@
     "symfony/property-access": {
         "version": "v4.4.11"
     },
+    "symfony/property-info": {
+        "version": "v4.4.19"
+    },
     "symfony/routing": {
         "version": "4.2",
         "recipe": {
@@ -563,6 +591,9 @@
     "twig/twig": {
         "version": "v2.13.1"
     },
+    "webmozart/assert": {
+        "version": "1.9.1"
+    },
     "white-october/pagerfanta-bundle": {
         "version": "v1.3.2"
     },
@@ -592,5 +623,8 @@
     },
     "zendframework/zend-eventmanager": {
         "version": "3.2.1"
+    },
+    "zircote/swagger-php": {
+        "version": "2.1.0"
     }
 }
