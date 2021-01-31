@@ -43,7 +43,7 @@ class NotificationsEmail
 
        $email = (new TemplatedEmail())
            ->from('fabien@example.com')
-           ->to(new Address('jal.djellouli@gmail.com'))
+           ->to(new Address($user->getEmail()))
            ->subject('Activation compte')
 
            ->htmlTemplate('mail/mail_activation_account.html.twig')
