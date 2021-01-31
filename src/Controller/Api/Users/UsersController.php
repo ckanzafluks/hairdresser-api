@@ -10,10 +10,12 @@ use App\Services\Users\CheckFields;
 use JMS\Serializer\SerializationContext;
 use JMS\Serializer\DeserializationContext;
 use JMS\Serializer\SerializerInterface;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
+use Symfony\Component\Validator\Constraints\Uuid;
 
 
 /**
@@ -88,7 +90,7 @@ class UsersController extends BaseController implements RequiredMethods
         $data = $request->getContent();
         $user = $this->_serializer->deserialize($data, 'App\Entity\User', 'json', DeserializationContext::create()->setGroups(array('create'))); /* @var $user User */
 
-
+        //dump($user);die;
         $isValid = $this->_checkFields->isValidEntity($user);
         if ( $isValid['totalErrors'] > 0 ) {
             return new Response($this->_serializer->serialize($isValid,'json'), Response::HTTP_INTERNAL_SERVER_ERROR);
@@ -97,11 +99,11 @@ class UsersController extends BaseController implements RequiredMethods
                 ->setEnabled(true)
                 ->setPlainPassword($user->getPassword())
                // ->setSuperAdmin(true)
-                ->setPassword($this->_passwordEncoder->encodePassword(
+               ->setConfirmationToken(uniqid())
+               ->setPassword($this->_passwordEncoder->encodePassword(
                     $user,
                     $user->getPassword()
-                ));
-
+               ));
             $em = $this->getDoctrine()->getManager();
             $em->persist($user);
             $em->flush();
@@ -139,6 +141,38 @@ class UsersController extends BaseController implements RequiredMethods
      */
     public function updateAction(Request $request)
     {
+
+    }
+
+    /**
+     * @Route("/free-api/mot-de-passe-activation/email",name="api_users_checkToken", methods={"POST"})
+     */
+    public function checkIfToken_isValid(Request $request)
+    {
+        $mail = $request->request->get('mail');
+        $token = $request->request->get('token');
+
+        //dump();die;
+        if(!isset($mail))
+        {
+            return new JsonResponse('email missing', Response::HTTP_NOT_FOUND);
+        }elseif (!isset($token)){
+            return new JsonResponse('token missing', Response::HTTP_NOT_FOUND);
+        }
+
+        $user = $this->_userRepository->findOneBy(['email'=> $mail]); /** $user User */
+
+        if(!isset($user))
+        {
+            return new JsonResponse('user not found', Response::HTTP_NOT_FOUND);
+        }else{
+            if ($token == $user->getConfirmationToken())
+            {
+                return new JsonResponse('token valide', Response::HTTP_OK);
+            }else{
+                return new JsonResponse('token invalide', Response::HTTP_UNAUTHORIZED);
+            }
+        }
 
     }
 
