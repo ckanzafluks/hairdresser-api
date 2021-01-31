@@ -12,6 +12,7 @@
         "jms/serializer-bundle": "^3.7",
         "knpuniversity/lorem-ipsum-bundle": "^1.0",
         "lexik/jwt-authentication-bundle": "^2.8",
+        "nelmio/api-doc-bundle": "^3.0",
         "nelmio/cors-bundle": "^2.1",
         "sensio/framework-extra-bundle": "^5.5",
         "sonata-project/doctrine-extensions": "^1.0",
