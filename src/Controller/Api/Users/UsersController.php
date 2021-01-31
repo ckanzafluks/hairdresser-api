@@ -145,7 +145,7 @@ class UsersController extends BaseController implements RequiredMethods
     }
 
     /**
-     * @Route("/free-api/mot-de-passe-activation/email",name="api_users_checkToken", methods={"POST"})
+     * @Route("/free-api/mot-de-passe-activation",name="api_users_checkToken", methods={"POST"})
      */
     public function checkIfToken_isValid(Request $request)
     {
@@ -168,7 +168,10 @@ class UsersController extends BaseController implements RequiredMethods
         }else{
             if ($token == $user->getConfirmationToken())
             {
-                return new JsonResponse('token valide', Response::HTTP_OK);
+                $user->setEnabled(1);
+                $em = $this->getDoctrine()->getManager();
+                $em->flush();
+                return new JsonResponse('token valide, account actived', Response::HTTP_OK);
             }else{
                 return new JsonResponse('token invalide', Response::HTTP_UNAUTHORIZED);
             }
@@ -176,4 +179,12 @@ class UsersController extends BaseController implements RequiredMethods
 
     }
 
+
+    /**
+     * @Route("/free-api/mot-de-passe-activation/{email}",name="api_users_cactiveAccount", methods={"POST"})
+     */
+    public function activeAccountUser()
+    {
+
+    }
 }
