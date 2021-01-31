@@ -6,6 +6,7 @@ use App\Controller\Api\BaseController;
 use App\Controller\Api\RequiredMethods;
 use App\Entity\User;
 use App\Repository\UserRepository;
+use App\Services\Notifications\NotificationsEmail;
 use App\Services\Users\CheckFields;
 use JMS\Serializer\SerializationContext;
 use JMS\Serializer\DeserializationContext;
@@ -45,12 +46,13 @@ class UsersController extends BaseController implements RequiredMethods
      */
     private $_passwordEncoder;
 
+    private $_notificationMail;
     /**
      * UsersController constructor.
      * @param UserRepository $userRepository
      * @param SerializerInterface $serializer
      */
-    public function __construct(UserRepository $userRepository, SerializerInterface $serializer,CheckFields $checkFields, UserPasswordEncoderInterface $passwordEncoder)
+    public function __construct(NotificationsEmail $notifications, UserRepository $userRepository, SerializerInterface $serializer,CheckFields $checkFields, UserPasswordEncoderInterface $passwordEncoder)
     {
         $this->_userRepository = $userRepository;
 
@@ -59,6 +61,8 @@ class UsersController extends BaseController implements RequiredMethods
         $this->_checkFields = $checkFields;
 
         $this->_passwordEncoder = $passwordEncoder;
+
+        $this->_notificationMail = $notifications;
     }
 
     /**
@@ -87,6 +91,7 @@ class UsersController extends BaseController implements RequiredMethods
      */
     public function createAction(Request $request)
     {
+
         $data = $request->getContent();
         $user = $this->_serializer->deserialize($data, 'App\Entity\User', 'json', DeserializationContext::create()->setGroups(array('create'))); /* @var $user User */
 
@@ -107,6 +112,8 @@ class UsersController extends BaseController implements RequiredMethods
             $em = $this->getDoctrine()->getManager();
             $em->persist($user);
             $em->flush();
+
+            $this->_notificationMail->SendEmailActivationAccount($user, $user->getConfirmationToken());
 
             $dataReturn = [
                 'id'       => $user->getId(),
@@ -145,22 +152,15 @@ class UsersController extends BaseController implements RequiredMethods
     }
 
     /**
-     * @Route("/mot-de-passe-activation/email/{email}/token/{token}",name="api_users_checkToken", methods={"GET"})
+     * @Route("free-api/users/account-activation",name="api_users_checkToken", methods={"POST"})
      */
     public function checkIfToken_isValid(Request $request)
     {
-        $mail = $request->get('email');
-        $token = $request->get('token');
+        $token = $request->request->get('token');
 
         //dump();die;
-        if(!isset($mail))
-        {
-            return new JsonResponse('0', Response::HTTP_NOT_FOUND);
-        }elseif (!isset($token)){
-            return new JsonResponse('0', Response::HTTP_NOT_FOUND);
-        }
+        $user = $this->_userRepository->findOneBy(['confirmationToken' => $token]);
 
-        $user = $this->_userRepository->findOneBy(['email'=> $mail]); /** $user User */
 
         if(!isset($user))
         {
