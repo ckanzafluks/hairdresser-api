@@ -145,35 +145,35 @@ class UsersController extends BaseController implements RequiredMethods
     }
 
     /**
-     * @Route("/free-api/mot-de-passe-activation",name="api_users_checkToken", methods={"POST"})
+     * @Route("/mot-de-passe-activation/email/{email}/token/{token}",name="api_users_checkToken", methods={"GET"})
      */
     public function checkIfToken_isValid(Request $request)
     {
-        $mail = $request->request->get('mail');
-        $token = $request->request->get('token');
+        $mail = $request->get('email');
+        $token = $request->get('token');
 
         //dump();die;
         if(!isset($mail))
         {
-            return new JsonResponse('email missing', Response::HTTP_NOT_FOUND);
+            return new JsonResponse('0', Response::HTTP_NOT_FOUND);
         }elseif (!isset($token)){
-            return new JsonResponse('token missing', Response::HTTP_NOT_FOUND);
+            return new JsonResponse('0', Response::HTTP_NOT_FOUND);
         }
 
         $user = $this->_userRepository->findOneBy(['email'=> $mail]); /** $user User */
 
         if(!isset($user))
         {
-            return new JsonResponse('user not found', Response::HTTP_NOT_FOUND);
+            return new JsonResponse('0', Response::HTTP_NOT_FOUND);
         }else{
             if ($token == $user->getConfirmationToken())
             {
                 $user->setEnabled(1);
                 $em = $this->getDoctrine()->getManager();
                 $em->flush();
-                return new JsonResponse('token valide, account actived', Response::HTTP_OK);
+                return new JsonResponse('1', Response::HTTP_OK);
             }else{
-                return new JsonResponse('token invalide', Response::HTTP_UNAUTHORIZED);
+                return new JsonResponse('0', Response::HTTP_UNAUTHORIZED);
             }
         }
 
