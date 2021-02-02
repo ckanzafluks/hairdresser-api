@@ -28,6 +28,10 @@ services:
         resource: '../src/Controller/'
         tags: ['controller.service_arguments']
 
+    App\Services\FrontUri:
+        arguments:
+            - '%env(FRONT_URL)%'
+
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
     app.event_listener.authentication_success_listener:

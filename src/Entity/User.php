@@ -356,7 +356,7 @@ class User extends BaseUser
     /**
      * @ORM\Column(type="text", nullable=true)
      */
-    private $jwtToken;
+    private $token;
 
     /**
      * @ORM\Column(type="string", length=20, nullable=true)
@@ -958,14 +958,14 @@ class User extends BaseUser
         return $this;
     }
 
-    public function getJwtToken(): ?string
+    public function getToken(): ?string
     {
-        return $this->jwtToken;
+        return $this->token;
     }
 
-    public function setJwtToken(?string $jwtToken): self
+    public function setToken(?string $jwtToken): self
     {
-        $this->jwtToken = $jwtToken;
+        $this->token = $jwtToken;
 
         return $this;
     }

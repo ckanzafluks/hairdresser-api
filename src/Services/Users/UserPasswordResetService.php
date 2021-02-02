@@ -1,8 +1,10 @@
 <?php
+
 namespace App\Services\Users;
 
 
 use App\Entity\User;
+use App\Services\FrontUri;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bridge\Twig\Mime\TemplatedEmail;
 use Symfony\Bundle\FrameworkBundle\Test\MailerAssertionsTrait;
@@ -37,7 +39,7 @@ class UserPasswordResetService
     /**
      * @var EntityManagerInterface
      */
-    private $entity;
+    private $entityManager;
 
     /**
      * @var Request|null
@@ -53,6 +55,10 @@ class UserPasswordResetService
      * @var object|null
      */
     private $templating;
+    /**
+     * @var FrontUri
+     */
+    private $frontUriService;
 
 
     /***
@@ -63,43 +69,51 @@ class UserPasswordResetService
      * @param \Swift_Mailer $mailer
      * @param ContainerInterface $container
      */
-    public function __construct(EntityManagerInterface $entity, RequestStack $requestStack, SessionInterface $session, \Symfony\Component\Mailer\MailerInterface $mailer, ContainerInterface $container)
+    public function __construct(EntityManagerInterface $entityManager, FrontUri $frontUriService, RequestStack $requestStack, SessionInterface $session, \Symfony\Component\Mailer\MailerInterface $mailer, ContainerInterface $container)
     {
-        $this->entity  = $entity;
+        $this->entityManager = $entityManager;
+        $this->frontUriService = $frontUriService;
         $this->request = $requestStack->getCurrentRequest();
         $this->session = $session;
-        $this->_mailer  = $mailer;
+        $this->_mailer = $mailer;
         $this->templating = $container->get('templating');
     }
 
 
     /**
      * @param User $userEmail
-     * @todo : A faire
+     * @return bool
      */
-    public function sendEmailResetPassword(User $user, $token)
+    public function sendEmailResetPassword(User $userEmail)
     {
 
+        $mailIsSent = 0;
+        try {
+            $token = md5(uniqid() . time());
+            $userEmail->setToken($token);
+            $em = $this->entityManager;
+            $em->flush();
 
-        $href = "http://clictacoiffure/reset-password-confirm/".$token;
+            $href = $this->frontUriService->getFrontURL() . "/reset-password-confirm/" . $token;
+            $email = (new TemplatedEmail())
+                ->from('fabien@example.com')
+                ->to(new Address($userEmail->getEmail()))
+                ->subject('Activation compte')
+                ->htmlTemplate('mail/mail_reset_password.html.twig')
 
-        $email = (new TemplatedEmail())
-            ->from('fabien@example.com')
-            ->to(new Address($user->getEmail()))
-            ->subject('Activation compte')
+                // pass variables (name => value) to the template
+                ->context([
+                    'expiration_date' => new \DateTime('+7 days'),
+                    'username' => $userEmail->getUsername(),
+                    'href' => $href
+                ]);
 
-            ->htmlTemplate('mail/mail_reset_password.html.twig')
+            $this->_mailer->send($email);
+            $mailIsSent = 1;
+        } catch (\Exception $e) {
 
-            // pass variables (name => value) to the template
-            ->context([
-                'expiration_date' => new \DateTime('+7 days'),
-                'username' => $user->getUsername(),
-                'href'     => $href
-            ])
-        ;
-
-        $this->_mailer->send($email);
-
+        }
+        return $mailIsSent;
     }
 
     /**
@@ -107,29 +121,28 @@ class UserPasswordResetService
      */
     public function sendEmailConfirmPassword(User $user)
     {
-        //.....
+        $mailIsSent = 0;
+        try {
+            $href = $this->frontUriService->getFrontURL();
+            $email = (new TemplatedEmail())
+                ->from('fabien@example.com')
+                ->to(new Address($user->getEmail()))
+                ->subject('Activation compte')
+                ->htmlTemplate('mail/mail_confirrmation_reset_password.html.twig')
 
+                // pass variables (name => value) to the template
+                ->context([
+                    'username' => $user->getUsername(),
+                    'href' => $href
+                ]);
 
-        $href = "http://clictacoiffure.com";
+            $this->_mailer->send($email);
+            $mailIsSent = 1;
+        } catch (\Exception $e) {
 
-        $email = (new TemplatedEmail())
-            ->from('fabien@example.com')
-            ->to(new Address($user->getEmail()))
-            ->subject('Activation compte')
-
-            ->htmlTemplate('mail/mail_confirrmation_reset_password.html.twig')
-
-            // pass variables (name => value) to the template
-            ->context([
-                'username' => $user->getUsername(),
-                'href'     => $href
-            ])
-        ;
-
-        $this->_mailer->send($email);
+        }
+        return $mailIsSent;
     }
-
-
 
 
 }
