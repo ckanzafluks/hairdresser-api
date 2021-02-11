@@ -93,7 +93,13 @@ FOS\UserBundle\Model\User:
 https://openclassrooms.com/fr/courses/4087036-construisez-une-api-rest-avec-symfony/4343816-rendez-votre-api-auto-decouvrable-dernier-niveau-du-modele-de-maturite-de-richardson
 
 
+## MANDRILL CONNEXION
 
+URL : https://mandrillapp.com/settings/
+
+user: camillekanza@gmail.com
+
+password: Azerty77*
  
 
 
