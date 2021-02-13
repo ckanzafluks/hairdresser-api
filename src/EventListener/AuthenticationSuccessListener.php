@@ -3,6 +3,7 @@
 namespace App\EventListener;
 
 
+use App\Entity\User;
 use Doctrine\ORM\EntityManagerInterface;
 use Lexik\Bundle\JWTAuthenticationBundle\Event\AuthenticationSuccessEvent;
 use JMS\Serializer\SerializerInterface;
@@ -39,7 +40,7 @@ class AuthenticationSuccessListener {
      */
     public function onAuthenticationSuccessResponse(AuthenticationSuccessEvent $event)
     {
-        $user = $event->getUser();
+        $user = $event->getUser(); /* @var $user User */
 
         $user->setJwtToken($event->getData()['token']);
         $this->_entityManager->persist($user);
