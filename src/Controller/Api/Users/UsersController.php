@@ -152,7 +152,10 @@ class UsersController extends BaseController implements RequiredMethods
      */
     public function updateAction(Request $request)
     {
+        $data = $request->getContent();
+        $user = $this->_serializer->deserialize($data, 'App\Entity\User', 'json', DeserializationContext::create()->setGroups(array('update'))); /* @var $user User */
 
+        dump($user);
     }
 
     /**

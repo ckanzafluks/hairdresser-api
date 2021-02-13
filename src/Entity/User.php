@@ -48,7 +48,7 @@ class User extends BaseUser
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
      * @Serializer\Expose
-     * @Serializer\Groups({"get", "list", "details", "create", "update"})
+     * @Serializer\Groups({"get", "list", "details", "create"})
      */
     protected $id;
 
@@ -83,7 +83,7 @@ class User extends BaseUser
     /**
      * @ORM\Column(type="string", nullable=true)
      * @Serializer\Expose
-     * @Serializer\Groups({"get", "list", "details", "create", "update"})
+     * @Serializer\Groups({"get", "list", "details", "create"})
      */
     protected $typeUser;
 
@@ -97,7 +97,7 @@ class User extends BaseUser
     /**
      * @ORM\Column(type="datetime", nullable=true)
      * @Serializer\Expose
-     * @Serializer\Groups({"get", "list", "details", "create", "update"})
+     * @Serializer\Groups({"get", "list", "details", "create"})
      */
     protected $created;
 
@@ -183,7 +183,7 @@ class User extends BaseUser
      * @var string
      * @Serializer\Expose
      * @JMS\Serializer\Annotation\Type("string")
-     * @Serializer\Groups({"get", "list", "details", "create", "update"})
+     * @Serializer\Groups({"get", "list", "details", "create"})
      */
     protected $usernameCanonical;
 
@@ -199,7 +199,7 @@ class User extends BaseUser
      * @var string
      * @Serializer\Expose
      * @JMS\Serializer\Annotation\Type("string")
-     * @Serializer\Groups({"get", "list", "details", "create", "update"})
+     * @Serializer\Groups({"get", "list", "details", "create"})
      */
     protected $emailCanonical;
 
@@ -214,7 +214,7 @@ class User extends BaseUser
      * The salt to use for hashing.
      *
      * @Serializer\Expose
-     * @Serializer\Groups({"get", "list", "details", "create", "update"})
+     * @Serializer\Groups({ "list", "details", "create"})
      */
     protected $salt;
 
@@ -232,7 +232,7 @@ class User extends BaseUser
      *
      * @var \DateTime|null
      * @Serializer\Expose
-     * @Serializer\Groups({"get", "list", "details", "create", "update"})
+     * @Serializer\Groups({"get", "list", "details", "create"})
      */
     protected $lastLogin;
 
@@ -242,14 +242,14 @@ class User extends BaseUser
      * @var string|null
      * @Serializer\Expose
      * @JMS\Serializer\Annotation\Type("string")
-     * @Serializer\Groups({"get", "list", "details", "create", "update"})
+     * @Serializer\Groups({"get", "list", "details", "create"})
      */
     protected $confirmationToken;
 
     /**
      * @var \DateTime|null
      * @Serializer\Expose
-     * @Serializer\Groups({"get", "list", "details", "create", "update"})
+     * @Serializer\Groups({"get", "list", "details", "create"})
      */
     protected $passwordRequestedAt;
 
