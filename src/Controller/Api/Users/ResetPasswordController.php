@@ -68,7 +68,7 @@ class ResetPasswordController extends BaseController
     }
 
     /**
-     * @Route("/free-api/users/confirm-reset-password/{token}", name="api_users_confirm_password", methods={"POST"})
+     * @Route("/free-api/users/confirm-reset-password/", name="api_users_confirm_password", methods={"POST"})
      * @param Request $request
      * @param UserPasswordResetService $userPasswordResetService
      * @return Response
@@ -86,9 +86,9 @@ class ResetPasswordController extends BaseController
             $em = $this->getDoctrine()->getManager();
             $em->flush();
 
-            $result = $userPasswordResetService->sendEmailConfirmPassword($userEntity);
+            //$result = $userPasswordResetService->sendEmailConfirmPassword($userEntity);
 
-            return new JsonResponse($result, Response::HTTP_CREATED);
+            return new JsonResponse("1", Response::HTTP_CREATED);
         }
     }
 }

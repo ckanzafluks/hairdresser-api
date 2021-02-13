@@ -4,6 +4,7 @@ namespace App\Services\Users;
 
 
 use App\Entity\User;
+use App\Services\CustomException;
 use App\Services\FrontUri;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bridge\Twig\Mime\TemplatedEmail;
@@ -55,10 +56,16 @@ class UserPasswordResetService
      * @var object|null
      */
     private $templating;
+
     /**
      * @var FrontUri
      */
     private $frontUriService;
+
+    /**
+     * @var CustomException
+     */
+    private $customException;
 
 
     /***
@@ -69,7 +76,14 @@ class UserPasswordResetService
      * @param \Swift_Mailer $mailer
      * @param ContainerInterface $container
      */
-    public function __construct(EntityManagerInterface $entityManager, FrontUri $frontUriService, RequestStack $requestStack, SessionInterface $session, \Symfony\Component\Mailer\MailerInterface $mailer, ContainerInterface $container)
+    public function __construct(
+        CustomException $customException,
+        EntityManagerInterface $entityManager,
+        FrontUri $frontUriService,
+        RequestStack $requestStack,
+        SessionInterface $session,
+        \Symfony\Component\Mailer\MailerInterface $mailer,
+        ContainerInterface $container)
     {
         $this->entityManager = $entityManager;
         $this->frontUriService = $frontUriService;
@@ -77,6 +91,7 @@ class UserPasswordResetService
         $this->session = $session;
         $this->_mailer = $mailer;
         $this->templating = $container->get('templating');
+        $this->customException = $customException;
     }
 
 
@@ -96,10 +111,13 @@ class UserPasswordResetService
 
             $href = $this->frontUriService->getFrontURL() . "/reset-password-confirm/" . $token;
             $email = (new TemplatedEmail())
-                ->from('fabien@example.com')
+                ->addFrom('noReply@clictacoiffe.com')
+                ->from('noReply@clictacoiffe.com')
+                ->sender('noReply@clictacoiffe.com')
+                ->replyTo('noReply@clictacoiffe.com')
                 ->to(new Address($userEmail->getEmail()))
-                ->subject('Activation compte')
-                ->htmlTemplate('mail/mail_reset_password.html.twig')
+                ->subject('Réinitialisation de votre mot de passe')
+                ->htmlTemplate('emails/mail_reset_password.html.twig')
 
                 // pass variables (name => value) to the template
                 ->context([
@@ -139,7 +157,7 @@ class UserPasswordResetService
             $this->_mailer->send($email);
             $mailIsSent = 1;
         } catch (\Exception $e) {
-
+            $this->customException->addExceptionAndSendMail($e);
         }
         return $mailIsSent;
     }

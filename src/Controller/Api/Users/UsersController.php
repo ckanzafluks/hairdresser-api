@@ -116,13 +116,14 @@ class UsersController extends BaseController implements RequiredMethods
             $em->persist($user);
             $em->flush();
 
-            $this->_notificationMail->SendEmailActivationAccount($user, $user->getConfirmationToken());
+            $ret = $this->_notificationMail->sendEmailActivationAccount($user, $user->getConfirmationToken());
 
             $dataReturn = [
                 'id'       => $user->getId(),
                 'email'    => $user->getEmail(),
                 'username' => $user->getUsername(),
                 'type'     => $user->getTypeUser(),
+                'mailIsSent' => $ret,
             ];
             return new Response( json_encode($dataReturn), Response::HTTP_CREATED
             );
@@ -155,23 +156,21 @@ class UsersController extends BaseController implements RequiredMethods
     }
 
     /**
-     * @Route("free-api/users/account-activation",name="api_users_checkToken", methods={"POST"})
+     * @Route("free-api/users/account-activation", name="api_users_checkToken", methods={"POST"})
      */
-    public function checkIfToken_isValid(Request $request)
+    public function accountActivation(Request $request)
     {
         $token = $request->request->get('token');
-
-        //dump();die;
         $user = $this->_userRepository->findOneBy(['confirmationToken' => $token]);
 
-
-        if(!isset($user))
+        if (!isset($user))
         {
             return new JsonResponse('0', Response::HTTP_NOT_FOUND);
-        }else{
+        } else {
             if ($token == $user->getConfirmationToken())
             {
                 $user->setEnabled(1);
+                $user->setUpdated(new \DateTime());
                 $em = $this->getDoctrine()->getManager();
                 $em->flush();
                 return new JsonResponse('1', Response::HTTP_OK);
