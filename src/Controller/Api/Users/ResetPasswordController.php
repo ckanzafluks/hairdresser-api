@@ -23,7 +23,7 @@ use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInt
  * Class ForgotPasswordController
  * @package App\Controller\Api\Users
  */
-class ResetPasswordController  extends BaseController
+class ResetPasswordController extends BaseController
 {
 
     /**
@@ -58,28 +58,17 @@ class ResetPasswordController  extends BaseController
      */
     public function resetPasswordAction(Request $request, UserPasswordResetService $userPasswordResetService)
     {
-
-        $userEmail = $this->_userRepository->findOneBy(['email'=> $request->request->get('email')]);
-
-        if(empty($userEmail)){
-
+        $userEmail = $this->_userRepository->findOneBy(['email' => $request->request->get('email')]);
+        if (empty($userEmail)) {
             return new JsonResponse('0', Response::HTTP_NOT_FOUND);
+        } else {
+            $result = $userPasswordResetService->sendEmailResetPassword($userEmail);
+            return new JsonResponse($result, Response::HTTP_CREATED);
         }
-
-        $tokenGenerator = new TokenGenerator();
-        $token = $tokenGenerator->generateToken();
-
-        $userEmail->setJwtToken($token);
-        $em = $this->getDoctrine()->getManager();
-        $em->flush();
-        // we send email
-        $result = $userPasswordResetService->sendEmailResetPassword($userEmail, $token);
-
-        return new JsonResponse('1', Response::HTTP_CREATED);
     }
 
     /**
-     * @Route("/free-api/users/confirm-reset-password/{token}", name="api_users_confirm_password", methods={"POST"})
+     * @Route("/free-api/users/confirm-reset-password/", name="api_users_confirm_password", methods={"POST"})
      * @param Request $request
      * @param UserPasswordResetService $userPasswordResetService
      * @return Response
@@ -87,32 +76,19 @@ class ResetPasswordController  extends BaseController
     public function confirmResetPasswordAction(Request $request, UserPasswordResetService $userPasswordResetService)
     {
         // Load by token
-        $userEntity = $this->_userRepository->findOneBy(['jwtToken' => $request->get('token')]); //......
+        $userEntity = $this->_userRepository->findOneBy(['token' => $request->get('token')]);
 
-        if(empty($userEntity)){
-
+        if (empty($userEntity) || empty($request->request->get('password'))) {
             return new JsonResponse('0', Response::HTTP_NOT_FOUND);
-        }else{
-
-            if(empty($request->request->get('password')))
-            {
-                return new JsonResponse('0', Response::HTTP_NOT_FOUND);
-
-            }
+        } else {
 
             $userEntity->setPlainPassword($request->request->get('password'));
             $em = $this->getDoctrine()->getManager();
             $em->flush();
 
-            $result = $userPasswordResetService->sendEmailConfirmPassword($userEntity);
+            //$result = $userPasswordResetService->sendEmailConfirmPassword($userEntity);
 
-            return new JsonResponse('1', Response::HTTP_CREATED);
+            return new JsonResponse("1", Response::HTTP_CREATED);
         }
-
-
-
-
     }
-
-
 }
