@@ -41,7 +41,7 @@ class AuthenticationSuccessListener {
     {
         $user = $event->getUser();
 
-        $user->setJwtToken($event->getData()['token']);
+        $user->setToken($event->getData()['token']);
         $this->_entityManager->persist($user);
         $this->_entityManager->flush();
 

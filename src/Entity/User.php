@@ -48,7 +48,7 @@ class User extends BaseUser
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
      * @Serializer\Expose
-     * @Serializer\Groups({"get", "list", "details", "create"})
+     * @Serializer\Groups({"get", "list", "details", "create", "update"})
      */
     protected $id;
 
@@ -256,7 +256,7 @@ class User extends BaseUser
     /**
      * @var
      * @Serializer\Expose
-     * @Serializer\Groups({"get", "list", "details", "create", "update"})
+     * @Serializer\Groups({"get", "list", "details", "create"})
      */
     protected $groups;
 

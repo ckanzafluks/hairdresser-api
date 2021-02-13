@@ -155,7 +155,19 @@ class UsersController extends BaseController implements RequiredMethods
         $data = $request->getContent();
         $user = $this->_serializer->deserialize($data, 'App\Entity\User', 'json', DeserializationContext::create()->setGroups(array('update'))); /* @var $user User */
 
-        dump($user);
+        $isValid = $this->_checkFields->isValidEntity($user);
+
+        if ( $isValid['totalErrors'] > 0 ) {
+            return new Response($this->_serializer->serialize($isValid,'json'), Response::HTTP_INTERNAL_SERVER_ERROR);
+        }else{
+
+            $em = $this->getDoctrine()->getManager();
+            $em->flush();
+
+            return new JsonResponse('1', Response::HTTP_OK);
+        }
+
+
     }
 
     /**
