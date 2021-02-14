@@ -161,8 +161,6 @@ class User extends BaseUser
      */
     private $photo;
 
-
-
     // ici on redéfini les paramètres de la classe FosUserBundle
 
     /**
@@ -357,6 +355,11 @@ class User extends BaseUser
      * @ORM\Column(type="text", nullable=true)
      */
     private $token;
+
+    /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    private $jwtToken;
 
     /**
      * @ORM\Column(type="string", length=20, nullable=true)
@@ -966,6 +969,18 @@ class User extends BaseUser
     public function setToken(?string $jwtToken): self
     {
         $this->token = $jwtToken;
+
+        return $this;
+    }
+
+    public function getJwtToken(): ?string
+    {
+        return $this->jwtToken;
+    }
+
+    public function setJwtToken(?string $jwtToken): self
+    {
+        $this->jwtToken = $jwtToken;
 
         return $this;
     }
