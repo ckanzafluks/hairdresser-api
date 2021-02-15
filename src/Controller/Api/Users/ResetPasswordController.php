@@ -17,6 +17,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
+use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 
 /**
@@ -39,15 +40,21 @@ class ResetPasswordController extends BaseController
     private $_tokenStorage;
 
     /**
+     * @var UserPasswordEncoderInterface
+     */
+    private $_passwordEncoder;
+
+    /**
      * UsersController constructor.
      * @param UserRepository $userRepository
      * @param SerializerInterface $serializer
      */
-    public function __construct(UserRepository $userRepository, SerializerInterface $serializer, TokenStorageInterface $tokenStorage)
+    public function __construct(UserRepository $userRepository, SerializerInterface $serializer, TokenStorageInterface $tokenStorage,UserPasswordEncoderInterface $passwordEncoder)
     {
         $this->_userRepository = $userRepository;
         $this->_serializer = $serializer;
         $this->_tokenStorage = $tokenStorage;
+        $this->_passwordEncoder = $passwordEncoder;
 
     }
 
@@ -82,8 +89,13 @@ class ResetPasswordController extends BaseController
             return new JsonResponse('0', Response::HTTP_NOT_FOUND);
         } else {
 
-            $userEntity->setPlainPassword($request->request->get('password'));
+            $userEntity->setPassword($this->_passwordEncoder->encodePassword(
+                $userEntity,
+                $request->get('password')
+            ));
+            //$userEntity->setPlainPassword($request->request->get('password'));
             $em = $this->getDoctrine()->getManager();
+            $em->persist($userEntity);
             $em->flush();
 
             //$result = $userPasswordResetService->sendEmailConfirmPassword($userEntity);
