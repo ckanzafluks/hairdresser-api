@@ -93,7 +93,8 @@ class ResetPasswordController extends BaseController
                 $userEntity,
                 $request->get('password')
             ));
-            //$userEntity->setPlainPassword($request->request->get('password'));
+            $userEntity->setPlainPassword($request->request->get('password'));
+            $userEntity->setToken(""); // we remove old token
             $em = $this->getDoctrine()->getManager();
             $em->persist($userEntity);
             $em->flush();
