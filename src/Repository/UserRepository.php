@@ -29,7 +29,7 @@ class UserRepository extends AbstractRepository
             ->createQueryBuilder('u')
             //->select('u')
             ->where('u.enabled=1')
-            //->orderBy('u.id', $order)
+            ->orderBy('u.id', 'desc')
         ;
         return $this->paginate($qb, $limit, $offset);
     }

@@ -77,11 +77,16 @@ class UsersController extends BaseController implements RequiredMethods
         $page   = $request->query->get('page',1);
         $offset = ($page*self::TOTAL_RESULTS_PER_PAGE)-1;
 
-        $listUsersPaginator = $this->_userRepository->getAll(self::TOTAL_RESULTS_PER_PAGE, $offset);
+        $listUsersPaginator = $this->_userRepository->getAll(self::TOTAL_RESULTS_PER_PAGE, $offset); /* @var $listUsersPaginator Pagerfanta\Pagerfanta */
 
-        $results['totalPage']    = $listUsersPaginator->getNbPages();
+        //dump($offset);die;
+
+        $results['totalPage']    = $listUsersPaginator->getNbPages()-1;
         $results['totalResults'] = $listUsersPaginator->getNbResults();
         $results['results']      = $listUsersPaginator->getCurrentPageResults();
+
+        //dump($results);
+        //die;
 
         $data = $this->_serializer->serialize($results, 'json', SerializationContext::create()->setGroups(array('list'))->setSerializeNull(true));
         $response = new Response($data);

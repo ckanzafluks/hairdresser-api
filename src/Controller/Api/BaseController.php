@@ -32,7 +32,7 @@ use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
  */
 class BaseController extends AbstractController
 {
-    const TOTAL_RESULTS_PER_PAGE = 10;
+    const TOTAL_RESULTS_PER_PAGE = 9;
 
 
 
