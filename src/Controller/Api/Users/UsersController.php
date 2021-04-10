@@ -79,14 +79,9 @@ class UsersController extends BaseController implements RequiredMethods
 
         $listUsersPaginator = $this->_userRepository->getAll(self::TOTAL_RESULTS_PER_PAGE, $offset); /* @var $listUsersPaginator Pagerfanta\Pagerfanta */
 
-        //dump($offset);die;
-
         $results['totalPage']    = $listUsersPaginator->getNbPages()-1;
         $results['totalResults'] = $listUsersPaginator->getNbResults();
         $results['results']      = $listUsersPaginator->getCurrentPageResults();
-
-        //dump($results);
-        //die;
 
         $data = $this->_serializer->serialize($results, 'json', SerializationContext::create()->setGroups(array('list'))->setSerializeNull(true));
         $response = new Response($data);
@@ -121,7 +116,8 @@ class UsersController extends BaseController implements RequiredMethods
             $em->persist($user);
             $em->flush();
 
-            $ret = $this->_notificationMail->sendEmailActivationAccount($user, $user->getConfirmationToken());
+            // on envoi uniquement un mail aux particuliers
+            $ret = $user->getTypeUser() == 0 ? $this->_notificationMail->sendEmailActivationAccount($user, $user->getConfirmationToken()):false;
 
             $dataReturn = [
                 'id'       => $user->getId(),
