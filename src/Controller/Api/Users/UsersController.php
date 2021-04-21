@@ -116,6 +116,16 @@ class UsersController extends BaseController implements RequiredMethods
             $em->persist($user);
             $em->flush();
 
+            $ret = 0;
+            // si particulier, envoi mail de bienvenue
+            if ($user->getTypeUser() == 0){
+                $ret = $this->_notificationMail->sendEmailWelcomeParticuliers($user, $user->getConfirmationToken());
+            }
+            // si non pro, envoi mail de prise en compte des informations
+            elseif ($user->getTypeUser() == 1) {
+                $ret = $this->_notificationMail->sendEmailWelcomePros($user, $user->getConfirmationToken());
+            }
+
             // on envoi uniquement un mail aux particuliers
             $ret = $user->getTypeUser() == 0 ? $this->_notificationMail->sendEmailActivationAccount($user, $user->getConfirmationToken()):false;
 
@@ -126,8 +136,7 @@ class UsersController extends BaseController implements RequiredMethods
                 'type'     => $user->getTypeUser(),
                 'mailIsSent' => $ret,
             ];
-            return new Response( json_encode($dataReturn), Response::HTTP_CREATED
-            );
+            return new Response( json_encode($dataReturn), Response::HTTP_CREATED);
         }
     }
 

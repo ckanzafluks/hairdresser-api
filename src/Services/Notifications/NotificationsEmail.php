@@ -73,6 +73,75 @@ class NotificationsEmail
         $this->customException = $customException;
     }
 
+    public function sendEmailWelcomeParticuliers(User $user, $token)
+    {
+        $mailIsSent = 0;
+
+        try {
+            $href = $this->frontUriService->getFrontURL() . "/account-activation/token/" . $token;
+
+            $templateEmail = new TemplatedEmail(); /* @var $templateEmail TemplatedEmail */
+
+            $templateEmail
+                ->addFrom('noReply@clictacoiffe.com')
+                ->from('noReply@clictacoiffe.com')
+                ->sender('noReply@clictacoiffe.com')
+                ->replyTo('noReply@clictacoiffe.com')
+                ->to(new Address($user->getEmail()))
+                ->subject('Bienvenue sur Clictacoiffe')
+                ->htmlTemplate('emails/welcome-particulier.html.twig')
+
+                // pass variables (name => value) to the template
+                ->context([
+                    'expiration_date' => new \DateTime('+7 days'),
+                    'user' => $user,
+                    'href' => $href
+                ])
+            ;
+            $this->mailer->send($templateEmail);
+            $mailIsSent = 1;
+
+        } catch (\Exception $e) {
+            $this->customException->addExceptionAndSendMail($e);
+        }
+        return $mailIsSent;
+    }
+
+    public function sendEmailWelcomePros(User $user, $token)
+    {
+        $mailIsSent = 0;
+
+        try {
+
+            $href = $this->frontUriService->getFrontURL() . "/account-activation/token/" . $token;
+
+            $templateEmail = new TemplatedEmail(); /* @var $templateEmail TemplatedEmail */
+
+            $templateEmail
+                ->addFrom('noReply@clictacoiffe.com')
+                ->from('noReply@clictacoiffe.com')
+                ->sender('noReply@clictacoiffe.com')
+                ->replyTo('noReply@clictacoiffe.com')
+                ->to(new Address($user->getEmail()))
+                ->subject('Bienvenue sur Clictacoiffe')
+                ->htmlTemplate('emails/welcome-pro.html.twig')
+
+                // pass variables (name => value) to the template
+                ->context([
+                    'expiration_date' => new \DateTime('+7 days'),
+                    'user' => $user,
+                    'href' => $href
+                ])
+            ;
+            $this->mailer->send($templateEmail);
+            $mailIsSent = 1;
+
+        } catch (\Exception $e) {
+            $this->customException->addExceptionAndSendMail($e);
+        }
+        return $mailIsSent;
+    }
+
 
     /**
      * @param User $user
