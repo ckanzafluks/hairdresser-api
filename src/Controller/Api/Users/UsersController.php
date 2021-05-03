@@ -126,9 +126,6 @@ class UsersController extends BaseController implements RequiredMethods
                 $ret = $this->_notificationMail->sendEmailWelcomePros($user, $user->getConfirmationToken());
             }
 
-            // on envoi uniquement un mail aux particuliers
-            $ret = $user->getTypeUser() == 0 ? $this->_notificationMail->sendEmailActivationAccount($user, $user->getConfirmationToken()):false;
-
             $dataReturn = [
                 'id'       => $user->getId(),
                 'email'    => $user->getEmail(),
