@@ -99,7 +99,7 @@ URL : https://mandrillapp.com/settings/
 
 user: camillekanza@gmail.com
 
-password: Azerty77*
+password: ???????
  
 
 
